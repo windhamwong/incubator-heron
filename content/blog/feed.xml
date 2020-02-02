@@ -2,32 +2,32 @@
 <rss version="2.0">
     <channel>
         <title>Apache Heron Blog</title>
-        <link>https://heronstreaming.io/blog</link>
+        <link>https://heron.incubator.apache.org/blog</link>
         <description>The best place to stay up-to-date with the latest Apache Heron news and events.</description>
         <lastBuildDate>Tue, 24 Oct 2017 06:00:00 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>Feed for Node.js</generator>
         <image>
             <title>Apache Heron Blog</title>
-            <url>https://heronstreaming.io/img/HeronTextLogo-small.png</url>
-            <link>https://heronstreaming.io/blog</link>
+            <url>https://heron.incubator.apache.org/img/HeronTextLogo-small.png</url>
+            <link>https://heron.incubator.apache.org/blog</link>
         </image>
         <copyright>Copyright © 2020 the Apache Software Foundation, Apache Heron, Heron, 
   Apache, the Apache feather Logo, and the Apache Heron project logo are either registered 
   trademarks or trademarks of the Apache Software Foundation.</copyright>
         <item>
-            <link>https://heronstreaming.io/blog/2017/10/24/new-version-1.0.0.html</link>
-            <guid>https://heronstreaming.io/blog/2017/10/24/new-version-1.0.0.html</guid>
+            <link>https://heron.incubator.apache.org/blog/2017/10/24/new-version-1.0.0.html</link>
+            <guid>https://heron.incubator.apache.org/blog/2017/10/24/new-version-1.0.0.html</guid>
             <pubDate>Tue, 24 Oct 2017 06:00:00 GMT</pubDate>
         </item>
         <item>
-            <link>https://heronstreaming.io/blog/2017/09/26/adding-rss.html</link>
-            <guid>https://heronstreaming.io/blog/2017/09/26/adding-rss.html</guid>
+            <link>https://heron.incubator.apache.org/blog/2017/09/26/adding-rss.html</link>
+            <guid>https://heron.incubator.apache.org/blog/2017/09/26/adding-rss.html</guid>
             <pubDate>Tue, 26 Sep 2017 06:00:00 GMT</pubDate>
         </item>
         <item>
-            <link>https://heronstreaming.io/blog/2017/09/25/testing-rss.html</link>
-            <guid>https://heronstreaming.io/blog/2017/09/25/testing-rss.html</guid>
+            <link>https://heron.incubator.apache.org/blog/2017/09/25/testing-rss.html</link>
+            <guid>https://heron.incubator.apache.org/blog/2017/09/25/testing-rss.html</guid>
             <pubDate>Mon, 25 Sep 2017 06:00:00 GMT</pubDate>
             <description><![CDATA[<!--
     Licensed to the Apache Software Foundation (ASF) under one
@@ -57,8 +57,8 @@ authorFBID: 661277173</p>
 ]]></description>
         </item>
         <item>
-            <link>https://heronstreaming.io/blog/2017/04/10/blog-post-two.html</link>
-            <guid>https://heronstreaming.io/blog/2017/04/10/blog-post-two.html</guid>
+            <link>https://heron.incubator.apache.org/blog/2017/04/10/blog-post-two.html</link>
+            <guid>https://heron.incubator.apache.org/blog/2017/04/10/blog-post-two.html</guid>
             <pubDate>Mon, 10 Apr 2017 06:00:00 GMT</pubDate>
             <description><![CDATA[<!--
     Licensed to the Apache Software Foundation (ASF) under one
@@ -87,8 +87,8 @@ authorFBID: 100002976521003</p>
 ]]></description>
         </item>
         <item>
-            <link>https://heronstreaming.io/blog/2016/03/11/blog-post.html</link>
-            <guid>https://heronstreaming.io/blog/2016/03/11/blog-post.html</guid>
+            <link>https://heron.incubator.apache.org/blog/2016/03/11/blog-post.html</link>
+            <guid>https://heron.incubator.apache.org/blog/2016/03/11/blog-post.html</guid>
             <pubDate>Fri, 11 Mar 2016 06:00:00 GMT</pubDate>
             <description><![CDATA[<!--
     Licensed to the Apache Software Foundation (ASF) under one
