@@ -71,13 +71,14 @@
     under the License.
 -->
 <p>Heron is currently available for <a href="compiling-osx">Mac OS X 10.14</a>,
-<a href="compiling-linux">Ubuntu 14.04</a>, and <a href="compiling-linux#building-on-centos-7">CentOS
+<a href="compiling-linux">Ubuntu 18.04</a>, and <a href="compiling-linux#building-on-centos-7">CentOS
 7</a>. This guide describes the basics of the
 Heron build system. For step-by-step build instructions for a specific platform,
 the following guides are available:</p>
 <ul>
 <li><a href="compiling-linux">Building on Linux Platforms</a></li>
-<li><a href="compiling-mac">Building on Mac OS X</a></li>
+<li><a href="compiling-osx">Building on Mac OS X</a></li>
+<li><a href="compiling-docker">Building in Docker Container</a></li>
 </ul>
 <p>Heron can be built either <a href="#building-all-components">in its entirety</a>, as <a href="#building-specific-components">individual components</a>.</p>
 <p>Instructions on running unit tests for Heron can also be found in <a href="compiling-running-tests">Testing Heron</a>.</p>
@@ -127,8 +128,8 @@ OS-specific configuration using the <code>--config</code> flag. The following OS
 are supported:</p>
 <ul>
 <li><code>darwin</code> (Mac OS X)</li>
-<li><code>ubuntu</code> (Ubuntu 14.04)</li>
-<li><code>centos5</code> (CentOS 5)</li>
+<li><code>ubuntu</code> (Ubuntu)</li>
+<li><code>centos</code> (CentOS)</li>
 </ul>
 <p>For example, on Mac OS X (<code>darwin</code>), the following command will build all
 packages:</p>
