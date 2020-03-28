@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>The ECO API for Java · Apache Heron</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;!--"/><meta name="docsearch:version" content="0.20.1-incubating"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="The ECO API for Java · Apache Heron"/><meta property="og:type" content="website"/><meta property="og:url" content="https://heron.incubator.apache.org/"/><meta property="og:description" content="&lt;!--"/><meta property="og:image" content="https://heron.incubator.apache.org/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://heron.incubator.apache.org/img/undraw_tweetstorm.svg"/><meta name="robots" content="noindex"/><link rel="shortcut icon" href="/img/favicon-32x32.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="/js/custom.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/HeronTextLogo-small.png" alt="Apache Heron"/><h2 class="headerTitleWithLogo">Apache Heron</h2></a><a href="/versions"><h3>0.20.1-incubating</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/api/java" target="_self">Javadocs</a></li><li class=""><a href="/api/python" target="_self">Pydocs</a></li><li class="siteNavGroupActive"><a href="/docs/0.20.1-incubating/getting-started-local-single-node" target="_self">Docs</a></li><li class=""><a href="#community" target="_self">Community</a></li><li class=""><a href="#apache" target="_self">Apache</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Topology Development APIs</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/getting-started-local-single-node">Local (Single Node)</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/getting-started-migrate-storm-topologies">Migrate Storm Topologies</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/getting-started-troubleshooting-guide">Troubleshooting Guide</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Deployment</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/deployment-overview">Deployment Overiew</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/deployment-configuration">Configuration</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/deployment-api-server">The Heron API Server</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Topology Development APIs</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/topology-development-streamlet-api">The Heron Streamlet API for Java</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/0.20.1-incubating/topology-development-eco-api">The ECO API for Java</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/topology-development-topology-api-java">The Heron Topology API for Java</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/topology-development-topology-api-python">The Heron Topology API for Python</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/topology-development-streamlet-scala">The Heron Streamlet API for Scala</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Client API Docs</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/client-api-docs-overview">Client API Docs</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/guides-effectively-once-java-topologies">Effectively Once Java Topologies</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/guides-python-topologies">Python Topologies</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/guides-data-model">Heron Data Model</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/guides-tuple-serialization">Tuple Serialization</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/guides-ui-guide">Heron UI Guide</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/guides-topology-tuning">Topology Tuning Guide</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/guides-packing-algorithms">Packing Algorithms</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/guides-simulator-mode">Simulator Mode</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/guides-troubeshooting-guide">Topology Troubleshooting Guide</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Heron Concepts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/heron-design-goals">Heron Design Goals</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/heron-topology-concepts">Heron Topologies</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/heron-streamlet-concepts">Heron Streamlets</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/heron-architecture">Heron Architecture</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/heron-delivery-semantics">Heron Delivery Semantics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">State Managers</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/state-managers-zookeeper">Zookeeper</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/state-managers-local-fs">Local File System</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Uploaders</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/uploaders-local-fs">Local File System</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/uploaders-hdfs">HDFS</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/uploaders-http">HTTP</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/uploaders-amazon-s3">Amazon S3</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/uploaders-scp">Secure Copy (SCP)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Schedulers</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-k8s-by-hand">Kubernetes by hand</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-k8s-with-helm">Kubernetes with Helm</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-aurora-cluster">Aurora Cluster</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-aurora-local">Aurora Locally</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-local">Local Cluster</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-standalone">Heron Multi-node Standalone Cluster</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-nomad">Nomad</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-mesos-local-mac">Mesos Cluster Locally</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-slurm">Slurm Cluster</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-yarn">YARN Cluster</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Cluster Configuration</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/cluster-config-overview">Cluster Config Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/cluster-config-system-level">System Level Configuration</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/cluster-config-instance">Heron Instance</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/cluster-config-metrics">Metrics Manager</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/cluster-config-stream">Stream Manager</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/cluster-config-tmaster">Topology Master</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Observability</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/observability-prometheus">Prometheus</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/observability-graphite">Graphite</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/observability-scribe">Scribe</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">User Manuals</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/user-manuals-heron-cli">Heron Client</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/user-manuals-heron-explorer">Heron Explorer</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/user-manuals-tracker-rest">Heron Tracker REST API</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/user-manuals-heron-tracker-runbook">Heron Tracker Runbook</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/user-manuals-heron-ui-runbook">Heron UI Runbook</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/user-manuals-heron-shell">Heron Shell</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Compiling</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/compiling-overview">Compiling Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/compiling-linux">Compiling on Linux</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/compiling-osx">Compiling on OS X</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/compiling-docker">Compiling With Docker</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/compiling-running-tests">Running Tests</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/compiling-code-organization">Code Organization</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Extending Heron</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/extending-heron-scheduler">Custom Scheduler</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/extending-heron-metric-sink">Custom Metrics Sink</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Heron Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/heron-resources-resources">Heron Resources</a></li></ul></div></div></section></div><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>The ECO API for Java · Apache Heron</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;!--"/><meta name="docsearch:version" content="0.20.1-incubating"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="The ECO API for Java · Apache Heron"/><meta property="og:type" content="website"/><meta property="og:url" content="https://heron.incubator.apache.org/"/><meta property="og:description" content="&lt;!--"/><meta property="og:image" content="https://heron.incubator.apache.org/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://heron.incubator.apache.org/img/undraw_tweetstorm.svg"/><meta name="robots" content="noindex"/><link rel="shortcut icon" href="/img/favicon-32x32.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="/js/custom.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/HeronTextLogo-small.png" alt="Apache Heron"/><h2 class="headerTitleWithLogo">Apache Heron</h2></a><a href="/versions"><h3>0.20.1-incubating</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/api/java" target="_self">Javadocs</a></li><li class=""><a href="/api/python" target="_self">Pydocs</a></li><li class="siteNavGroupActive"><a href="/docs/0.20.1-incubating/getting-started-local-single-node" target="_self">Docs</a></li><li class=""><a href="#community" target="_self">Community</a></li><li class=""><a href="#apache" target="_self">Apache</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Topology Development APIs</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/getting-started-local-single-node">Local (Single Node)</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/getting-started-migrate-storm-topologies">Migrate Storm Topologies</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/getting-started-troubleshooting-guide">Troubleshooting Guide</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Deployment</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/deployment-overview">Deployment Overiew</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/deployment-configuration">Configuration</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/deployment-api-server">The Heron API Server</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Topology Development APIs</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/topology-development-streamlet-api">The Heron Streamlet API for Java</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/0.20.1-incubating/topology-development-eco-api">The ECO API for Java</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/topology-development-topology-api-java">The Heron Topology API for Java</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/topology-development-topology-api-python">The Heron Topology API for Python</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/topology-development-streamlet-scala">The Heron Streamlet API for Scala</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Client API Docs</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/client-api-docs-overview">Client API Docs</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/guides-effectively-once-java-topologies">Effectively Once Java Topologies</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/guides-python-topologies">Python Topologies</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/guides-data-model">Heron Data Model</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/guides-tuple-serialization">Tuple Serialization</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/guides-ui-guide">Heron UI Guide</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/guides-topology-tuning">Topology Tuning Guide</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/guides-packing-algorithms">Packing Algorithms</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/guides-simulator-mode">Simulator Mode</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/guides-troubeshooting-guide">Topology Troubleshooting Guide</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Heron Concepts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/heron-design-goals">Heron Design Goals</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/heron-topology-concepts">Heron Topologies</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/heron-streamlet-concepts">Heron Streamlets</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/heron-architecture">Heron Architecture</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/heron-delivery-semantics">Heron Delivery Semantics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">State Managers</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/state-managers-zookeeper">Zookeeper</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/state-managers-local-fs">Local File System</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Uploaders</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/uploaders-local-fs">Local File System</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/uploaders-hdfs">HDFS</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/uploaders-http">HTTP</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/uploaders-amazon-s3">Amazon S3</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/uploaders-scp">Secure Copy (SCP)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Schedulers</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-k8s-by-hand">Kubernetes by hand</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-k8s-with-helm">Kubernetes with Helm</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-aurora-cluster">Aurora Cluster</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-aurora-local">Aurora Locally</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-local">Local Cluster</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-standalone">Heron Multi-node Standalone Cluster</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-nomad">Nomad</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-mesos-local-mac">Mesos Cluster Locally</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-slurm">Slurm Cluster</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/schedulers-yarn">YARN Cluster</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Cluster Configuration</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/cluster-config-overview">Cluster Config Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/cluster-config-system-level">System Level Configuration</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/cluster-config-instance">Heron Instance</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/cluster-config-metrics">Metrics Manager</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/cluster-config-stream">Stream Manager</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/cluster-config-tmaster">Topology Master</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Observability</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/observability-prometheus">Prometheus</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/observability-graphite">Graphite</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/observability-scribe">Scribe</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">User Manuals</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/user-manuals-heron-cli">Heron Client</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/user-manuals-heron-explorer">Heron Explorer</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/user-manuals-tracker-rest">Heron Tracker REST API</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/user-manuals-heron-tracker-runbook">Heron Tracker Runbook</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/user-manuals-heron-ui-runbook">Heron UI Runbook</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/user-manuals-heron-shell">Heron Shell</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Compiling</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/compiling-overview">Compiling Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/compiling-linux">Compiling on Linux</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/compiling-osx">Compiling on OS X</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/compiling-docker">Compiling With Docker</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/compiling-running-tests">Running Tests</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/compiling-code-organization">Code Organization</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Extending Heron</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/extending-heron-scheduler">Custom Scheduler</a></li><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/extending-heron-metric-sink">Custom Metrics Sink</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Heron Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.20.1-incubating/heron-resources-resources">Heron Resources</a></li></ul></div></div></section></div><script>
             var coll = document.getElementsByClassName('collapsible');
             var checkActiveCategory = true;
             for (var i = 0; i < coll.length; i++) {
@@ -179,61 +179,61 @@ needs to stay the same.  Eco is the main class that will assemble your topology 
 <span class="hljs-attr">name:</span> <span class="hljs-string">"fibonacci-topology"</span>
 
 <span class="hljs-attr">config:</span>
-  <span class="hljs-string">topology.workers:</span> <span class="hljs-number">1</span>
+  <span class="hljs-attr">topology.workers:</span> <span class="hljs-number">1</span>
 
 <span class="hljs-attr">components:</span>
-<span class="hljs-attr">  - id:</span> <span class="hljs-string">"property-holder"</span>
-<span class="hljs-attr">    className:</span> <span class="hljs-string">"org.apache.heron.examples.eco.TestPropertyHolder"</span>
-<span class="hljs-attr">    constructorArgs:</span>
-<span class="hljs-bullet">      -</span> <span class="hljs-string">"some argument"</span>
-<span class="hljs-attr">    properties:</span>
-<span class="hljs-attr">      - name:</span> <span class="hljs-string">"numberProperty"</span>
-<span class="hljs-attr">        value:</span> <span class="hljs-number">11</span>
-<span class="hljs-attr">      - name:</span> <span class="hljs-string">"publicProperty"</span>
-<span class="hljs-attr">        value:</span> <span class="hljs-string">"This is public property"</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">"property-holder"</span>
+    <span class="hljs-attr">className:</span> <span class="hljs-string">"org.apache.heron.examples.eco.TestPropertyHolder"</span>
+    <span class="hljs-attr">constructorArgs:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"some argument"</span>
+    <span class="hljs-attr">properties:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">"numberProperty"</span>
+        <span class="hljs-attr">value:</span> <span class="hljs-number">11</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">"publicProperty"</span>
+        <span class="hljs-attr">value:</span> <span class="hljs-string">"This is public property"</span>
 
 <span class="hljs-attr">spouts:</span>
-<span class="hljs-attr">  - id:</span> <span class="hljs-string">"spout-1"</span>
-<span class="hljs-attr">    className:</span> <span class="hljs-string">"org.apache.heron.examples.eco.TestFibonacciSpout"</span>
-<span class="hljs-attr">    constructorArgs:</span>
-<span class="hljs-attr">      - ref:</span> <span class="hljs-string">"property-holder"</span>
-<span class="hljs-attr">    parallelism:</span> <span class="hljs-number">1</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">"spout-1"</span>
+    <span class="hljs-attr">className:</span> <span class="hljs-string">"org.apache.heron.examples.eco.TestFibonacciSpout"</span>
+    <span class="hljs-attr">constructorArgs:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">ref:</span> <span class="hljs-string">"property-holder"</span>
+    <span class="hljs-attr">parallelism:</span> <span class="hljs-number">1</span>
 
 <span class="hljs-attr">bolts:</span>
-<span class="hljs-attr">  - id:</span> <span class="hljs-string">"even-and-odd-bolt"</span>
-<span class="hljs-attr">    className:</span> <span class="hljs-string">"org.apache.heron.examples.eco.EvenAndOddBolt"</span>
-<span class="hljs-attr">    parallelism:</span> <span class="hljs-number">1</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">"even-and-odd-bolt"</span>
+    <span class="hljs-attr">className:</span> <span class="hljs-string">"org.apache.heron.examples.eco.EvenAndOddBolt"</span>
+    <span class="hljs-attr">parallelism:</span> <span class="hljs-number">1</span>
 
-<span class="hljs-attr">  - id:</span> <span class="hljs-string">"ibasic-print-bolt"</span>
-<span class="hljs-attr">    className:</span> <span class="hljs-string">"org.apache.heron.examples.eco.TestIBasicPrintBolt"</span>
-<span class="hljs-attr">    parallelism:</span> <span class="hljs-number">1</span>
-<span class="hljs-attr">    configMethods:</span>
-<span class="hljs-attr">      - name:</span> <span class="hljs-string">"sampleConfigurationMethod"</span>
-<span class="hljs-attr">        args:</span>
-<span class="hljs-bullet">          -</span> <span class="hljs-string">"${ecoPropertyOne}"</span>
-<span class="hljs-bullet">          -</span> <span class="hljs-string">MB</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">"ibasic-print-bolt"</span>
+    <span class="hljs-attr">className:</span> <span class="hljs-string">"org.apache.heron.examples.eco.TestIBasicPrintBolt"</span>
+    <span class="hljs-attr">parallelism:</span> <span class="hljs-number">1</span>
+    <span class="hljs-attr">configMethods:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">"sampleConfigurationMethod"</span>
+        <span class="hljs-attr">args:</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">"${ecoPropertyOne}"</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">MB</span>
 
-<span class="hljs-attr">  - id:</span> <span class="hljs-string">"sys-out-bolt"</span>
-<span class="hljs-attr">    className:</span> <span class="hljs-string">"org.apache.heron.examples.eco.TestPrintBolt"</span>
-<span class="hljs-attr">    parallelism:</span> <span class="hljs-number">1</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">"sys-out-bolt"</span>
+    <span class="hljs-attr">className:</span> <span class="hljs-string">"org.apache.heron.examples.eco.TestPrintBolt"</span>
+    <span class="hljs-attr">parallelism:</span> <span class="hljs-number">1</span>
 
 <span class="hljs-attr">streams:</span>
-<span class="hljs-attr">  - from:</span> <span class="hljs-string">"spout-1"</span>
-<span class="hljs-attr">    to:</span> <span class="hljs-string">"even-and-odd-bolt"</span>
-<span class="hljs-attr">    grouping:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">SHUFFLE</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">from:</span> <span class="hljs-string">"spout-1"</span>
+    <span class="hljs-attr">to:</span> <span class="hljs-string">"even-and-odd-bolt"</span>
+    <span class="hljs-attr">grouping:</span>
+      <span class="hljs-attr">type:</span> <span class="hljs-string">SHUFFLE</span>
 
-<span class="hljs-attr">  - from:</span> <span class="hljs-string">"even-and-odd-bolt"</span>
-<span class="hljs-attr">    to:</span> <span class="hljs-string">"ibasic-print-bolt"</span>
-<span class="hljs-attr">    grouping:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">SHUFFLE</span>
-<span class="hljs-attr">      streamId:</span> <span class="hljs-string">"odds"</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">from:</span> <span class="hljs-string">"even-and-odd-bolt"</span>
+    <span class="hljs-attr">to:</span> <span class="hljs-string">"ibasic-print-bolt"</span>
+    <span class="hljs-attr">grouping:</span>
+      <span class="hljs-attr">type:</span> <span class="hljs-string">SHUFFLE</span>
+      <span class="hljs-attr">streamId:</span> <span class="hljs-string">"odds"</span>
 
-<span class="hljs-attr">  - from:</span> <span class="hljs-string">"even-and-odd-bolt"</span>
-<span class="hljs-attr">    to:</span> <span class="hljs-string">"sys-out-bolt"</span>
-<span class="hljs-attr">    grouping:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">SHUFFLE</span>
-<span class="hljs-attr">      streamId:</span> <span class="hljs-string">"evens"</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">from:</span> <span class="hljs-string">"even-and-odd-bolt"</span>
+    <span class="hljs-attr">to:</span> <span class="hljs-string">"sys-out-bolt"</span>
+    <span class="hljs-attr">grouping:</span>
+      <span class="hljs-attr">type:</span> <span class="hljs-string">SHUFFLE</span>
+      <span class="hljs-attr">streamId:</span> <span class="hljs-string">"evens"</span>
 
 </code></pre>
 <p>If you want to stop here and try to deploy the above topology you can execute:</p>
@@ -254,7 +254,7 @@ needs to stay the same.  Eco is the main class that will assemble your topology 
 <p><code>config</code> is the section where you will list your properties to be inserted into a <code>org.apache.heron.api.Config</code> class. This section is optional.</p>
 <pre><code class="hljs css language-yaml">
 <span class="hljs-attr">config:</span>
-  <span class="hljs-string">topology.workers:</span> <span class="hljs-number">1</span>
+  <span class="hljs-attr">topology.workers:</span> <span class="hljs-number">1</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="specifying-component-level-resources"></a><a href="#specifying-component-level-resources" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Specifying Component Level Resources</h4>
@@ -262,23 +262,23 @@ needs to stay the same.  Eco is the main class that will assemble your topology 
 You can choose between Bytes <code>B</code>, Megabytes <code>MB</code>, or Gigabytes <code>GB</code>.  Examples would be <code>256MB</code> or <code>2GB</code>.
 The unit of measurement must be appended at the end of the numerical value with no spaces.  There is plan to support
 component level <code>cpu</code> and <code>disk</code> configs in the future.</p>
-<pre><code class="hljs css language-yaml"> <span class="hljs-string">topology.component.resourcemap:</span>
+<pre><code class="hljs css language-yaml"> <span class="hljs-attr">topology.component.resourcemap:</span>
 
-<span class="hljs-attr">    - id:</span> <span class="hljs-string">"spout-1"</span>
-<span class="hljs-attr">      ram:</span> <span class="hljs-number">256</span><span class="hljs-string">MB</span> <span class="hljs-comment"># The minimum value for a component's specified RAM is 256MB</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">"spout-1"</span>
+      <span class="hljs-attr">ram:</span> <span class="hljs-string">256MB</span> <span class="hljs-comment"># The minimum value for a component's specified RAM is 256MB</span>
       
 
-<span class="hljs-attr">    - id:</span> <span class="hljs-string">"bolt-1"</span>
-<span class="hljs-attr">      ram:</span> <span class="hljs-number">256</span><span class="hljs-string">MB</span> <span class="hljs-comment"># The minimum value for a component's specified RAM is 256MB</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">"bolt-1"</span>
+      <span class="hljs-attr">ram:</span> <span class="hljs-string">256MB</span> <span class="hljs-comment"># The minimum value for a component's specified RAM is 256MB</span>
       
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="specifying-jvm-options"></a><a href="#specifying-jvm-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Specifying JVM Options</h4>
 <p>You can specify component level JVM resources by referencing the <code>id</code> of the component and a list
 of the JVM options</p>
-<pre><code class="hljs css language-yaml"><span class="hljs-string">topology.component.jvmoptions:</span>
+<pre><code class="hljs css language-yaml"><span class="hljs-attr">topology.component.jvmoptions:</span>
 
-<span class="hljs-attr">   - id:</span> <span class="hljs-string">"spout-1"</span>
-<span class="hljs-attr">     options:</span> <span class="hljs-string">["-XX:NewSize=300m",</span> <span class="hljs-string">"-Xms2g"</span><span class="hljs-string">]</span>
+   <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">"spout-1"</span>
+     <span class="hljs-attr">options:</span> <span class="hljs-string">["-XX:NewSize=300m",</span> <span class="hljs-string">"-Xms2g"</span><span class="hljs-string">]</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="other-supported-configuration-parameters"></a><a href="#other-supported-configuration-parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Other Supported Configuration Parameters</h4>
 <ul>
@@ -337,10 +337,10 @@ the component for injection in the coming spouts and bolts defined in the topolo
 if a component has constructor that requires arguments.  We will get into constructor args the in the next section.  <code>components</code> are optional.</p>
 <pre><code class="hljs css language-yaml">
 <span class="hljs-attr">components:</span>
-<span class="hljs-attr">  - id:</span> <span class="hljs-string">"property-holder"</span>
-<span class="hljs-attr">    className:</span> <span class="hljs-string">"org.apache.heron.examples.eco.TestPropertyHolder"</span>
-<span class="hljs-attr">    constructorArgs:</span>
-<span class="hljs-bullet">      -</span> <span class="hljs-string">"some argument"</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">"property-holder"</span>
+    <span class="hljs-attr">className:</span> <span class="hljs-string">"org.apache.heron.examples.eco.TestPropertyHolder"</span>
+    <span class="hljs-attr">constructorArgs:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"some argument"</span>
 
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="property-injection"></a><a href="#property-injection" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Property Injection</h3>
@@ -348,9 +348,9 @@ if a component has constructor that requires arguments.  We will get into constr
 <p><code>constructorArgs</code> can specify any object type.  Above you can see that the only constructor argument specified is a string
 that contained &quot;some argument&quot;.  If declaring a number, you may omit the parenthesis.</p>
 <pre><code class="hljs css language-yaml">
-<span class="hljs-attr"> constructorArgs:</span>
-<span class="hljs-bullet">      -</span> <span class="hljs-string">"some argument"</span>
-<span class="hljs-bullet">      -</span> <span class="hljs-number">123.45</span>
+ <span class="hljs-attr">constructorArgs:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"some argument"</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-number">123.45</span>
 
 </code></pre>
 <p>The is also a way to reference other components as arguments by using <code>ref</code>.  In the example
@@ -358,7 +358,7 @@ below we are specifying an already defined component to be a constructor argumen
 <code>ref</code> must have already been defined in the ECO definition file before it is to be used.</p>
 <pre><code class="hljs css language-yaml">
 <span class="hljs-attr">constructorArgs:</span>
-<span class="hljs-attr">      - ref:</span> <span class="hljs-string">"property-holder"</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">ref:</span> <span class="hljs-string">"property-holder"</span>
 
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="setter-and-public-field-injection"></a><a href="#setter-and-public-field-injection" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setter and Public Field Injection</h4>
@@ -366,10 +366,10 @@ below we are specifying an already defined component to be a constructor argumen
 for setters that match the names and values provided.  If no setter is defined, it will then look for a public field to set the property.</p>
 <pre><code class="hljs css language-yaml">
 <span class="hljs-attr">properties:</span>
-<span class="hljs-attr">      - name:</span> <span class="hljs-string">"numberProperty"</span>
-<span class="hljs-attr">        value:</span> <span class="hljs-number">11</span>
-<span class="hljs-attr">      - name:</span> <span class="hljs-string">"publicProperty"</span>
-<span class="hljs-attr">        value:</span> <span class="hljs-string">"This is public property"</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">"numberProperty"</span>
+        <span class="hljs-attr">value:</span> <span class="hljs-number">11</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">"publicProperty"</span>
+        <span class="hljs-attr">value:</span> <span class="hljs-string">"This is public property"</span>
 
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="the-topology-definition"></a><a href="#the-topology-definition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Topology Definition</h2>
@@ -379,19 +379,19 @@ property for each bolt or spout once the topology has been deployed into Heron.<
 <h3><a class="anchor" aria-hidden="true" id="spouts"></a><a href="#spouts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Spouts</h3>
 <pre><code class="hljs css language-yaml">
 <span class="hljs-attr">spouts:</span>
-<span class="hljs-attr">  - id:</span> <span class="hljs-string">"spout-1"</span>
-<span class="hljs-attr">    className:</span> <span class="hljs-string">"org.apache.heron.examples.eco.TestFibonacciSpout"</span>
-<span class="hljs-attr">    constructorArgs:</span>
-<span class="hljs-attr">      - ref:</span> <span class="hljs-string">"property-holder"</span>
-<span class="hljs-attr">    parallelism:</span> <span class="hljs-number">1</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">"spout-1"</span>
+    <span class="hljs-attr">className:</span> <span class="hljs-string">"org.apache.heron.examples.eco.TestFibonacciSpout"</span>
+    <span class="hljs-attr">constructorArgs:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">ref:</span> <span class="hljs-string">"property-holder"</span>
+    <span class="hljs-attr">parallelism:</span> <span class="hljs-number">1</span>
 
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="bolts"></a><a href="#bolts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bolts</h3>
 <pre><code class="hljs css language-yaml">
 <span class="hljs-attr">bolts:</span>
-<span class="hljs-attr">  - id:</span> <span class="hljs-string">"even-and-odd-bolt"</span>
-<span class="hljs-attr">    className:</span> <span class="hljs-string">"org.apache.heron.examples.eco.EvenAndOddBolt"</span>
-<span class="hljs-attr">    parallelism:</span> <span class="hljs-number">1</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">"even-and-odd-bolt"</span>
+    <span class="hljs-attr">className:</span> <span class="hljs-string">"org.apache.heron.examples.eco.EvenAndOddBolt"</span>
+    <span class="hljs-attr">parallelism:</span> <span class="hljs-number">1</span>
 
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="streams-and-groupings"></a><a href="#streams-and-groupings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Streams and Groupings</h3>
@@ -419,22 +419,22 @@ property for each bolt or spout once the topology has been deployed into Heron.<
 <p>In the below example, you can see the first Stream Definition declares that data will flow from <code>spout-1</code> to <code>even-and-odd-bolt</code> with a grouping type of <code>SHUFFLE</code></p>
 <pre><code class="hljs css language-yaml">
 <span class="hljs-attr">streams:</span>
-<span class="hljs-attr">  - from:</span> <span class="hljs-string">"spout-1"</span>
-<span class="hljs-attr">    to:</span> <span class="hljs-string">"even-and-odd-bolt"</span>
-<span class="hljs-attr">    grouping:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">SHUFFLE</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">from:</span> <span class="hljs-string">"spout-1"</span>
+    <span class="hljs-attr">to:</span> <span class="hljs-string">"even-and-odd-bolt"</span>
+    <span class="hljs-attr">grouping:</span>
+      <span class="hljs-attr">type:</span> <span class="hljs-string">SHUFFLE</span>
 
-<span class="hljs-attr">  - from:</span> <span class="hljs-string">"even-and-odd-bolt"</span>
-<span class="hljs-attr">    to:</span> <span class="hljs-string">"ibasic-print-bolt"</span>
-<span class="hljs-attr">    grouping:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">SHUFFLE</span>
-<span class="hljs-attr">      streamId:</span> <span class="hljs-string">"odds"</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">from:</span> <span class="hljs-string">"even-and-odd-bolt"</span>
+    <span class="hljs-attr">to:</span> <span class="hljs-string">"ibasic-print-bolt"</span>
+    <span class="hljs-attr">grouping:</span>
+      <span class="hljs-attr">type:</span> <span class="hljs-string">SHUFFLE</span>
+      <span class="hljs-attr">streamId:</span> <span class="hljs-string">"odds"</span>
 
-<span class="hljs-attr">  - from:</span> <span class="hljs-string">"even-and-odd-bolt"</span>
-<span class="hljs-attr">    to:</span> <span class="hljs-string">"sys-out-bolt"</span>
-<span class="hljs-attr">    grouping:</span>
-<span class="hljs-attr">      type:</span> <span class="hljs-string">SHUFFLE</span>
-<span class="hljs-attr">      streamId:</span> <span class="hljs-string">"evens"</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">from:</span> <span class="hljs-string">"even-and-odd-bolt"</span>
+    <span class="hljs-attr">to:</span> <span class="hljs-string">"sys-out-bolt"</span>
+    <span class="hljs-attr">grouping:</span>
+      <span class="hljs-attr">type:</span> <span class="hljs-string">SHUFFLE</span>
+      <span class="hljs-attr">streamId:</span> <span class="hljs-string">"evens"</span>
 
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="handling-enums"></a><a href="#handling-enums" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Handling Enums</h3>
@@ -458,11 +458,11 @@ enum <code>TestUnits</code>.  The enum is shown below.</p>
 }
 </code></pre>
 <p>In the <code>ibasic-print-bolt</code> a <code>configMethod</code> is specified with the name <code>sampleConfigurationMethod</code>.</p>
-<pre><code class="hljs css language-yaml"><span class="hljs-attr">  - id:</span> <span class="hljs-string">"ibasic-print-bolt"</span>
+<pre><code class="hljs css language-yaml">  <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">"ibasic-print-bolt"</span>
     <span class="hljs-string">...</span> <span class="hljs-string">excluded</span> <span class="hljs-string">for</span> <span class="hljs-string">simplicity</span>
-<span class="hljs-attr">        args:</span>
-<span class="hljs-bullet">          -</span> <span class="hljs-string">"someStringArgument"</span>
-<span class="hljs-bullet">          -</span> <span class="hljs-string">MB</span>
+        <span class="hljs-attr">args:</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">"someStringArgument"</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">MB</span>
 </code></pre>
 <p>This is the same as calling the following java method</p>
 <pre><code class="hljs css language-java">
@@ -486,14 +486,14 @@ To turn on property substitution add the flag <code>--props</code> and specify a
   --eco-config-file ~/.heron/examples/fibonacci.yaml --props ~/.heron/examples/sample.properties
 </code></pre>
 <p>If you look above at the yaml file snippet at the beginning of the page you will see</p>
-<pre><code class="hljs css language-yaml"><span class="hljs-attr">- id:</span> <span class="hljs-string">"ibasic-print-bolt"</span>
-<span class="hljs-attr">    className:</span> <span class="hljs-string">"org.apache.heron.examples.eco.TestIBasicPrintBolt"</span>
-<span class="hljs-attr">    parallelism:</span> <span class="hljs-number">1</span>
-<span class="hljs-attr">    configMethods:</span>
-<span class="hljs-attr">      - name:</span> <span class="hljs-string">"sampleConfigurationMethod"</span>
-<span class="hljs-attr">        args:</span>
-<span class="hljs-bullet">          -</span> <span class="hljs-string">"${ecoPropertyOne}"</span>
-<span class="hljs-bullet">          -</span> <span class="hljs-string">MB</span>
+<pre><code class="hljs css language-yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">"ibasic-print-bolt"</span>
+    <span class="hljs-attr">className:</span> <span class="hljs-string">"org.apache.heron.examples.eco.TestIBasicPrintBolt"</span>
+    <span class="hljs-attr">parallelism:</span> <span class="hljs-number">1</span>
+    <span class="hljs-attr">configMethods:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">"sampleConfigurationMethod"</span>
+        <span class="hljs-attr">args:</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">"${ecoPropertyOne}"</span>
+          <span class="hljs-bullet">-</span> <span class="hljs-string">MB</span>
 </code></pre>
 <p>In the  <code>sample.properties</code> we have a key value set at <code>ecoPropertyOne=thisValueWasSetFromAPropertiesFile</code>.  You can check the logs
 for the <code>ibasic-print-bolt</code> and see the values are printing out.</p>
