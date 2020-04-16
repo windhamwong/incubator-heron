@@ -3,8 +3,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <title>heronpy.streamlet API documentation</title>
-    <meta name="description" content="module for heronpy streamlet API" />
+    <title>heronpy.streamlet.impl.streamletspoutbase API documentation</title>
+    <meta name="description" content="module for base streamlet API spout: StreamletSpoutBase" />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
   
@@ -971,23 +971,15 @@ table {
     <ul id="index">
 
 
-
-    <li class="set"><h3><a href="#header-submodules">Sub-modules</a></h3>
+    <li class="set"><h3><a href="#header-classes">Classes</a></h3>
       <ul>
-        <li class="mono"><a href="builder.m.html">heronpy.streamlet.builder</a></li>
-        <li class="mono"><a href="config.m.html">heronpy.streamlet.config</a></li>
-        <li class="mono"><a href="context.m.html">heronpy.streamlet.context</a></li>
-        <li class="mono"><a href="generator.m.html">heronpy.streamlet.generator</a></li>
-        <li class="mono"><a href="impl/index.html">heronpy.streamlet.impl</a></li>
-        <li class="mono"><a href="keyedwindow.m.html">heronpy.streamlet.keyedwindow</a></li>
-        <li class="mono"><a href="resources.m.html">heronpy.streamlet.resources</a></li>
-        <li class="mono"><a href="runner.m.html">heronpy.streamlet.runner</a></li>
-        <li class="mono"><a href="streamlet.m.html">heronpy.streamlet.streamlet</a></li>
-        <li class="mono"><a href="transformoperator.m.html">heronpy.streamlet.transformoperator</a></li>
-        <li class="mono"><a href="window.m.html">heronpy.streamlet.window</a></li>
-        <li class="mono"><a href="windowconfig.m.html">heronpy.streamlet.windowconfig</a></li>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.streamlet.impl.streamletspoutbase.StreamletSpoutBase">StreamletSpoutBase</a></span>
+        
+        </li>
       </ul>
     </li>
+
     </ul>
   </div>
 
@@ -999,29 +991,38 @@ table {
 
 
   <header id="section-intro">
-  <h1 class="title"><span class="name">heronpy.streamlet</span> module</h1>
-  <p>module for heronpy streamlet API</p>
+  <h1 class="title"><span class="name">heronpy.streamlet.impl.streamletspoutbase</span> module</h1>
+  <p>module for base streamlet API spout: StreamletSpoutBase</p>
   
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet', this);">Show source &equiv;</a></p>
-  <div id="source-heronpy.streamlet" class="source">
-    <pre><code># Licensed to the Apache Software Foundation (ASF) under one
-# or more contributor license agreements.  See the NOTICE file
-# distributed with this work for additional information
-# regarding copyright ownership.  The ASF licenses this file
-# to you under the Apache License, Version 2.0 (the
-# "License"); you may not use this file except in compliance
-# with the License.  You may obtain a copy of the License at
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.streamletspoutbase', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.streamletspoutbase" class="source">
+    <pre><code>#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+
+#  Licensed to the Apache Software Foundation (ASF) under one
+#  or more contributor license agreements.  See the NOTICE file
+#  distributed with this work for additional information
+#  regarding copyright ownership.  The ASF licenses this file
+#  to you under the Apache License, Version 2.0 (the
+#  "License"); you may not use this file except in compliance
+#  with the License.  You may obtain a copy of the License at
 #
-#   http://www.apache.org/licenses/LICENSE-2.0
+#    http://www.apache.org/licenses/LICENSE-2.0
 #
-# Unless required by applicable law or agreed to in writing,
-# software distributed under the License is distributed on an
-# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-# KIND, either express or implied.  See the License for the
-# specific language governing permissions and limitations
-# under the License.
-'''module for heronpy streamlet API'''
-__import__('pkg_resources').declare_namespace(__name__)
+#  Unless required by applicable law or agreed to in writing,
+#  software distributed under the License is distributed on an
+#  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+#  KIND, either express or implied.  See the License for the
+#  specific language governing permissions and limitations
+#  under the License.
+
+"""module for base streamlet API spout: StreamletSpoutBase"""
+from heronpy.api.stream import Stream
+
+class StreamletSpoutBase(object):
+  """StreamletSpoutBase"""
+  # output declarer
+  outputs = [Stream(fields=['_output_'], name='output')]
 </code></pre>
   </div>
 
@@ -1030,92 +1031,45 @@ __import__('pkg_resources').declare_namespace(__name__)
   <section id="section-items">
 
 
-
-    <h2 class="section-title" id="header-submodules">Sub-modules</h2>
+    <h2 class="section-title" id="header-classes">Classes</h2>
+      
       <div class="item">
-      <p class="name"><a href="builder.m.html">heronpy.streamlet.builder</a></p>
+      <p id="heronpy.streamlet.impl.streamletspoutbase.StreamletSpoutBase" class="name">class <span class="ident">StreamletSpoutBase</span></p>
       
   
-    <div class="desc"><p>builder.py: module for creating streamlets</p></div>
+    <div class="desc"><p>StreamletSpoutBase</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.streamletspoutbase.StreamletSpoutBase', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.streamletspoutbase.StreamletSpoutBase" class="source">
+    <pre><code>class StreamletSpoutBase(object):
+  """StreamletSpoutBase"""
+  # output declarer
+  outputs = [Stream(fields=['_output_'], name='output')]
+</code></pre>
+  </div>
+</div>
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="config.m.html">heronpy.streamlet.config</a></p>
-      
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.streamlet.impl.streamletspoutbase.StreamletSpoutBase">StreamletSpoutBase</a></li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="heronpy.streamlet.impl.streamletspoutbase.StreamletSpoutBase.outputs" class="name">var <span class="ident">outputs</span></p>
+            
+
+            
   
-    <div class="desc"><p>config.py: module for defining config</p></div>
+  <div class="source_cont">
+</div>
 
+            </div>
       </div>
-      <div class="item">
-      <p class="name"><a href="context.m.html">heronpy.streamlet.context</a></p>
-      
-  
-    <div class="desc"><p>context.py: module for defining context</p></div>
+      </div>
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="generator.m.html">heronpy.streamlet.generator</a></p>
-      
-  
-    <div class="desc"><p>generator.py: API for defining generic sources in python</p></div>
-
-      </div>
-      <div class="item">
-      <p class="name"><a href="impl/index.html">heronpy.streamlet.impl</a></p>
-      
-  
-    <div class="desc"><p>module for heronpy streamlet API impl</p></div>
-
-      </div>
-      <div class="item">
-      <p class="name"><a href="keyedwindow.m.html">heronpy.streamlet.keyedwindow</a></p>
-      
-  
-    <div class="desc"><p>keyedwindow.py: module for defining KeyedWindow</p></div>
-
-      </div>
-      <div class="item">
-      <p class="name"><a href="resources.m.html">heronpy.streamlet.resources</a></p>
-      
-  
-    <div class="desc"><p>resources.py: module for defining resources</p></div>
-
-      </div>
-      <div class="item">
-      <p class="name"><a href="runner.m.html">heronpy.streamlet.runner</a></p>
-      
-  
-    <div class="desc"><p>runner.py: module for creating Runner</p></div>
-
-      </div>
-      <div class="item">
-      <p class="name"><a href="streamlet.m.html">heronpy.streamlet.streamlet</a></p>
-      
-  
-    <div class="desc"><p>streamlet.py: module for defining the basic concept of the heron python streamlet API</p></div>
-
-      </div>
-      <div class="item">
-      <p class="name"><a href="transformoperator.m.html">heronpy.streamlet.transformoperator</a></p>
-      
-  
-    <div class="desc"><p>transformoperator.py: API for defining generic transformer in python</p></div>
-
-      </div>
-      <div class="item">
-      <p class="name"><a href="window.m.html">heronpy.streamlet.window</a></p>
-      
-  
-    <div class="desc"><p>window.py: module for defining Window</p></div>
-
-      </div>
-      <div class="item">
-      <p class="name"><a href="windowconfig.m.html">heronpy.streamlet.windowconfig</a></p>
-      
-  
-    <div class="desc"><p>windowconfig.py: module for defining windowconfig</p></div>
-
-      </div>
   </section>
 
     </article>

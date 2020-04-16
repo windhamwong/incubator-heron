@@ -1,0 +1,3338 @@
+<!doctype html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+    <title>heronpy.proto.tmaster_pb2 API documentation</title>
+    <meta name="description" content="" />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
+  
+  <style type="text/css">
+  
+* {
+  box-sizing: border-box;
+}
+/*! normalize.css v1.1.1 | MIT License | git.io/normalize */
+
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+ * Known issue: no IE 6 support.
+ */
+
+[hidden] {
+    display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/**
+ * 1. Prevent system color scheme's background color being used in Firefox, IE,
+ *    and Opera.
+ * 2. Prevent system color scheme's text color being used in Firefox, IE, and
+ *    Opera.
+ * 3. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 4. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+    background: #fff; /* 1 */
+    color: #000; /* 2 */
+    font-size: 100%; /* 3 */
+    -webkit-text-size-adjust: 100%; /* 4 */
+    -ms-text-size-adjust: 100%; /* 4 */
+}
+
+/**
+ * Address `font-family` inconsistency between `textarea` and other form
+ * elements.
+ */
+
+html,
+button,
+input,
+select,
+textarea {
+    font-family: sans-serif;
+}
+
+/**
+ * Address margins handled incorrectly in IE 6/7.
+ */
+
+body {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {
+    outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/**
+ * Address font sizes and margins set differently in IE 6/7.
+ * Address font sizes within `section` and `article` in Firefox 4+, Safari 5,
+ * and Chrome.
+ */
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+}
+
+h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+}
+
+h4 {
+    font-size: 1em;
+    margin: 1.33em 0;
+}
+
+h5 {
+    font-size: 0.83em;
+    margin: 1.67em 0;
+}
+
+h6 {
+    font-size: 0.67em;
+    margin: 2.33em 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Safari 5, and Chrome.
+ */
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
+ */
+
+b,
+strong {
+    font-weight: bold;
+}
+
+blockquote {
+    margin: 1em 40px;
+}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+
+dfn {
+    font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ * Known issue: no IE 6/7 normalization.
+ */
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 6/7/8/9.
+ */
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+p,
+pre {
+    margin: 1em 0;
+}
+
+/**
+ * Correct font family set oddly in IE 6, Safari 4/5, and Chrome.
+ */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    _font-family: 'courier new', monospace;
+    font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/**
+ * Address CSS quotes not supported in IE 6/7.
+ */
+
+q {
+    quotes: none;
+}
+
+/**
+ * Address `quotes` property not supported in Safari 4.
+ */
+
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+    font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+dl,
+menu,
+ol,
+ul {
+    margin: 1em 0;
+}
+
+dd {
+    margin: 0 0 0 40px;
+}
+
+/**
+ * Address paddings set differently in IE 6/7.
+ */
+
+menu,
+ol,
+ul {
+    padding: 0 0 0 40px;
+}
+
+/**
+ * Correct list images handled incorrectly in IE 7.
+ */
+
+nav ul,
+nav ol {
+    list-style: none;
+    list-style-image: none;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+
+/**
+ * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+ * 2. Improve image quality when scaled in IE 7.
+ */
+
+img {
+    border: 0; /* 1 */
+    -ms-interpolation-mode: bicubic; /* 2 */
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+ */
+
+figure {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+/**
+ * Correct margin displayed oddly in IE 6/7.
+ */
+
+form {
+    margin: 0;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct color not being inherited in IE 6/7/8/9.
+ * 2. Correct text not wrapping in Firefox 3.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+
+legend {
+    border: 0; /* 1 */
+    padding: 0;
+    white-space: normal; /* 2 */
+    *margin-left: -7px; /* 3 */
+}
+
+/**
+ * 1. Correct font size not being inherited in all browsers.
+ * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improve appearance and consistency in all browsers.
+ */
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%; /* 1 */
+    margin: 0; /* 2 */
+    vertical-align: baseline; /* 3 */
+    *vertical-align: middle; /* 3 */
+}
+
+/**
+ * Address Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button,
+input {
+    line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+
+button,
+select {
+    text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+    *overflow: visible;  /* 4 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to content-box in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+    *height: 13px; /* 3 */
+    *width: 13px; /* 3 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 3+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 6/7/8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+  </style>
+
+  <style type="text/css">
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
+  body {
+    background: #fff;
+    font-family: "Source Sans Pro", "Helvetica Neueue", Helvetica, sans;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.6em;
+  }
+  #content {
+    width: 70%;
+    max-width: 850px;
+    float: left;
+    padding: 30px 60px;
+    border-left: 1px solid #ddd;
+  }
+  #sidebar {
+    width: 25%;
+    float: left;
+    padding: 30px;
+    overflow: hidden;
+  }
+  #nav {
+    font-size: 130%;
+    margin: 0 0 15px 0;
+  }
+
+  #top {
+    display: block;
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    font-size: .85em;
+    text-transform: uppercase;
+  }
+
+  #footer {
+    font-size: .75em;
+    padding: 5px 30px;
+    border-top: 1px solid #ddd;
+    text-align: right;
+  }
+    #footer p {
+      margin: 0 0 0 30px;
+      display: inline-block;
+    }
+
+  h1, h2, h3, h4, h5 {
+    font-weight: 300;
+  }
+  h1 {
+    font-size: 2.5em;
+    line-height: 1.1em;
+    margin: 0 0 .50em 0;
+  }
+
+  h2 {
+    font-size: 1.75em;
+    margin: 1em 0 .50em 0;
+  }
+
+  h3 {
+    margin: 25px 0 10px 0;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 105%;
+  }
+
+  a {
+    color: #058;
+    text-decoration: none;
+    transition: color .3s ease-in-out;
+  }
+
+  a:hover {
+    color: #e08524;
+    transition: color .3s ease-in-out;
+  }
+
+  pre, code, .mono, .name {
+    font-family: "Ubuntu Mono", "Cousine", "DejaVu Sans Mono", monospace;
+  }
+
+  .title .name {
+    font-weight: bold;
+  }
+  .section-title {
+    margin-top: 2em;
+  }
+  .ident {
+    color: #900;
+  }
+
+  code {
+    background: #f9f9f9;
+  } 
+
+  pre {
+    background: #fefefe;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 0 #f3f3f3;
+    margin: 0 30px;
+    padding: 15px 30px;
+  }
+
+  .codehilite {
+    margin: 0 30px 10px 30px;
+  }
+
+    .codehilite pre {
+      margin: 0;
+    }
+    .codehilite .err { background: #ff3300; color: #fff !important; } 
+
+  table#module-list {
+    font-size: 110%;
+  }
+
+    table#module-list tr td:first-child {
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    table#module-list td {
+      vertical-align: top;
+      padding-bottom: 8px;
+    }
+
+      table#module-list td p {
+        margin: 0 0 7px 0;
+      }
+
+  .def {
+    display: table;
+  }
+
+    .def p {
+      display: table-cell;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .def p:first-child {
+      white-space: nowrap;
+    }
+
+    .def p:last-child {
+      width: 100%;
+    }
+
+
+  #index {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+    ul#index .class_name {
+      /* font-size: 110%; */
+      font-weight: bold;
+    }
+    #index ul {
+      margin: 0;
+    }
+
+  .item {
+    margin: 0 0 15px 0;
+  }
+
+    .item .class {
+      margin: 0 0 25px 30px;
+    }
+
+      .item .class ul.class_list {
+        margin: 0 0 20px 0;
+      }
+
+    .item .name {
+      background: #fafafa;
+      margin: 0;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 3px;
+      display: inline-block;
+      min-width: 40%;
+    }
+      .item .name:hover {
+        background: #f6f6f6;
+      }
+
+    .item .empty_desc {
+      margin: 0 0 5px 0;
+      padding: 0;
+    }
+
+    .item .inheritance {
+      margin: 3px 0 0 30px;
+    }
+
+    .item .inherited {
+      color: #666;
+    }
+
+    .item .desc {
+      padding: 0 8px;
+      margin: 0;
+    }
+
+      .item .desc p {
+        margin: 0 0 10px 0;
+      }
+
+    .source_cont {
+      margin: 0;
+      padding: 0;
+    }
+
+    .source_link a {
+      background: #ffc300;
+      font-weight: 400;
+      font-size: .75em;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 1px 1px 0 #f4b700;
+      
+      padding: 3px 8px;
+      border-radius: 2px;
+      transition: background .3s ease-in-out;
+    }
+      .source_link a:hover {
+        background: #FF7200;
+        text-shadow: none;
+        transition: background .3s ease-in-out;
+      }
+
+    .source {
+      display: none;
+      max-height: 600px;
+      overflow-y: scroll;
+      margin-bottom: 15px;
+    }
+
+      .source .codehilite {
+        margin: 0;
+      }
+
+  .desc h1, .desc h2, .desc h3 {
+    font-size: 100% !important;
+  }
+  .clear {
+    clear: both;
+  }
+
+  @media all and (max-width: 950px) {
+    #sidebar {
+      width: 35%;
+    }
+    #content {
+      width: 65%;
+    }
+  }
+  @media all and (max-width: 650px) {
+    #top {
+      display: none;
+    }
+    #sidebar {
+      float: none;
+      width: auto;
+    }
+    #content {
+      float: none;
+      width: auto;
+      padding: 30px;
+    }
+
+    #index ul {
+      padding: 0;
+      margin-bottom: 15px;
+    }
+    #index ul li {
+      display: inline-block;
+      margin-right: 30px;
+    }
+    #footer {
+      text-align: left;
+    }
+    #footer p {
+      display: block;
+      margin: inherit;
+    }
+  }
+
+  /*****************************/
+
+  </style>
+
+
+  <style type="text/css">
+  
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+  </style>
+
+  <script type="text/javascript">
+  function toggle(id, $link) {
+    $node = document.getElementById(id);
+    if (!$node)
+    return;
+    if (!$node.style.display || $node.style.display == 'none') {
+    $node.style.display = 'block';
+    $link.innerHTML = 'Hide source &nequiv;';
+    } else {
+    $node.style.display = 'none';
+    $link.innerHTML = 'Show source &equiv;';
+    }
+  }
+  </script>
+</head>
+<body>
+<a href="#" id="top">Top</a>
+
+<div id="container">
+    
+  
+  <div id="sidebar">
+    <h1>Index</h1>
+    <ul id="index">
+    <li class="set"><h3><a href="#header-variables">Module variables</a></h3>
+      
+  <ul>
+    <li class="mono"><a href="#heronpy.proto.tmaster_pb2.DESCRIPTOR">DESCRIPTOR</a></li>
+  </ul>
+
+    </li>
+
+
+    <li class="set"><h3><a href="#header-classes">Classes</a></h3>
+      <ul>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.proto.tmaster_pb2.ExceptionLogRequest">ExceptionLogRequest</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.proto.tmaster_pb2.ExceptionLogResponse">ExceptionLogResponse</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.proto.tmaster_pb2.MetricDatum">MetricDatum</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.proto.tmaster_pb2.MetricInterval">MetricInterval</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.proto.tmaster_pb2.MetricRequest">MetricRequest</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.proto.tmaster_pb2.MetricResponse">MetricResponse</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.proto.tmaster_pb2.MetricsCacheLocation">MetricsCacheLocation</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.proto.tmaster_pb2.PublishMetrics">PublishMetrics</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.proto.tmaster_pb2.StMgrHeartbeatRequest">StMgrHeartbeatRequest</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.proto.tmaster_pb2.StMgrHeartbeatResponse">StMgrHeartbeatResponse</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.proto.tmaster_pb2.StMgrRegisterRequest">StMgrRegisterRequest</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.proto.tmaster_pb2.StMgrRegisterResponse">StMgrRegisterResponse</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.proto.tmaster_pb2.StmgrsRegistrationSummaryRequest">StmgrsRegistrationSummaryRequest</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.proto.tmaster_pb2.StmgrsRegistrationSummaryResponse">StmgrsRegistrationSummaryResponse</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.proto.tmaster_pb2.TMasterLocation">TMasterLocation</a></span>
+        
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.proto.tmaster_pb2.TmasterExceptionLog">TmasterExceptionLog</a></span>
+        
+        </li>
+      </ul>
+    </li>
+
+    </ul>
+  </div>
+
+    <article id="content">
+      
+  
+
+  
+
+
+  <header id="section-intro">
+  <h1 class="title"><span class="name">heronpy.proto.tmaster_pb2</span> module</h1>
+  
+  
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.proto.tmaster_pb2', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.proto.tmaster_pb2" class="source">
+    <pre><code># -*- coding: utf-8 -*-
+# Generated by the protocol buffer compiler.  DO NOT EDIT!
+# source: tmaster.proto
+
+import sys
+_b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from google.protobuf import reflection as _reflection
+from google.protobuf import symbol_database as _symbol_database
+# @@protoc_insertion_point(imports)
+
+_sym_db = _symbol_database.Default()
+
+
+import common_pb2 as common__pb2
+import stats_pb2 as stats__pb2
+import physical_plan_pb2 as physical__plan__pb2
+
+
+DESCRIPTOR = _descriptor.FileDescriptor(
+  name='tmaster.proto',
+  package='heron.proto.tmaster',
+  syntax='proto2',
+  serialized_options=_b('\n\036org.apache.heron.proto.tmasterB\016TopologyMaster'),
+  serialized_pb=_b('\n\rtmaster.proto\x12\x13heron.proto.tmaster\x1a\x0c\x63ommon.proto\x1a\x0bstats.proto\x1a\x13physical_plan.proto\"\x8d\x01\n\x0fTMasterLocation\x12\x15\n\rtopology_name\x18\x01 \x02(\t\x12\x13\n\x0btopology_id\x18\x02 \x02(\t\x12\x0c\n\x04host\x18\x03 \x02(\t\x12\x17\n\x0f\x63ontroller_port\x18\x04 \x02(\x05\x12\x13\n\x0bmaster_port\x18\x05 \x02(\x05\x12\x12\n\nstats_port\x18\x06 \x01(\x05\"\x92\x01\n\x14MetricsCacheLocation\x12\x15\n\rtopology_name\x18\x01 \x02(\t\x12\x13\n\x0btopology_id\x18\x02 \x02(\t\x12\x0c\n\x04host\x18\x03 \x02(\t\x12\x17\n\x0f\x63ontroller_port\x18\x04 \x02(\x05\x12\x13\n\x0bmaster_port\x18\x05 \x02(\x05\x12\x12\n\nstats_port\x18\x06 \x01(\x05\"q\n\x14StMgrRegisterRequest\x12(\n\x05stmgr\x18\x01 \x02(\x0b\x32\x19.heron.proto.system.StMgr\x12/\n\tinstances\x18\x02 \x03(\x0b\x32\x1c.heron.proto.system.Instance\"t\n\x15StMgrRegisterResponse\x12*\n\x06status\x18\x01 \x02(\x0b\x32\x1a.heron.proto.system.Status\x12/\n\x05pplan\x18\x02 \x01(\x0b\x32 .heron.proto.system.PhysicalPlan\"^\n\x15StMgrHeartbeatRequest\x12\x16\n\x0eheartbeat_time\x18\x01 \x02(\x03\x12-\n\x05stats\x18\x02 \x02(\x0b\x32\x1e.heron.proto.system.StMgrStats\"D\n\x16StMgrHeartbeatResponse\x12*\n\x06status\x18\x01 \x02(\x0b\x32\x1a.heron.proto.system.Status\"j\n\x0bMetricDatum\x12\x16\n\x0e\x63omponent_name\x18\x01 \x02(\t\x12\x13\n\x0binstance_id\x18\x02 \x02(\t\x12\x0c\n\x04name\x18\x03 \x02(\t\x12\r\n\x05value\x18\x04 \x02(\t\x12\x11\n\ttimestamp\x18\x05 \x02(\x03\"\xad\x01\n\x13TmasterExceptionLog\x12\x16\n\x0e\x63omponent_name\x18\x01 \x02(\t\x12\x10\n\x08hostname\x18\x02 \x02(\t\x12\x13\n\x0binstance_id\x18\x03 \x02(\t\x12\x12\n\nstacktrace\x18\x04 \x02(\t\x12\x10\n\x08lasttime\x18\x05 \x02(\t\x12\x11\n\tfirsttime\x18\x06 \x02(\t\x12\r\n\x05\x63ount\x18\x07 \x02(\x05\x12\x0f\n\x07logging\x18\x08 \x01(\t\"\x81\x01\n\x0ePublishMetrics\x12\x31\n\x07metrics\x18\x01 \x03(\x0b\x32 .heron.proto.tmaster.MetricDatum\x12<\n\nexceptions\x18\x02 \x03(\x0b\x32(.heron.proto.tmaster.TmasterExceptionLog\",\n\x0eMetricInterval\x12\r\n\x05start\x18\x01 \x02(\x03\x12\x0b\n\x03\x65nd\x18\x02 \x02(\x03\"\xb7\x01\n\rMetricRequest\x12\x16\n\x0e\x63omponent_name\x18\x01 \x02(\t\x12\x13\n\x0binstance_id\x18\x02 \x03(\t\x12\x0e\n\x06metric\x18\x03 \x03(\t\x12\x10\n\x08interval\x18\x04 \x01(\x03\x12>\n\x11\x65xplicit_interval\x18\x05 \x01(\x0b\x32#.heron.proto.tmaster.MetricInterval\x12\x17\n\x08minutely\x18\x06 \x01(\x08:\x05\x66\x61lse\"\xdd\x03\n\x0eMetricResponse\x12*\n\x06status\x18\x01 \x02(\x0b\x32\x1a.heron.proto.system.Status\x12>\n\x06metric\x18\x02 \x03(\x0b\x32..heron.proto.tmaster.MetricResponse.TaskMetric\x12\x10\n\x08interval\x18\x03 \x01(\x03\x1a\xe3\x01\n\x10IndividualMetric\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\r\n\x05value\x18\x02 \x01(\t\x12[\n\x0finterval_values\x18\x03 \x03(\x0b\x32\x42.heron.proto.tmaster.MetricResponse.IndividualMetric.IntervalValue\x1aU\n\rIntervalValue\x12\r\n\x05value\x18\x01 \x02(\t\x12\x35\n\x08interval\x18\x02 \x02(\x0b\x32#.heron.proto.tmaster.MetricInterval\x1ag\n\nTaskMetric\x12\x13\n\x0binstance_id\x18\x01 \x02(\t\x12\x44\n\x06metric\x18\x02 \x03(\x0b\x32\x34.heron.proto.tmaster.MetricResponse.IndividualMetric\"\x80\x01\n\x14\x45xceptionLogResponse\x12*\n\x06status\x18\x01 \x02(\x0b\x32\x1a.heron.proto.system.Status\x12<\n\nexceptions\x18\x02 \x03(\x0b\x32(.heron.proto.tmaster.TmasterExceptionLog\"@\n\x13\x45xceptionLogRequest\x12\x16\n\x0e\x63omponent_name\x18\x01 \x02(\t\x12\x11\n\tinstances\x18\x02 \x03(\t\"\"\n StmgrsRegistrationSummaryRequest\"U\n!StmgrsRegistrationSummaryResponse\x12\x19\n\x11registered_stmgrs\x18\x01 \x03(\t\x12\x15\n\rabsent_stmgrs\x18\x02 \x03(\tB0\n\x1eorg.apache.heron.proto.tmasterB\x0eTopologyMaster')
+  ,
+  dependencies=[common__pb2.DESCRIPTOR,stats__pb2.DESCRIPTOR,physical__plan__pb2.DESCRIPTOR,])
+
+
+
+
+_TMASTERLOCATION = _descriptor.Descriptor(
+  name='TMasterLocation',
+  full_name='heron.proto.tmaster.TMasterLocation',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='topology_name', full_name='heron.proto.tmaster.TMasterLocation.topology_name', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='topology_id', full_name='heron.proto.tmaster.TMasterLocation.topology_id', index=1,
+      number=2, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='host', full_name='heron.proto.tmaster.TMasterLocation.host', index=2,
+      number=3, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='controller_port', full_name='heron.proto.tmaster.TMasterLocation.controller_port', index=3,
+      number=4, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='master_port', full_name='heron.proto.tmaster.TMasterLocation.master_port', index=4,
+      number=5, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='stats_port', full_name='heron.proto.tmaster.TMasterLocation.stats_port', index=5,
+      number=6, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=87,
+  serialized_end=228,
+)
+
+
+_METRICSCACHELOCATION = _descriptor.Descriptor(
+  name='MetricsCacheLocation',
+  full_name='heron.proto.tmaster.MetricsCacheLocation',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='topology_name', full_name='heron.proto.tmaster.MetricsCacheLocation.topology_name', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='topology_id', full_name='heron.proto.tmaster.MetricsCacheLocation.topology_id', index=1,
+      number=2, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='host', full_name='heron.proto.tmaster.MetricsCacheLocation.host', index=2,
+      number=3, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='controller_port', full_name='heron.proto.tmaster.MetricsCacheLocation.controller_port', index=3,
+      number=4, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='master_port', full_name='heron.proto.tmaster.MetricsCacheLocation.master_port', index=4,
+      number=5, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='stats_port', full_name='heron.proto.tmaster.MetricsCacheLocation.stats_port', index=5,
+      number=6, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=231,
+  serialized_end=377,
+)
+
+
+_STMGRREGISTERREQUEST = _descriptor.Descriptor(
+  name='StMgrRegisterRequest',
+  full_name='heron.proto.tmaster.StMgrRegisterRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='stmgr', full_name='heron.proto.tmaster.StMgrRegisterRequest.stmgr', index=0,
+      number=1, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='instances', full_name='heron.proto.tmaster.StMgrRegisterRequest.instances', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=379,
+  serialized_end=492,
+)
+
+
+_STMGRREGISTERRESPONSE = _descriptor.Descriptor(
+  name='StMgrRegisterResponse',
+  full_name='heron.proto.tmaster.StMgrRegisterResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='status', full_name='heron.proto.tmaster.StMgrRegisterResponse.status', index=0,
+      number=1, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='pplan', full_name='heron.proto.tmaster.StMgrRegisterResponse.pplan', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=494,
+  serialized_end=610,
+)
+
+
+_STMGRHEARTBEATREQUEST = _descriptor.Descriptor(
+  name='StMgrHeartbeatRequest',
+  full_name='heron.proto.tmaster.StMgrHeartbeatRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='heartbeat_time', full_name='heron.proto.tmaster.StMgrHeartbeatRequest.heartbeat_time', index=0,
+      number=1, type=3, cpp_type=2, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='stats', full_name='heron.proto.tmaster.StMgrHeartbeatRequest.stats', index=1,
+      number=2, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=612,
+  serialized_end=706,
+)
+
+
+_STMGRHEARTBEATRESPONSE = _descriptor.Descriptor(
+  name='StMgrHeartbeatResponse',
+  full_name='heron.proto.tmaster.StMgrHeartbeatResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='status', full_name='heron.proto.tmaster.StMgrHeartbeatResponse.status', index=0,
+      number=1, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=708,
+  serialized_end=776,
+)
+
+
+_METRICDATUM = _descriptor.Descriptor(
+  name='MetricDatum',
+  full_name='heron.proto.tmaster.MetricDatum',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='component_name', full_name='heron.proto.tmaster.MetricDatum.component_name', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='instance_id', full_name='heron.proto.tmaster.MetricDatum.instance_id', index=1,
+      number=2, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='heron.proto.tmaster.MetricDatum.name', index=2,
+      number=3, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='heron.proto.tmaster.MetricDatum.value', index=3,
+      number=4, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='timestamp', full_name='heron.proto.tmaster.MetricDatum.timestamp', index=4,
+      number=5, type=3, cpp_type=2, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=778,
+  serialized_end=884,
+)
+
+
+_TMASTEREXCEPTIONLOG = _descriptor.Descriptor(
+  name='TmasterExceptionLog',
+  full_name='heron.proto.tmaster.TmasterExceptionLog',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='component_name', full_name='heron.proto.tmaster.TmasterExceptionLog.component_name', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='hostname', full_name='heron.proto.tmaster.TmasterExceptionLog.hostname', index=1,
+      number=2, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='instance_id', full_name='heron.proto.tmaster.TmasterExceptionLog.instance_id', index=2,
+      number=3, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='stacktrace', full_name='heron.proto.tmaster.TmasterExceptionLog.stacktrace', index=3,
+      number=4, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='lasttime', full_name='heron.proto.tmaster.TmasterExceptionLog.lasttime', index=4,
+      number=5, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='firsttime', full_name='heron.proto.tmaster.TmasterExceptionLog.firsttime', index=5,
+      number=6, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='count', full_name='heron.proto.tmaster.TmasterExceptionLog.count', index=6,
+      number=7, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='logging', full_name='heron.proto.tmaster.TmasterExceptionLog.logging', index=7,
+      number=8, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=887,
+  serialized_end=1060,
+)
+
+
+_PUBLISHMETRICS = _descriptor.Descriptor(
+  name='PublishMetrics',
+  full_name='heron.proto.tmaster.PublishMetrics',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='metrics', full_name='heron.proto.tmaster.PublishMetrics.metrics', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='exceptions', full_name='heron.proto.tmaster.PublishMetrics.exceptions', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1063,
+  serialized_end=1192,
+)
+
+
+_METRICINTERVAL = _descriptor.Descriptor(
+  name='MetricInterval',
+  full_name='heron.proto.tmaster.MetricInterval',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='start', full_name='heron.proto.tmaster.MetricInterval.start', index=0,
+      number=1, type=3, cpp_type=2, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='end', full_name='heron.proto.tmaster.MetricInterval.end', index=1,
+      number=2, type=3, cpp_type=2, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1194,
+  serialized_end=1238,
+)
+
+
+_METRICREQUEST = _descriptor.Descriptor(
+  name='MetricRequest',
+  full_name='heron.proto.tmaster.MetricRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='component_name', full_name='heron.proto.tmaster.MetricRequest.component_name', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='instance_id', full_name='heron.proto.tmaster.MetricRequest.instance_id', index=1,
+      number=2, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='metric', full_name='heron.proto.tmaster.MetricRequest.metric', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='interval', full_name='heron.proto.tmaster.MetricRequest.interval', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='explicit_interval', full_name='heron.proto.tmaster.MetricRequest.explicit_interval', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='minutely', full_name='heron.proto.tmaster.MetricRequest.minutely', index=5,
+      number=6, type=8, cpp_type=7, label=1,
+      has_default_value=True, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1241,
+  serialized_end=1424,
+)
+
+
+_METRICRESPONSE_INDIVIDUALMETRIC_INTERVALVALUE = _descriptor.Descriptor(
+  name='IntervalValue',
+  full_name='heron.proto.tmaster.MetricResponse.IndividualMetric.IntervalValue',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='heron.proto.tmaster.MetricResponse.IndividualMetric.IntervalValue.value', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='interval', full_name='heron.proto.tmaster.MetricResponse.IndividualMetric.IntervalValue.interval', index=1,
+      number=2, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1714,
+  serialized_end=1799,
+)
+
+_METRICRESPONSE_INDIVIDUALMETRIC = _descriptor.Descriptor(
+  name='IndividualMetric',
+  full_name='heron.proto.tmaster.MetricResponse.IndividualMetric',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='heron.proto.tmaster.MetricResponse.IndividualMetric.name', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='heron.proto.tmaster.MetricResponse.IndividualMetric.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='interval_values', full_name='heron.proto.tmaster.MetricResponse.IndividualMetric.interval_values', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_METRICRESPONSE_INDIVIDUALMETRIC_INTERVALVALUE, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1572,
+  serialized_end=1799,
+)
+
+_METRICRESPONSE_TASKMETRIC = _descriptor.Descriptor(
+  name='TaskMetric',
+  full_name='heron.proto.tmaster.MetricResponse.TaskMetric',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='instance_id', full_name='heron.proto.tmaster.MetricResponse.TaskMetric.instance_id', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='metric', full_name='heron.proto.tmaster.MetricResponse.TaskMetric.metric', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1801,
+  serialized_end=1904,
+)
+
+_METRICRESPONSE = _descriptor.Descriptor(
+  name='MetricResponse',
+  full_name='heron.proto.tmaster.MetricResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='status', full_name='heron.proto.tmaster.MetricResponse.status', index=0,
+      number=1, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='metric', full_name='heron.proto.tmaster.MetricResponse.metric', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='interval', full_name='heron.proto.tmaster.MetricResponse.interval', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_METRICRESPONSE_INDIVIDUALMETRIC, _METRICRESPONSE_TASKMETRIC, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1427,
+  serialized_end=1904,
+)
+
+
+_EXCEPTIONLOGRESPONSE = _descriptor.Descriptor(
+  name='ExceptionLogResponse',
+  full_name='heron.proto.tmaster.ExceptionLogResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='status', full_name='heron.proto.tmaster.ExceptionLogResponse.status', index=0,
+      number=1, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='exceptions', full_name='heron.proto.tmaster.ExceptionLogResponse.exceptions', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1907,
+  serialized_end=2035,
+)
+
+
+_EXCEPTIONLOGREQUEST = _descriptor.Descriptor(
+  name='ExceptionLogRequest',
+  full_name='heron.proto.tmaster.ExceptionLogRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='component_name', full_name='heron.proto.tmaster.ExceptionLogRequest.component_name', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='instances', full_name='heron.proto.tmaster.ExceptionLogRequest.instances', index=1,
+      number=2, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2037,
+  serialized_end=2101,
+)
+
+
+_STMGRSREGISTRATIONSUMMARYREQUEST = _descriptor.Descriptor(
+  name='StmgrsRegistrationSummaryRequest',
+  full_name='heron.proto.tmaster.StmgrsRegistrationSummaryRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2103,
+  serialized_end=2137,
+)
+
+
+_STMGRSREGISTRATIONSUMMARYRESPONSE = _descriptor.Descriptor(
+  name='StmgrsRegistrationSummaryResponse',
+  full_name='heron.proto.tmaster.StmgrsRegistrationSummaryResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='registered_stmgrs', full_name='heron.proto.tmaster.StmgrsRegistrationSummaryResponse.registered_stmgrs', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='absent_stmgrs', full_name='heron.proto.tmaster.StmgrsRegistrationSummaryResponse.absent_stmgrs', index=1,
+      number=2, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2139,
+  serialized_end=2224,
+)
+
+_STMGRREGISTERREQUEST.fields_by_name['stmgr'].message_type = physical__plan__pb2._STMGR
+_STMGRREGISTERREQUEST.fields_by_name['instances'].message_type = physical__plan__pb2._INSTANCE
+_STMGRREGISTERRESPONSE.fields_by_name['status'].message_type = common__pb2._STATUS
+_STMGRREGISTERRESPONSE.fields_by_name['pplan'].message_type = physical__plan__pb2._PHYSICALPLAN
+_STMGRHEARTBEATREQUEST.fields_by_name['stats'].message_type = stats__pb2._STMGRSTATS
+_STMGRHEARTBEATRESPONSE.fields_by_name['status'].message_type = common__pb2._STATUS
+_PUBLISHMETRICS.fields_by_name['metrics'].message_type = _METRICDATUM
+_PUBLISHMETRICS.fields_by_name['exceptions'].message_type = _TMASTEREXCEPTIONLOG
+_METRICREQUEST.fields_by_name['explicit_interval'].message_type = _METRICINTERVAL
+_METRICRESPONSE_INDIVIDUALMETRIC_INTERVALVALUE.fields_by_name['interval'].message_type = _METRICINTERVAL
+_METRICRESPONSE_INDIVIDUALMETRIC_INTERVALVALUE.containing_type = _METRICRESPONSE_INDIVIDUALMETRIC
+_METRICRESPONSE_INDIVIDUALMETRIC.fields_by_name['interval_values'].message_type = _METRICRESPONSE_INDIVIDUALMETRIC_INTERVALVALUE
+_METRICRESPONSE_INDIVIDUALMETRIC.containing_type = _METRICRESPONSE
+_METRICRESPONSE_TASKMETRIC.fields_by_name['metric'].message_type = _METRICRESPONSE_INDIVIDUALMETRIC
+_METRICRESPONSE_TASKMETRIC.containing_type = _METRICRESPONSE
+_METRICRESPONSE.fields_by_name['status'].message_type = common__pb2._STATUS
+_METRICRESPONSE.fields_by_name['metric'].message_type = _METRICRESPONSE_TASKMETRIC
+_EXCEPTIONLOGRESPONSE.fields_by_name['status'].message_type = common__pb2._STATUS
+_EXCEPTIONLOGRESPONSE.fields_by_name['exceptions'].message_type = _TMASTEREXCEPTIONLOG
+DESCRIPTOR.message_types_by_name['TMasterLocation'] = _TMASTERLOCATION
+DESCRIPTOR.message_types_by_name['MetricsCacheLocation'] = _METRICSCACHELOCATION
+DESCRIPTOR.message_types_by_name['StMgrRegisterRequest'] = _STMGRREGISTERREQUEST
+DESCRIPTOR.message_types_by_name['StMgrRegisterResponse'] = _STMGRREGISTERRESPONSE
+DESCRIPTOR.message_types_by_name['StMgrHeartbeatRequest'] = _STMGRHEARTBEATREQUEST
+DESCRIPTOR.message_types_by_name['StMgrHeartbeatResponse'] = _STMGRHEARTBEATRESPONSE
+DESCRIPTOR.message_types_by_name['MetricDatum'] = _METRICDATUM
+DESCRIPTOR.message_types_by_name['TmasterExceptionLog'] = _TMASTEREXCEPTIONLOG
+DESCRIPTOR.message_types_by_name['PublishMetrics'] = _PUBLISHMETRICS
+DESCRIPTOR.message_types_by_name['MetricInterval'] = _METRICINTERVAL
+DESCRIPTOR.message_types_by_name['MetricRequest'] = _METRICREQUEST
+DESCRIPTOR.message_types_by_name['MetricResponse'] = _METRICRESPONSE
+DESCRIPTOR.message_types_by_name['ExceptionLogResponse'] = _EXCEPTIONLOGRESPONSE
+DESCRIPTOR.message_types_by_name['ExceptionLogRequest'] = _EXCEPTIONLOGREQUEST
+DESCRIPTOR.message_types_by_name['StmgrsRegistrationSummaryRequest'] = _STMGRSREGISTRATIONSUMMARYREQUEST
+DESCRIPTOR.message_types_by_name['StmgrsRegistrationSummaryResponse'] = _STMGRSREGISTRATIONSUMMARYRESPONSE
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+TMasterLocation = _reflection.GeneratedProtocolMessageType('TMasterLocation', (_message.Message,), {
+  'DESCRIPTOR' : _TMASTERLOCATION,
+  '__module__' : 'tmaster_pb2'
+  # @@protoc_insertion_point(class_scope:heron.proto.tmaster.TMasterLocation)
+  })
+_sym_db.RegisterMessage(TMasterLocation)
+
+MetricsCacheLocation = _reflection.GeneratedProtocolMessageType('MetricsCacheLocation', (_message.Message,), {
+  'DESCRIPTOR' : _METRICSCACHELOCATION,
+  '__module__' : 'tmaster_pb2'
+  # @@protoc_insertion_point(class_scope:heron.proto.tmaster.MetricsCacheLocation)
+  })
+_sym_db.RegisterMessage(MetricsCacheLocation)
+
+StMgrRegisterRequest = _reflection.GeneratedProtocolMessageType('StMgrRegisterRequest', (_message.Message,), {
+  'DESCRIPTOR' : _STMGRREGISTERREQUEST,
+  '__module__' : 'tmaster_pb2'
+  # @@protoc_insertion_point(class_scope:heron.proto.tmaster.StMgrRegisterRequest)
+  })
+_sym_db.RegisterMessage(StMgrRegisterRequest)
+
+StMgrRegisterResponse = _reflection.GeneratedProtocolMessageType('StMgrRegisterResponse', (_message.Message,), {
+  'DESCRIPTOR' : _STMGRREGISTERRESPONSE,
+  '__module__' : 'tmaster_pb2'
+  # @@protoc_insertion_point(class_scope:heron.proto.tmaster.StMgrRegisterResponse)
+  })
+_sym_db.RegisterMessage(StMgrRegisterResponse)
+
+StMgrHeartbeatRequest = _reflection.GeneratedProtocolMessageType('StMgrHeartbeatRequest', (_message.Message,), {
+  'DESCRIPTOR' : _STMGRHEARTBEATREQUEST,
+  '__module__' : 'tmaster_pb2'
+  # @@protoc_insertion_point(class_scope:heron.proto.tmaster.StMgrHeartbeatRequest)
+  })
+_sym_db.RegisterMessage(StMgrHeartbeatRequest)
+
+StMgrHeartbeatResponse = _reflection.GeneratedProtocolMessageType('StMgrHeartbeatResponse', (_message.Message,), {
+  'DESCRIPTOR' : _STMGRHEARTBEATRESPONSE,
+  '__module__' : 'tmaster_pb2'
+  # @@protoc_insertion_point(class_scope:heron.proto.tmaster.StMgrHeartbeatResponse)
+  })
+_sym_db.RegisterMessage(StMgrHeartbeatResponse)
+
+MetricDatum = _reflection.GeneratedProtocolMessageType('MetricDatum', (_message.Message,), {
+  'DESCRIPTOR' : _METRICDATUM,
+  '__module__' : 'tmaster_pb2'
+  # @@protoc_insertion_point(class_scope:heron.proto.tmaster.MetricDatum)
+  })
+_sym_db.RegisterMessage(MetricDatum)
+
+TmasterExceptionLog = _reflection.GeneratedProtocolMessageType('TmasterExceptionLog', (_message.Message,), {
+  'DESCRIPTOR' : _TMASTEREXCEPTIONLOG,
+  '__module__' : 'tmaster_pb2'
+  # @@protoc_insertion_point(class_scope:heron.proto.tmaster.TmasterExceptionLog)
+  })
+_sym_db.RegisterMessage(TmasterExceptionLog)
+
+PublishMetrics = _reflection.GeneratedProtocolMessageType('PublishMetrics', (_message.Message,), {
+  'DESCRIPTOR' : _PUBLISHMETRICS,
+  '__module__' : 'tmaster_pb2'
+  # @@protoc_insertion_point(class_scope:heron.proto.tmaster.PublishMetrics)
+  })
+_sym_db.RegisterMessage(PublishMetrics)
+
+MetricInterval = _reflection.GeneratedProtocolMessageType('MetricInterval', (_message.Message,), {
+  'DESCRIPTOR' : _METRICINTERVAL,
+  '__module__' : 'tmaster_pb2'
+  # @@protoc_insertion_point(class_scope:heron.proto.tmaster.MetricInterval)
+  })
+_sym_db.RegisterMessage(MetricInterval)
+
+MetricRequest = _reflection.GeneratedProtocolMessageType('MetricRequest', (_message.Message,), {
+  'DESCRIPTOR' : _METRICREQUEST,
+  '__module__' : 'tmaster_pb2'
+  # @@protoc_insertion_point(class_scope:heron.proto.tmaster.MetricRequest)
+  })
+_sym_db.RegisterMessage(MetricRequest)
+
+MetricResponse = _reflection.GeneratedProtocolMessageType('MetricResponse', (_message.Message,), {
+
+  'IndividualMetric' : _reflection.GeneratedProtocolMessageType('IndividualMetric', (_message.Message,), {
+
+    'IntervalValue' : _reflection.GeneratedProtocolMessageType('IntervalValue', (_message.Message,), {
+      'DESCRIPTOR' : _METRICRESPONSE_INDIVIDUALMETRIC_INTERVALVALUE,
+      '__module__' : 'tmaster_pb2'
+      # @@protoc_insertion_point(class_scope:heron.proto.tmaster.MetricResponse.IndividualMetric.IntervalValue)
+      })
+    ,
+    'DESCRIPTOR' : _METRICRESPONSE_INDIVIDUALMETRIC,
+    '__module__' : 'tmaster_pb2'
+    # @@protoc_insertion_point(class_scope:heron.proto.tmaster.MetricResponse.IndividualMetric)
+    })
+  ,
+
+  'TaskMetric' : _reflection.GeneratedProtocolMessageType('TaskMetric', (_message.Message,), {
+    'DESCRIPTOR' : _METRICRESPONSE_TASKMETRIC,
+    '__module__' : 'tmaster_pb2'
+    # @@protoc_insertion_point(class_scope:heron.proto.tmaster.MetricResponse.TaskMetric)
+    })
+  ,
+  'DESCRIPTOR' : _METRICRESPONSE,
+  '__module__' : 'tmaster_pb2'
+  # @@protoc_insertion_point(class_scope:heron.proto.tmaster.MetricResponse)
+  })
+_sym_db.RegisterMessage(MetricResponse)
+_sym_db.RegisterMessage(MetricResponse.IndividualMetric)
+_sym_db.RegisterMessage(MetricResponse.IndividualMetric.IntervalValue)
+_sym_db.RegisterMessage(MetricResponse.TaskMetric)
+
+ExceptionLogResponse = _reflection.GeneratedProtocolMessageType('ExceptionLogResponse', (_message.Message,), {
+  'DESCRIPTOR' : _EXCEPTIONLOGRESPONSE,
+  '__module__' : 'tmaster_pb2'
+  # @@protoc_insertion_point(class_scope:heron.proto.tmaster.ExceptionLogResponse)
+  })
+_sym_db.RegisterMessage(ExceptionLogResponse)
+
+ExceptionLogRequest = _reflection.GeneratedProtocolMessageType('ExceptionLogRequest', (_message.Message,), {
+  'DESCRIPTOR' : _EXCEPTIONLOGREQUEST,
+  '__module__' : 'tmaster_pb2'
+  # @@protoc_insertion_point(class_scope:heron.proto.tmaster.ExceptionLogRequest)
+  })
+_sym_db.RegisterMessage(ExceptionLogRequest)
+
+StmgrsRegistrationSummaryRequest = _reflection.GeneratedProtocolMessageType('StmgrsRegistrationSummaryRequest', (_message.Message,), {
+  'DESCRIPTOR' : _STMGRSREGISTRATIONSUMMARYREQUEST,
+  '__module__' : 'tmaster_pb2'
+  # @@protoc_insertion_point(class_scope:heron.proto.tmaster.StmgrsRegistrationSummaryRequest)
+  })
+_sym_db.RegisterMessage(StmgrsRegistrationSummaryRequest)
+
+StmgrsRegistrationSummaryResponse = _reflection.GeneratedProtocolMessageType('StmgrsRegistrationSummaryResponse', (_message.Message,), {
+  'DESCRIPTOR' : _STMGRSREGISTRATIONSUMMARYRESPONSE,
+  '__module__' : 'tmaster_pb2'
+  # @@protoc_insertion_point(class_scope:heron.proto.tmaster.StmgrsRegistrationSummaryResponse)
+  })
+_sym_db.RegisterMessage(StmgrsRegistrationSummaryResponse)
+
+
+DESCRIPTOR._options = None
+# @@protoc_insertion_point(module_scope)
+</code></pre>
+  </div>
+
+  </header>
+
+  <section id="section-items">
+    <h2 class="section-title" id="header-variables">Module variables</h2>
+      <div class="item">
+      <p id="heronpy.proto.tmaster_pb2.DESCRIPTOR" class="name">var <span class="ident">DESCRIPTOR</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+      </div>
+
+
+    <h2 class="section-title" id="header-classes">Classes</h2>
+      
+      <div class="item">
+      <p id="heronpy.proto.tmaster_pb2.ExceptionLogRequest" class="name">class <span class="ident">ExceptionLogRequest</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.proto.tmaster_pb2.ExceptionLogRequest">ExceptionLogRequest</a></li>
+          <li>google.protobuf.pyext._message.CMessage</li>
+          <li>google.protobuf.message.Message</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.ExceptionLogRequest.DESCRIPTOR" class="name">var <span class="ident">DESCRIPTOR</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.ExceptionLogRequest.Extensions" class="name">var <span class="ident">Extensions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.ExceptionLogRequest.component_name" class="name">var <span class="ident">component_name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.ExceptionLogRequest.instances" class="name">var <span class="ident">instances</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="heronpy.proto.tmaster_pb2.ExceptionLogResponse" class="name">class <span class="ident">ExceptionLogResponse</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.proto.tmaster_pb2.ExceptionLogResponse">ExceptionLogResponse</a></li>
+          <li>google.protobuf.pyext._message.CMessage</li>
+          <li>google.protobuf.message.Message</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.ExceptionLogResponse.DESCRIPTOR" class="name">var <span class="ident">DESCRIPTOR</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.ExceptionLogResponse.Extensions" class="name">var <span class="ident">Extensions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.ExceptionLogResponse.exceptions" class="name">var <span class="ident">exceptions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.ExceptionLogResponse.status" class="name">var <span class="ident">status</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="heronpy.proto.tmaster_pb2.MetricDatum" class="name">class <span class="ident">MetricDatum</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.proto.tmaster_pb2.MetricDatum">MetricDatum</a></li>
+          <li>google.protobuf.pyext._message.CMessage</li>
+          <li>google.protobuf.message.Message</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricDatum.DESCRIPTOR" class="name">var <span class="ident">DESCRIPTOR</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricDatum.Extensions" class="name">var <span class="ident">Extensions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricDatum.component_name" class="name">var <span class="ident">component_name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricDatum.instance_id" class="name">var <span class="ident">instance_id</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricDatum.name" class="name">var <span class="ident">name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricDatum.timestamp" class="name">var <span class="ident">timestamp</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricDatum.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="heronpy.proto.tmaster_pb2.MetricInterval" class="name">class <span class="ident">MetricInterval</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.proto.tmaster_pb2.MetricInterval">MetricInterval</a></li>
+          <li>google.protobuf.pyext._message.CMessage</li>
+          <li>google.protobuf.message.Message</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricInterval.DESCRIPTOR" class="name">var <span class="ident">DESCRIPTOR</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricInterval.Extensions" class="name">var <span class="ident">Extensions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricInterval.end" class="name">var <span class="ident">end</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricInterval.start" class="name">var <span class="ident">start</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="heronpy.proto.tmaster_pb2.MetricRequest" class="name">class <span class="ident">MetricRequest</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.proto.tmaster_pb2.MetricRequest">MetricRequest</a></li>
+          <li>google.protobuf.pyext._message.CMessage</li>
+          <li>google.protobuf.message.Message</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricRequest.DESCRIPTOR" class="name">var <span class="ident">DESCRIPTOR</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricRequest.Extensions" class="name">var <span class="ident">Extensions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricRequest.component_name" class="name">var <span class="ident">component_name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricRequest.explicit_interval" class="name">var <span class="ident">explicit_interval</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricRequest.instance_id" class="name">var <span class="ident">instance_id</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricRequest.interval" class="name">var <span class="ident">interval</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricRequest.metric" class="name">var <span class="ident">metric</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricRequest.minutely" class="name">var <span class="ident">minutely</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="heronpy.proto.tmaster_pb2.MetricResponse" class="name">class <span class="ident">MetricResponse</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.proto.tmaster_pb2.MetricResponse">MetricResponse</a></li>
+          <li>google.protobuf.pyext._message.CMessage</li>
+          <li>google.protobuf.message.Message</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricResponse.DESCRIPTOR" class="name">var <span class="ident">DESCRIPTOR</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricResponse.Extensions" class="name">var <span class="ident">Extensions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricResponse.IndividualMetric" class="name">var <span class="ident">IndividualMetric</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricResponse.TaskMetric" class="name">var <span class="ident">TaskMetric</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricResponse.interval" class="name">var <span class="ident">interval</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricResponse.metric" class="name">var <span class="ident">metric</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricResponse.status" class="name">var <span class="ident">status</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="heronpy.proto.tmaster_pb2.MetricsCacheLocation" class="name">class <span class="ident">MetricsCacheLocation</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.proto.tmaster_pb2.MetricsCacheLocation">MetricsCacheLocation</a></li>
+          <li>google.protobuf.pyext._message.CMessage</li>
+          <li>google.protobuf.message.Message</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricsCacheLocation.DESCRIPTOR" class="name">var <span class="ident">DESCRIPTOR</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricsCacheLocation.Extensions" class="name">var <span class="ident">Extensions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricsCacheLocation.controller_port" class="name">var <span class="ident">controller_port</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricsCacheLocation.host" class="name">var <span class="ident">host</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricsCacheLocation.master_port" class="name">var <span class="ident">master_port</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricsCacheLocation.stats_port" class="name">var <span class="ident">stats_port</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricsCacheLocation.topology_id" class="name">var <span class="ident">topology_id</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.MetricsCacheLocation.topology_name" class="name">var <span class="ident">topology_name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="heronpy.proto.tmaster_pb2.PublishMetrics" class="name">class <span class="ident">PublishMetrics</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.proto.tmaster_pb2.PublishMetrics">PublishMetrics</a></li>
+          <li>google.protobuf.pyext._message.CMessage</li>
+          <li>google.protobuf.message.Message</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.PublishMetrics.DESCRIPTOR" class="name">var <span class="ident">DESCRIPTOR</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.PublishMetrics.Extensions" class="name">var <span class="ident">Extensions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.PublishMetrics.exceptions" class="name">var <span class="ident">exceptions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.PublishMetrics.metrics" class="name">var <span class="ident">metrics</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="heronpy.proto.tmaster_pb2.StMgrHeartbeatRequest" class="name">class <span class="ident">StMgrHeartbeatRequest</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.proto.tmaster_pb2.StMgrHeartbeatRequest">StMgrHeartbeatRequest</a></li>
+          <li>google.protobuf.pyext._message.CMessage</li>
+          <li>google.protobuf.message.Message</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StMgrHeartbeatRequest.DESCRIPTOR" class="name">var <span class="ident">DESCRIPTOR</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StMgrHeartbeatRequest.Extensions" class="name">var <span class="ident">Extensions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StMgrHeartbeatRequest.heartbeat_time" class="name">var <span class="ident">heartbeat_time</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StMgrHeartbeatRequest.stats" class="name">var <span class="ident">stats</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="heronpy.proto.tmaster_pb2.StMgrHeartbeatResponse" class="name">class <span class="ident">StMgrHeartbeatResponse</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.proto.tmaster_pb2.StMgrHeartbeatResponse">StMgrHeartbeatResponse</a></li>
+          <li>google.protobuf.pyext._message.CMessage</li>
+          <li>google.protobuf.message.Message</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StMgrHeartbeatResponse.DESCRIPTOR" class="name">var <span class="ident">DESCRIPTOR</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StMgrHeartbeatResponse.Extensions" class="name">var <span class="ident">Extensions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StMgrHeartbeatResponse.status" class="name">var <span class="ident">status</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="heronpy.proto.tmaster_pb2.StMgrRegisterRequest" class="name">class <span class="ident">StMgrRegisterRequest</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.proto.tmaster_pb2.StMgrRegisterRequest">StMgrRegisterRequest</a></li>
+          <li>google.protobuf.pyext._message.CMessage</li>
+          <li>google.protobuf.message.Message</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StMgrRegisterRequest.DESCRIPTOR" class="name">var <span class="ident">DESCRIPTOR</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StMgrRegisterRequest.Extensions" class="name">var <span class="ident">Extensions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StMgrRegisterRequest.instances" class="name">var <span class="ident">instances</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StMgrRegisterRequest.stmgr" class="name">var <span class="ident">stmgr</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="heronpy.proto.tmaster_pb2.StMgrRegisterResponse" class="name">class <span class="ident">StMgrRegisterResponse</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.proto.tmaster_pb2.StMgrRegisterResponse">StMgrRegisterResponse</a></li>
+          <li>google.protobuf.pyext._message.CMessage</li>
+          <li>google.protobuf.message.Message</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StMgrRegisterResponse.DESCRIPTOR" class="name">var <span class="ident">DESCRIPTOR</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StMgrRegisterResponse.Extensions" class="name">var <span class="ident">Extensions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StMgrRegisterResponse.pplan" class="name">var <span class="ident">pplan</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StMgrRegisterResponse.status" class="name">var <span class="ident">status</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="heronpy.proto.tmaster_pb2.StmgrsRegistrationSummaryRequest" class="name">class <span class="ident">StmgrsRegistrationSummaryRequest</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.proto.tmaster_pb2.StmgrsRegistrationSummaryRequest">StmgrsRegistrationSummaryRequest</a></li>
+          <li>google.protobuf.pyext._message.CMessage</li>
+          <li>google.protobuf.message.Message</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StmgrsRegistrationSummaryRequest.DESCRIPTOR" class="name">var <span class="ident">DESCRIPTOR</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StmgrsRegistrationSummaryRequest.Extensions" class="name">var <span class="ident">Extensions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="heronpy.proto.tmaster_pb2.StmgrsRegistrationSummaryResponse" class="name">class <span class="ident">StmgrsRegistrationSummaryResponse</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.proto.tmaster_pb2.StmgrsRegistrationSummaryResponse">StmgrsRegistrationSummaryResponse</a></li>
+          <li>google.protobuf.pyext._message.CMessage</li>
+          <li>google.protobuf.message.Message</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StmgrsRegistrationSummaryResponse.DESCRIPTOR" class="name">var <span class="ident">DESCRIPTOR</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StmgrsRegistrationSummaryResponse.Extensions" class="name">var <span class="ident">Extensions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StmgrsRegistrationSummaryResponse.absent_stmgrs" class="name">var <span class="ident">absent_stmgrs</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.StmgrsRegistrationSummaryResponse.registered_stmgrs" class="name">var <span class="ident">registered_stmgrs</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="heronpy.proto.tmaster_pb2.TMasterLocation" class="name">class <span class="ident">TMasterLocation</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.proto.tmaster_pb2.TMasterLocation">TMasterLocation</a></li>
+          <li>google.protobuf.pyext._message.CMessage</li>
+          <li>google.protobuf.message.Message</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.TMasterLocation.DESCRIPTOR" class="name">var <span class="ident">DESCRIPTOR</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.TMasterLocation.Extensions" class="name">var <span class="ident">Extensions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.TMasterLocation.controller_port" class="name">var <span class="ident">controller_port</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.TMasterLocation.host" class="name">var <span class="ident">host</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.TMasterLocation.master_port" class="name">var <span class="ident">master_port</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.TMasterLocation.stats_port" class="name">var <span class="ident">stats_port</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.TMasterLocation.topology_id" class="name">var <span class="ident">topology_id</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.TMasterLocation.topology_name" class="name">var <span class="ident">topology_name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="heronpy.proto.tmaster_pb2.TmasterExceptionLog" class="name">class <span class="ident">TmasterExceptionLog</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.proto.tmaster_pb2.TmasterExceptionLog">TmasterExceptionLog</a></li>
+          <li>google.protobuf.pyext._message.CMessage</li>
+          <li>google.protobuf.message.Message</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.TmasterExceptionLog.DESCRIPTOR" class="name">var <span class="ident">DESCRIPTOR</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.TmasterExceptionLog.Extensions" class="name">var <span class="ident">Extensions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.TmasterExceptionLog.component_name" class="name">var <span class="ident">component_name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.TmasterExceptionLog.count" class="name">var <span class="ident">count</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.TmasterExceptionLog.firsttime" class="name">var <span class="ident">firsttime</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.TmasterExceptionLog.hostname" class="name">var <span class="ident">hostname</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.TmasterExceptionLog.instance_id" class="name">var <span class="ident">instance_id</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.TmasterExceptionLog.lasttime" class="name">var <span class="ident">lasttime</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.TmasterExceptionLog.logging" class="name">var <span class="ident">logging</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.tmaster_pb2.TmasterExceptionLog.stacktrace" class="name">var <span class="ident">stacktrace</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+
+  </section>
+
+    </article>
+  <div class="clear"> </div>
+  <footer id="footer">
+    <p>
+      Documentation generated by
+      <a href="https://github.com/BurntSushi/pdoc">pdoc 0.3.2</a>
+    </p>
+
+    <p>pdoc is in the public domain with the
+      <a href="http://unlicense.org">UNLICENSE</a></p>
+
+    <p>Design by <a href="http://nadh.in">Kailash Nadh</a></p>
+  </footer>
+</div>
+</body>
+</html>

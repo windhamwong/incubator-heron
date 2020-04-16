@@ -1,0 +1,2234 @@
+<!doctype html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+    <title>heronpy.streamlet.impl.filterbolt API documentation</title>
+    <meta name="description" content="module for filter bolt: FilterBolt" />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
+  
+  <style type="text/css">
+  
+* {
+  box-sizing: border-box;
+}
+/*! normalize.css v1.1.1 | MIT License | git.io/normalize */
+
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+ * Known issue: no IE 6 support.
+ */
+
+[hidden] {
+    display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/**
+ * 1. Prevent system color scheme's background color being used in Firefox, IE,
+ *    and Opera.
+ * 2. Prevent system color scheme's text color being used in Firefox, IE, and
+ *    Opera.
+ * 3. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 4. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+    background: #fff; /* 1 */
+    color: #000; /* 2 */
+    font-size: 100%; /* 3 */
+    -webkit-text-size-adjust: 100%; /* 4 */
+    -ms-text-size-adjust: 100%; /* 4 */
+}
+
+/**
+ * Address `font-family` inconsistency between `textarea` and other form
+ * elements.
+ */
+
+html,
+button,
+input,
+select,
+textarea {
+    font-family: sans-serif;
+}
+
+/**
+ * Address margins handled incorrectly in IE 6/7.
+ */
+
+body {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {
+    outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/**
+ * Address font sizes and margins set differently in IE 6/7.
+ * Address font sizes within `section` and `article` in Firefox 4+, Safari 5,
+ * and Chrome.
+ */
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+}
+
+h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+}
+
+h4 {
+    font-size: 1em;
+    margin: 1.33em 0;
+}
+
+h5 {
+    font-size: 0.83em;
+    margin: 1.67em 0;
+}
+
+h6 {
+    font-size: 0.67em;
+    margin: 2.33em 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Safari 5, and Chrome.
+ */
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
+ */
+
+b,
+strong {
+    font-weight: bold;
+}
+
+blockquote {
+    margin: 1em 40px;
+}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+
+dfn {
+    font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ * Known issue: no IE 6/7 normalization.
+ */
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 6/7/8/9.
+ */
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+p,
+pre {
+    margin: 1em 0;
+}
+
+/**
+ * Correct font family set oddly in IE 6, Safari 4/5, and Chrome.
+ */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    _font-family: 'courier new', monospace;
+    font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/**
+ * Address CSS quotes not supported in IE 6/7.
+ */
+
+q {
+    quotes: none;
+}
+
+/**
+ * Address `quotes` property not supported in Safari 4.
+ */
+
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+    font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+dl,
+menu,
+ol,
+ul {
+    margin: 1em 0;
+}
+
+dd {
+    margin: 0 0 0 40px;
+}
+
+/**
+ * Address paddings set differently in IE 6/7.
+ */
+
+menu,
+ol,
+ul {
+    padding: 0 0 0 40px;
+}
+
+/**
+ * Correct list images handled incorrectly in IE 7.
+ */
+
+nav ul,
+nav ol {
+    list-style: none;
+    list-style-image: none;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+
+/**
+ * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+ * 2. Improve image quality when scaled in IE 7.
+ */
+
+img {
+    border: 0; /* 1 */
+    -ms-interpolation-mode: bicubic; /* 2 */
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+ */
+
+figure {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+/**
+ * Correct margin displayed oddly in IE 6/7.
+ */
+
+form {
+    margin: 0;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct color not being inherited in IE 6/7/8/9.
+ * 2. Correct text not wrapping in Firefox 3.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+
+legend {
+    border: 0; /* 1 */
+    padding: 0;
+    white-space: normal; /* 2 */
+    *margin-left: -7px; /* 3 */
+}
+
+/**
+ * 1. Correct font size not being inherited in all browsers.
+ * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improve appearance and consistency in all browsers.
+ */
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%; /* 1 */
+    margin: 0; /* 2 */
+    vertical-align: baseline; /* 3 */
+    *vertical-align: middle; /* 3 */
+}
+
+/**
+ * Address Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button,
+input {
+    line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+
+button,
+select {
+    text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+    *overflow: visible;  /* 4 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to content-box in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+    *height: 13px; /* 3 */
+    *width: 13px; /* 3 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 3+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 6/7/8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+  </style>
+
+  <style type="text/css">
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
+  body {
+    background: #fff;
+    font-family: "Source Sans Pro", "Helvetica Neueue", Helvetica, sans;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.6em;
+  }
+  #content {
+    width: 70%;
+    max-width: 850px;
+    float: left;
+    padding: 30px 60px;
+    border-left: 1px solid #ddd;
+  }
+  #sidebar {
+    width: 25%;
+    float: left;
+    padding: 30px;
+    overflow: hidden;
+  }
+  #nav {
+    font-size: 130%;
+    margin: 0 0 15px 0;
+  }
+
+  #top {
+    display: block;
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    font-size: .85em;
+    text-transform: uppercase;
+  }
+
+  #footer {
+    font-size: .75em;
+    padding: 5px 30px;
+    border-top: 1px solid #ddd;
+    text-align: right;
+  }
+    #footer p {
+      margin: 0 0 0 30px;
+      display: inline-block;
+    }
+
+  h1, h2, h3, h4, h5 {
+    font-weight: 300;
+  }
+  h1 {
+    font-size: 2.5em;
+    line-height: 1.1em;
+    margin: 0 0 .50em 0;
+  }
+
+  h2 {
+    font-size: 1.75em;
+    margin: 1em 0 .50em 0;
+  }
+
+  h3 {
+    margin: 25px 0 10px 0;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 105%;
+  }
+
+  a {
+    color: #058;
+    text-decoration: none;
+    transition: color .3s ease-in-out;
+  }
+
+  a:hover {
+    color: #e08524;
+    transition: color .3s ease-in-out;
+  }
+
+  pre, code, .mono, .name {
+    font-family: "Ubuntu Mono", "Cousine", "DejaVu Sans Mono", monospace;
+  }
+
+  .title .name {
+    font-weight: bold;
+  }
+  .section-title {
+    margin-top: 2em;
+  }
+  .ident {
+    color: #900;
+  }
+
+  code {
+    background: #f9f9f9;
+  } 
+
+  pre {
+    background: #fefefe;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 0 #f3f3f3;
+    margin: 0 30px;
+    padding: 15px 30px;
+  }
+
+  .codehilite {
+    margin: 0 30px 10px 30px;
+  }
+
+    .codehilite pre {
+      margin: 0;
+    }
+    .codehilite .err { background: #ff3300; color: #fff !important; } 
+
+  table#module-list {
+    font-size: 110%;
+  }
+
+    table#module-list tr td:first-child {
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    table#module-list td {
+      vertical-align: top;
+      padding-bottom: 8px;
+    }
+
+      table#module-list td p {
+        margin: 0 0 7px 0;
+      }
+
+  .def {
+    display: table;
+  }
+
+    .def p {
+      display: table-cell;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .def p:first-child {
+      white-space: nowrap;
+    }
+
+    .def p:last-child {
+      width: 100%;
+    }
+
+
+  #index {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+    ul#index .class_name {
+      /* font-size: 110%; */
+      font-weight: bold;
+    }
+    #index ul {
+      margin: 0;
+    }
+
+  .item {
+    margin: 0 0 15px 0;
+  }
+
+    .item .class {
+      margin: 0 0 25px 30px;
+    }
+
+      .item .class ul.class_list {
+        margin: 0 0 20px 0;
+      }
+
+    .item .name {
+      background: #fafafa;
+      margin: 0;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 3px;
+      display: inline-block;
+      min-width: 40%;
+    }
+      .item .name:hover {
+        background: #f6f6f6;
+      }
+
+    .item .empty_desc {
+      margin: 0 0 5px 0;
+      padding: 0;
+    }
+
+    .item .inheritance {
+      margin: 3px 0 0 30px;
+    }
+
+    .item .inherited {
+      color: #666;
+    }
+
+    .item .desc {
+      padding: 0 8px;
+      margin: 0;
+    }
+
+      .item .desc p {
+        margin: 0 0 10px 0;
+      }
+
+    .source_cont {
+      margin: 0;
+      padding: 0;
+    }
+
+    .source_link a {
+      background: #ffc300;
+      font-weight: 400;
+      font-size: .75em;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 1px 1px 0 #f4b700;
+      
+      padding: 3px 8px;
+      border-radius: 2px;
+      transition: background .3s ease-in-out;
+    }
+      .source_link a:hover {
+        background: #FF7200;
+        text-shadow: none;
+        transition: background .3s ease-in-out;
+      }
+
+    .source {
+      display: none;
+      max-height: 600px;
+      overflow-y: scroll;
+      margin-bottom: 15px;
+    }
+
+      .source .codehilite {
+        margin: 0;
+      }
+
+  .desc h1, .desc h2, .desc h3 {
+    font-size: 100% !important;
+  }
+  .clear {
+    clear: both;
+  }
+
+  @media all and (max-width: 950px) {
+    #sidebar {
+      width: 35%;
+    }
+    #content {
+      width: 65%;
+    }
+  }
+  @media all and (max-width: 650px) {
+    #top {
+      display: none;
+    }
+    #sidebar {
+      float: none;
+      width: auto;
+    }
+    #content {
+      float: none;
+      width: auto;
+      padding: 30px;
+    }
+
+    #index ul {
+      padding: 0;
+      margin-bottom: 15px;
+    }
+    #index ul li {
+      display: inline-block;
+      margin-right: 30px;
+    }
+    #footer {
+      text-align: left;
+    }
+    #footer p {
+      display: block;
+      margin: inherit;
+    }
+  }
+
+  /*****************************/
+
+  </style>
+
+
+  <style type="text/css">
+  
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+  </style>
+
+  <script type="text/javascript">
+  function toggle(id, $link) {
+    $node = document.getElementById(id);
+    if (!$node)
+    return;
+    if (!$node.style.display || $node.style.display == 'none') {
+    $node.style.display = 'block';
+    $link.innerHTML = 'Hide source &nequiv;';
+    } else {
+    $node.style.display = 'none';
+    $link.innerHTML = 'Show source &equiv;';
+    }
+  }
+  </script>
+</head>
+<body>
+<a href="#" id="top">Top</a>
+
+<div id="container">
+    
+  
+  <div id="sidebar">
+    <h1>Index</h1>
+    <ul id="index">
+
+
+    <li class="set"><h3><a href="#header-classes">Classes</a></h3>
+      <ul>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.streamlet.impl.filterbolt.FilterBolt">FilterBolt</a></span>
+        
+          
+  <ul>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterBolt.is_tick">is_tick</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterBolt.__init__">__init__</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterBolt.ack">ack</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterBolt.emit">emit</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterBolt.fail">fail</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterBolt.init_state">init_state</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterBolt.initialize">initialize</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterBolt.log">log</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterBolt.pre_save">pre_save</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterBolt.process">process</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterBolt.process_tick">process_tick</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterBolt.spec">spec</a></li>
+  </ul>
+
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet">FilterStreamlet</a></span>
+        
+          
+  <ul>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.__init__">__init__</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.clone">clone</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.consume">consume</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.filter">filter</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.flat_map">flat_map</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.get_name">get_name</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.get_num_partitions">get_num_partitions</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.join">join</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.log">log</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.map">map</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.outer_join">outer_join</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.outer_left_join">outer_left_join</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.outer_right_join">outer_right_join</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.reduce_by_key_and_window">reduce_by_key_and_window</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.reduce_by_window">reduce_by_window</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.repartition">repartition</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.set_name">set_name</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.set_num_partitions">set_num_partitions</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.transform">transform</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet.union">union</a></li>
+  </ul>
+
+        </li>
+      </ul>
+    </li>
+
+    </ul>
+  </div>
+
+    <article id="content">
+      
+  
+
+  
+
+
+  <header id="section-intro">
+  <h1 class="title"><span class="name">heronpy.streamlet.impl.filterbolt</span> module</h1>
+  <p>module for filter bolt: FilterBolt</p>
+  
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt" class="source">
+    <pre><code>#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+
+#  Licensed to the Apache Software Foundation (ASF) under one
+#  or more contributor license agreements.  See the NOTICE file
+#  distributed with this work for additional information
+#  regarding copyright ownership.  The ASF licenses this file
+#  to you under the Apache License, Version 2.0 (the
+#  "License"); you may not use this file except in compliance
+#  with the License.  You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing,
+#  software distributed under the License is distributed on an
+#  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+#  KIND, either express or implied.  See the License for the
+#  specific language governing permissions and limitations
+#  under the License.
+
+"""module for filter bolt: FilterBolt"""
+from heronpy.api.state.stateful_component import StatefulComponent
+from heronpy.api.bolt.bolt import Bolt
+from heronpy.api.component.component_spec import GlobalStreamId
+from heronpy.api.stream import Grouping
+
+from heronpy.streamlet.streamlet import Streamlet
+from heronpy.streamlet.impl.streamletboltbase import StreamletBoltBase
+
+# pylint: disable=unused-argument
+class FilterBolt(Bolt, StatefulComponent, StreamletBoltBase):
+  """FilterBolt"""
+  FUNCTION = 'function'
+
+  def init_state(self, stateful_state):
+    # Filter does not have any state
+    pass
+
+  def pre_save(self, checkpoint_id):
+    # Filter does not have any state
+    pass
+
+  def initialize(self, config, context):
+    self.logger.debug("FilterBolt's Component-specific config: \n%s" % str(config))
+    self.processed = 0
+    self.emitted = 0
+    if FilterBolt.FUNCTION in config:
+      self.filter_function = config[FilterBolt.FUNCTION]
+    else:
+      raise RuntimeError("FilterBolt needs to be passed filter function")
+
+  def process(self, tup):
+    if self.filter_function(tup.values[0]):
+      self.emit([tup.values[0]], stream='output')
+      self.emitted += 1
+    self.processed += 1
+    self.ack(tup)
+
+# pylint: disable=protected-access
+class FilterStreamlet(Streamlet):
+  """FilterStreamlet"""
+  def __init__(self, filter_function, parent):
+    super(FilterStreamlet, self).__init__()
+    if not callable(filter_function):
+      raise RuntimeError("Filter function has to be callable")
+    if not isinstance(parent, Streamlet):
+      raise RuntimeError("Parent of Filter Streamlet has to be a Streamlet")
+    self._parent = parent
+    self._filter_function = filter_function
+    self.set_num_partitions(parent.get_num_partitions())
+
+  def _calculate_inputs(self):
+    return {GlobalStreamId(self._parent.get_name(), self._parent._output) :
+            Grouping.SHUFFLE}
+
+  def _build_this(self, builder, stage_names):
+    if not self.get_name():
+      self.set_name(self._default_stage_name_calculator("filter", stage_names))
+    if self.get_name() in stage_names:
+      raise RuntimeError("Duplicate Names")
+    stage_names.add(self.get_name())
+    builder.add_bolt(self.get_name(), FilterBolt, par=self.get_num_partitions(),
+                     inputs=self._calculate_inputs(),
+                     config={FilterBolt.FUNCTION : self._filter_function})
+    return True
+</code></pre>
+  </div>
+
+  </header>
+
+  <section id="section-items">
+
+
+    <h2 class="section-title" id="header-classes">Classes</h2>
+      
+      <div class="item">
+      <p id="heronpy.streamlet.impl.filterbolt.FilterBolt" class="name">class <span class="ident">FilterBolt</span></p>
+      
+  
+    <div class="desc"><p>FilterBolt</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterBolt', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterBolt" class="source">
+    <pre><code>class FilterBolt(Bolt, StatefulComponent, StreamletBoltBase):
+  """FilterBolt"""
+  FUNCTION = 'function'
+
+  def init_state(self, stateful_state):
+    # Filter does not have any state
+    pass
+
+  def pre_save(self, checkpoint_id):
+    # Filter does not have any state
+    pass
+
+  def initialize(self, config, context):
+    self.logger.debug("FilterBolt's Component-specific config: \n%s" % str(config))
+    self.processed = 0
+    self.emitted = 0
+    if FilterBolt.FUNCTION in config:
+      self.filter_function = config[FilterBolt.FUNCTION]
+    else:
+      raise RuntimeError("FilterBolt needs to be passed filter function")
+
+  def process(self, tup):
+    if self.filter_function(tup.values[0]):
+      self.emit([tup.values[0]], stream='output')
+      self.emitted += 1
+    self.processed += 1
+    self.ack(tup)
+</code></pre>
+  </div>
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.streamlet.impl.filterbolt.FilterBolt">FilterBolt</a></li>
+          <li>heronpy.api.bolt.bolt.Bolt</li>
+          <li>heronpy.api.bolt.base_bolt.BaseBolt</li>
+          <li>heronpy.api.component.base_component.BaseComponent</li>
+          <li>heronpy.api.state.stateful_component.StatefulComponent</li>
+          <li>heronpy.streamlet.impl.streamletboltbase.StreamletBoltBase</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="heronpy.streamlet.impl.filterbolt.FilterBolt.FUNCTION" class="name">var <span class="ident">FUNCTION</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.streamlet.impl.filterbolt.FilterBolt.outputs" class="name">var <span class="ident">outputs</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+          <h3>Static methods</h3>
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterBolt.is_tick">
+    <p>def <span class="ident">is_tick</span>(</p><p>tup)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Returns whether or not a given HeronTuple is a tick Tuple</p>
+<p>It is compatible with StreamParse API.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterBolt.is_tick', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterBolt.is_tick" class="source">
+    <pre><code>@staticmethod
+def is_tick(tup):
+  """Returns whether or not a given HeronTuple is a tick Tuple
+  It is compatible with StreamParse API.
+  """
+  return tup.stream == TupleHelper.TICK_TUPLE_ID
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+          <h3>Methods</h3>
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterBolt.__init__">
+    <p>def <span class="ident">__init__</span>(</p><p>self, delegate)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Initializes BaseComponent</p>
+<p>:param delegate: SpoutInstance or BoltInstance</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterBolt.__init__', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterBolt.__init__" class="source">
+    <pre><code>def __init__(self, delegate):
+  """Initializes BaseComponent
+  :param delegate: SpoutInstance or BoltInstance
+  """
+  self.delegate = delegate
+  self.logger = self.delegate.logger
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterBolt.ack">
+    <p>def <span class="ident">ack</span>(</p><p>self, tup)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Indicate that processing of a Tuple has succeeded</p>
+<p>It is compatible with StreamParse API.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterBolt.ack', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterBolt.ack" class="source">
+    <pre><code>def ack(self, tup):
+  """Indicate that processing of a Tuple has succeeded
+  It is compatible with StreamParse API.
+  """
+  self.delegate.ack(tup)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterBolt.emit">
+    <p>def <span class="ident">emit</span>(</p><p>self, tup, stream=&#39;default&#39;, anchors=None, direct_task=None, need_task_ids=False)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Emits a new tuple from this Bolt</p>
+<p>It is compatible with StreamParse API.</p>
+<p>:type tup: list or tuple
+:param tup: the new output Tuple to send from this bolt,
+            which should contain only serializable data.
+:type stream: str
+:param stream: the ID of the stream to emit this Tuple to.
+               Leave empty to emit to the default stream.
+:type anchors: list
+:param anchors: a list of HeronTuples to which the emitted Tuples should be anchored.
+:type direct_task: int
+:param direct_task: the task to send the Tuple to if performing a direct emit.
+:type need_task_ids: bool
+:param need_task_ids: indicate whether or not you would like the task IDs the Tuple was emitted.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterBolt.emit', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterBolt.emit" class="source">
+    <pre><code>def emit(self, tup, stream=Stream.DEFAULT_STREAM_ID,
+         anchors=None, direct_task=None, need_task_ids=False):
+  """Emits a new tuple from this Bolt
+  It is compatible with StreamParse API.
+  :type tup: list or tuple
+  :param tup: the new output Tuple to send from this bolt,
+              which should contain only serializable data.
+  :type stream: str
+  :param stream: the ID of the stream to emit this Tuple to.
+                 Leave empty to emit to the default stream.
+  :type anchors: list
+  :param anchors: a list of HeronTuples to which the emitted Tuples should be anchored.
+  :type direct_task: int
+  :param direct_task: the task to send the Tuple to if performing a direct emit.
+  :type need_task_ids: bool
+  :param need_task_ids: indicate whether or not you would like the task IDs the Tuple was emitted.
+  """
+  self.delegate.emit(tup, stream, anchors, direct_task, need_task_ids)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterBolt.fail">
+    <p>def <span class="ident">fail</span>(</p><p>self, tup)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Indicate that processing of a Tuple has failed</p>
+<p>It is compatible with StreamParse API.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterBolt.fail', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterBolt.fail" class="source">
+    <pre><code>def fail(self, tup):
+  """Indicate that processing of a Tuple has failed
+  It is compatible with StreamParse API.
+  """
+  self.delegate.fail(tup)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterBolt.init_state">
+    <p>def <span class="ident">init_state</span>(</p><p>self, stateful_state)</p>
+    </div>
+    
+
+    
+  
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterBolt.init_state', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterBolt.init_state" class="source">
+    <pre><code>def init_state(self, stateful_state):
+  # Filter does not have any state
+  pass
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterBolt.initialize">
+    <p>def <span class="ident">initialize</span>(</p><p>self, config, context)</p>
+    </div>
+    
+
+    
+  
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterBolt.initialize', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterBolt.initialize" class="source">
+    <pre><code>def initialize(self, config, context):
+  self.logger.debug("FilterBolt's Component-specific config: \n%s" % str(config))
+  self.processed = 0
+  self.emitted = 0
+  if FilterBolt.FUNCTION in config:
+    self.filter_function = config[FilterBolt.FUNCTION]
+  else:
+    raise RuntimeError("FilterBolt needs to be passed filter function")
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterBolt.log">
+    <p>def <span class="ident">log</span>(</p><p>self, message, level=None)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Log message, optionally providing a logging level</p>
+<p>:type message: str
+:param message: the log message to send
+:type level: str
+:param level: the logging level,
+              one of: trace (=debug), debug, info, warn or error (default: info)</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterBolt.log', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterBolt.log" class="source">
+    <pre><code>def log(self, message, level=None):
+  """Log message, optionally providing a logging level
+  :type message: str
+  :param message: the log message to send
+  :type level: str
+  :param level: the logging level,
+                one of: trace (=debug), debug, info, warn or error (default: info)
+  """
+  self.delegate.log(message, level)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterBolt.pre_save">
+    <p>def <span class="ident">pre_save</span>(</p><p>self, checkpoint_id)</p>
+    </div>
+    
+
+    
+  
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterBolt.pre_save', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterBolt.pre_save" class="source">
+    <pre><code>def pre_save(self, checkpoint_id):
+  # Filter does not have any state
+  pass
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterBolt.process">
+    <p>def <span class="ident">process</span>(</p><p>self, tup)</p>
+    </div>
+    
+
+    
+  
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterBolt.process', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterBolt.process" class="source">
+    <pre><code>def process(self, tup):
+  if self.filter_function(tup.values[0]):
+    self.emit([tup.values[0]], stream='output')
+    self.emitted += 1
+  self.processed += 1
+  self.ack(tup)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterBolt.process_tick">
+    <p>def <span class="ident">process_tick</span>(</p><p>self, tup)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Process special tick tuple</p>
+<p>It is compatible with StreamParse API.</p>
+<p>Tick tuples allow time-based behavior to be included in bolts. They will be sent to the bolts
+for which `topology.tick.tuple.freq.secs<code>(or,</code>.api_constants.TOPOLOGY_TICK_TUPLE_FREQ_SECS`` key) is set to an integer value, the
+number of seconds.</p>
+<p>Default behavior is to ignore tick tuples. This method should be overridden by subclasses
+if you want to react to timer events via tick tuples.</p>
+<p>:type tup: :class:<code>Tuple</code>
+:param tup: the tick tuple to be processed</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterBolt.process_tick', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterBolt.process_tick" class="source">
+    <pre><code>@abstractmethod
+def process_tick(self, tup):
+  """Process special tick tuple
+  It is compatible with StreamParse API.
+  Tick tuples allow time-based behavior to be included in bolts. They will be sent to the bolts
+  for which `topology.tick.tuple.freq.secs``
+  (or, ``.api_constants.TOPOLOGY_TICK_TUPLE_FREQ_SECS`` key) is set to an integer value, the
+  number of seconds.
+  Default behavior is to ignore tick tuples. This method should be overridden by subclasses
+  if you want to react to timer events via tick tuples.
+  :type tup: :class:`Tuple`
+  :param tup: the tick tuple to be processed
+  """
+  pass
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterBolt.spec">
+    <p>def <span class="ident">spec</span>(</p><p>cls, name=None, inputs=None, par=1, config=None, optional_outputs=None)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Register this bolt to the topology and create <code>HeronComponentSpec</code></p>
+<p>This method takes an optional <code>outputs</code> argument for supporting dynamic output fields
+declaration. However, it is recommended that <code>outputs</code> should be declared as
+an attribute of your <code>Bolt</code> subclass. Also, some ways of declaring inputs is not supported
+in this implementation; please read the documentation below.</p>
+<p>:type name: str
+:param name: Name of this bolt.
+:type inputs: dict or list
+:param inputs: Streams that feed into this Bolt.</p>
+<pre><code>           Two forms of this are acceptable:
+
+           1. A `dict` mapping from ``HeronComponentSpec`` to ``Grouping``.
+              In this case, default stream is used.
+           2. A `dict` mapping from ``GlobalStreamId`` to ``Grouping``.
+              This ``GlobalStreamId`` object itself is different from StreamParse, because
+              Heron does not use thrift, although its constructor method is compatible.
+           3. A `list` of ``HeronComponentSpec``. In this case, default stream with
+              SHUFFLE grouping is used.
+           4. A `list` of ``GlobalStreamId``. In this case, SHUFFLE grouping is used.
+</code></pre>
+<p>:type par: int
+:param par: Parallelism hint for this spout.
+:type config: dict
+:param config: Component-specific config settings.
+:type optional_outputs: list of (str or Stream) or tuple of (str or Stream)
+:param optional_outputs: Additional output fields for this bolt. These fields are added to
+                         existing <code>outputs</code> class attributes of your bolt. This is an optional
+                         argument, and exists only for supporting dynamic output field
+                         declaration.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterBolt.spec', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterBolt.spec" class="source">
+    <pre><code>@classmethod
+def spec(cls, name=None, inputs=None, par=1, config=None, optional_outputs=None):
+  """Register this bolt to the topology and create ``HeronComponentSpec``
+  This method takes an optional ``outputs`` argument for supporting dynamic output fields
+  declaration. However, it is recommended that ``outputs`` should be declared as
+  an attribute of your ``Bolt`` subclass. Also, some ways of declaring inputs is not supported
+  in this implementation; please read the documentation below.
+  :type name: str
+  :param name: Name of this bolt.
+  :type inputs: dict or list
+  :param inputs: Streams that feed into this Bolt.
+                 Two forms of this are acceptable:
+                 1. A `dict` mapping from ``HeronComponentSpec`` to ``Grouping``.
+                    In this case, default stream is used.
+                 2. A `dict` mapping from ``GlobalStreamId`` to ``Grouping``.
+                    This ``GlobalStreamId`` object itself is different from StreamParse, because
+                    Heron does not use thrift, although its constructor method is compatible.
+                 3. A `list` of ``HeronComponentSpec``. In this case, default stream with
+                    SHUFFLE grouping is used.
+                 4. A `list` of ``GlobalStreamId``. In this case, SHUFFLE grouping is used.
+  :type par: int
+  :param par: Parallelism hint for this spout.
+  :type config: dict
+  :param config: Component-specific config settings.
+  :type optional_outputs: list of (str or Stream) or tuple of (str or Stream)
+  :param optional_outputs: Additional output fields for this bolt. These fields are added to
+                           existing ``outputs`` class attributes of your bolt. This is an optional
+                           argument, and exists only for supporting dynamic output field
+                           declaration.
+  """
+  python_class_path = "%s.%s" % (cls.__module__, cls.__name__)
+  if hasattr(cls, 'outputs'):
+    # avoid modification to cls.outputs
+    _outputs = copy.copy(cls.outputs)
+  else:
+    _outputs = []
+  if optional_outputs is not None:
+    assert isinstance(optional_outputs, (list, tuple))
+    for out in optional_outputs:
+      assert isinstance(out, (str, Stream))
+      _outputs.append(out)
+  return HeronComponentSpec(name, python_class_path, is_spout=False, par=par,
+                            inputs=inputs, outputs=_outputs, config=config)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="heronpy.streamlet.impl.filterbolt.FilterStreamlet" class="name">class <span class="ident">FilterStreamlet</span></p>
+      
+  
+    <div class="desc"><p>FilterStreamlet</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet" class="source">
+    <pre><code>class FilterStreamlet(Streamlet):
+  """FilterStreamlet"""
+  def __init__(self, filter_function, parent):
+    super(FilterStreamlet, self).__init__()
+    if not callable(filter_function):
+      raise RuntimeError("Filter function has to be callable")
+    if not isinstance(parent, Streamlet):
+      raise RuntimeError("Parent of Filter Streamlet has to be a Streamlet")
+    self._parent = parent
+    self._filter_function = filter_function
+    self.set_num_partitions(parent.get_num_partitions())
+
+  def _calculate_inputs(self):
+    return {GlobalStreamId(self._parent.get_name(), self._parent._output) :
+            Grouping.SHUFFLE}
+
+  def _build_this(self, builder, stage_names):
+    if not self.get_name():
+      self.set_name(self._default_stage_name_calculator("filter", stage_names))
+    if self.get_name() in stage_names:
+      raise RuntimeError("Duplicate Names")
+    stage_names.add(self.get_name())
+    builder.add_bolt(self.get_name(), FilterBolt, par=self.get_num_partitions(),
+                     inputs=self._calculate_inputs(),
+                     config={FilterBolt.FUNCTION : self._filter_function})
+    return True
+</code></pre>
+  </div>
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.streamlet.impl.filterbolt.FilterStreamlet">FilterStreamlet</a></li>
+          <li>heronpy.streamlet.streamlet.Streamlet</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Methods</h3>
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.__init__">
+    <p>def <span class="ident">__init__</span>(</p><p>self, filter_function, parent)</p>
+    </div>
+    
+
+    
+  
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.__init__', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.__init__" class="source">
+    <pre><code>def __init__(self, filter_function, parent):
+  super(FilterStreamlet, self).__init__()
+  if not callable(filter_function):
+    raise RuntimeError("Filter function has to be callable")
+  if not isinstance(parent, Streamlet):
+    raise RuntimeError("Parent of Filter Streamlet has to be a Streamlet")
+  self._parent = parent
+  self._filter_function = filter_function
+  self.set_num_partitions(parent.get_num_partitions())
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.clone">
+    <p>def <span class="ident">clone</span>(</p><p>self, num_clones)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return num_clones number of streamlets each containing all elements
+of the current streamlet</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.clone', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.clone" class="source">
+    <pre><code>def clone(self, num_clones):
+  """Return num_clones number of streamlets each containing all elements
+  of the current streamlet
+  """
+  retval = []
+  for i in range(num_clones):
+    retval.append(self.repartition(self.get_num_partitions()))
+  return retval
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.consume">
+    <p>def <span class="ident">consume</span>(</p><p>self, consume_function)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Calls consume_function for each element of this streamlet. This function returns nothing</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.consume', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.consume" class="source">
+    <pre><code>def consume(self, consume_function):
+  """Calls consume_function for each element of this streamlet. This function returns nothing
+  """
+  from heronpy.streamlet.impl.consumebolt import ConsumeStreamlet
+  consume_streamlet = ConsumeStreamlet(consume_function, self)
+  self._add_child(consume_streamlet)
+  return
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.filter">
+    <p>def <span class="ident">filter</span>(</p><p>self, filter_function)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return a new Streamlet containing only the elements that satisfy filter_function</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.filter', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.filter" class="source">
+    <pre><code>def filter(self, filter_function):
+  """Return a new Streamlet containing only the elements that satisfy filter_function
+  """
+  from heronpy.streamlet.impl.filterbolt import FilterStreamlet
+  filter_streamlet = FilterStreamlet(filter_function, self)
+  self._add_child(filter_streamlet)
+  return filter_streamlet
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.flat_map">
+    <p>def <span class="ident">flat_map</span>(</p><p>self, flatmap_function)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return a new Streamlet by applying map_function to each element of this Streamlet
+and flattening the result</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.flat_map', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.flat_map" class="source">
+    <pre><code>def flat_map(self, flatmap_function):
+  """Return a new Streamlet by applying map_function to each element of this Streamlet
+     and flattening the result
+  """
+  from heronpy.streamlet.impl.flatmapbolt import FlatMapStreamlet
+  fm_streamlet = FlatMapStreamlet(flatmap_function, self)
+  self._add_child(fm_streamlet)
+  return fm_streamlet
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.get_name">
+    <p>def <span class="ident">get_name</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.get_name', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.get_name" class="source">
+    <pre><code>def get_name(self):
+  return self._name
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.get_num_partitions">
+    <p>def <span class="ident">get_num_partitions</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.get_num_partitions', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.get_num_partitions" class="source">
+    <pre><code>def get_num_partitions(self):
+  return self._num_partitions
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.join">
+    <p>def <span class="ident">join</span>(</p><p>self, join_streamlet, window_config, join_function)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return a new Streamlet by joining join_streamlet with this streamlet</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.join', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.join" class="source">
+    <pre><code>def join(self, join_streamlet, window_config, join_function):
+  """Return a new Streamlet by joining join_streamlet with this streamlet
+  """
+  from heronpy.streamlet.impl.joinbolt import JoinStreamlet, JoinBolt
+  join_streamlet_result = JoinStreamlet(JoinBolt.INNER, window_config,
+                                        join_function, self, join_streamlet)
+  self._add_child(join_streamlet_result)
+  join_streamlet._add_child(join_streamlet_result)
+  return join_streamlet_result
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.log">
+    <p>def <span class="ident">log</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Logs all elements of this streamlet. This returns nothing</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.log', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.log" class="source">
+    <pre><code>def log(self):
+  """Logs all elements of this streamlet. This returns nothing
+  """
+  from heronpy.streamlet.impl.logbolt import LogStreamlet
+  log_streamlet = LogStreamlet(self)
+  self._add_child(log_streamlet)
+  return
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.map">
+    <p>def <span class="ident">map</span>(</p><p>self, map_function)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return a new Streamlet by applying map_function to each element of this Streamlet.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.map', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.map" class="source">
+    <pre><code>def map(self, map_function):
+  """Return a new Streamlet by applying map_function to each element of this Streamlet.
+  """
+  from heronpy.streamlet.impl.mapbolt import MapStreamlet
+  map_streamlet = MapStreamlet(map_function, self)
+  self._add_child(map_streamlet)
+  return map_streamlet
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.outer_join">
+    <p>def <span class="ident">outer_join</span>(</p><p>self, join_streamlet, window_config, join_function)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return a new Streamlet by outer join_streamlet with this streamlet</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.outer_join', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.outer_join" class="source">
+    <pre><code>def outer_join(self, join_streamlet, window_config, join_function):
+  """Return a new Streamlet by outer join_streamlet with this streamlet
+  """
+  from heronpy.streamlet.impl.joinbolt import JoinStreamlet, JoinBolt
+  join_streamlet_result = JoinStreamlet(JoinBolt.OUTER, window_config,
+                                        join_function, self, join_streamlet)
+  self._add_child(join_streamlet_result)
+  join_streamlet._add_child(join_streamlet_result)
+  return join_streamlet_result
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.outer_left_join">
+    <p>def <span class="ident">outer_left_join</span>(</p><p>self, join_streamlet, window_config, join_function)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return a new Streamlet by left join_streamlet with this streamlet</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.outer_left_join', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.outer_left_join" class="source">
+    <pre><code>def outer_left_join(self, join_streamlet, window_config, join_function):
+  """Return a new Streamlet by left join_streamlet with this streamlet
+  """
+  from heronpy.streamlet.impl.joinbolt import JoinStreamlet, JoinBolt
+  join_streamlet_result = JoinStreamlet(JoinBolt.OUTER_LEFT, window_config,
+                                        join_function, self, join_streamlet)
+  self._add_child(join_streamlet_result)
+  join_streamlet._add_child(join_streamlet_result)
+  return join_streamlet_result
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.outer_right_join">
+    <p>def <span class="ident">outer_right_join</span>(</p><p>self, join_streamlet, window_config, join_function)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return a new Streamlet by outer right join_streamlet with this streamlet</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.outer_right_join', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.outer_right_join" class="source">
+    <pre><code>def outer_right_join(self, join_streamlet, window_config, join_function):
+  """Return a new Streamlet by outer right join_streamlet with this streamlet
+  """
+  from heronpy.streamlet.impl.joinbolt import JoinStreamlet, JoinBolt
+  join_streamlet_result = JoinStreamlet(JoinBolt.OUTER_RIGHT, window_config,
+                                        join_function, self, join_streamlet)
+  self._add_child(join_streamlet_result)
+  join_streamlet._add_child(join_streamlet_result)
+  return join_streamlet_result
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.reduce_by_key_and_window">
+    <p>def <span class="ident">reduce_by_key_and_window</span>(</p><p>self, window_config, reduce_function)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return a new Streamlet in which each (key, value) pair of this Streamlet are collected
+over the time_window and then reduced using the reduce_function</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.reduce_by_key_and_window', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.reduce_by_key_and_window" class="source">
+    <pre><code>def reduce_by_key_and_window(self, window_config, reduce_function):
+  """Return a new Streamlet in which each (key, value) pair of this Streamlet are collected
+     over the time_window and then reduced using the reduce_function
+  """
+  from heronpy.streamlet.impl.reducebykeyandwindowbolt import ReduceByKeyAndWindowStreamlet
+  reduce_streamlet = ReduceByKeyAndWindowStreamlet(window_config, reduce_function, self)
+  self._add_child(reduce_streamlet)
+  return reduce_streamlet
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.reduce_by_window">
+    <p>def <span class="ident">reduce_by_window</span>(</p><p>self, window_config, reduce_function)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return a new Streamlet in which each element of this Streamlet are collected
+over a window defined by window_config and then reduced using the reduce_function
+reduce_function takes two element at one time and reduces them to one element that
+is used in the subsequent operations.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.reduce_by_window', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.reduce_by_window" class="source">
+    <pre><code>def reduce_by_window(self, window_config, reduce_function):
+  """Return a new Streamlet in which each element of this Streamlet are collected
+    over a window defined by window_config and then reduced using the reduce_function
+    reduce_function takes two element at one time and reduces them to one element that
+    is used in the subsequent operations.
+  """
+  from heronpy.streamlet.impl.reducebywindowbolt import ReduceByWindowStreamlet
+  reduce_streamlet = ReduceByWindowStreamlet(window_config, reduce_function, self)
+  self._add_child(reduce_streamlet)
+  return reduce_streamlet
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.repartition">
+    <p>def <span class="ident">repartition</span>(</p><p>self, num_partitions, repartition_function=None)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return a new Streamlet containing all elements of the this streamlet but having
+num_partitions partitions. Note that this is different from num_partitions(n) in
+that new streamlet will be created by the repartition call.
+If repartiton_function is not None, it is used to decide which parititons
+(from 0 to num_partitions -1), it should route each element to.
+It could also return a list of partitions if it wants to send it to multiple
+partitions.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.repartition', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.repartition" class="source">
+    <pre><code>def repartition(self, num_partitions, repartition_function=None):
+  """Return a new Streamlet containing all elements of the this streamlet but having
+  num_partitions partitions. Note that this is different from num_partitions(n) in
+  that new streamlet will be created by the repartition call.
+  If repartiton_function is not None, it is used to decide which parititons
+  (from 0 to num_partitions -1), it should route each element to.
+  It could also return a list of partitions if it wants to send it to multiple
+  partitions.
+  """
+  from heronpy.streamlet.impl.repartitionbolt import RepartitionStreamlet
+  if repartition_function is None:
+    repartition_function = lambda x: x
+  repartition_streamlet = RepartitionStreamlet(num_partitions, repartition_function, self)
+  self._add_child(repartition_streamlet)
+  return repartition_streamlet
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.set_name">
+    <p>def <span class="ident">set_name</span>(</p><p>self, name)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Sets the name of the Streamlet</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.set_name', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.set_name" class="source">
+    <pre><code>def set_name(self, name):
+  """Sets the name of the Streamlet"""
+  self._name = name
+  return self
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.set_num_partitions">
+    <p>def <span class="ident">set_num_partitions</span>(</p><p>self, num_partitions)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Sets the number of partitions</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.set_num_partitions', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.set_num_partitions" class="source">
+    <pre><code>def set_num_partitions(self, num_partitions):
+  """Sets the number of partitions"""
+  self._num_partitions = num_partitions
+  return self
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.transform">
+    <p>def <span class="ident">transform</span>(</p><p>self, transform_operator)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Returns a  new Streamlet by applying the transform_operator on each element of this
+streamlet. The transform_function is of the type TransformOperator.
+Before starting to cycle over the Streamlet, the open function of the transform_operator is
+called. This allows the transform_operator to do any kind of initialization/loading, etc.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.transform', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.transform" class="source">
+    <pre><code>def transform(self, transform_operator):
+  """Returns a  new Streamlet by applying the transform_operator on each element of this
+  streamlet. The transform_function is of the type TransformOperator.
+  Before starting to cycle over the Streamlet, the open function of the transform_operator is
+  called. This allows the transform_operator to do any kind of initialization/loading, etc.
+  """
+  from heronpy.streamlet.impl.transformbolt import TransformStreamlet
+  transform_streamlet = TransformStreamlet(transform_operator, self)
+  self._add_child(transform_streamlet)
+  return transform_streamlet
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.filterbolt.FilterStreamlet.union">
+    <p>def <span class="ident">union</span>(</p><p>self, other_streamlet)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Returns a new Streamlet that consists of elements of both this and other_streamlet</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.union', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.filterbolt.FilterStreamlet.union" class="source">
+    <pre><code>def union(self, other_streamlet):
+  """Returns a new Streamlet that consists of elements of both this and other_streamlet
+  """
+  from heronpy.streamlet.impl.unionbolt import UnionStreamlet
+  union_streamlet = UnionStreamlet(self, other_streamlet)
+  self._add_child(union_streamlet)
+  other_streamlet._add_child(union_streamlet)
+  return union_streamlet
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+      </div>
+      </div>
+
+  </section>
+
+    </article>
+  <div class="clear"> </div>
+  <footer id="footer">
+    <p>
+      Documentation generated by
+      <a href="https://github.com/BurntSushi/pdoc">pdoc 0.3.2</a>
+    </p>
+
+    <p>pdoc is in the public domain with the
+      <a href="http://unlicense.org">UNLICENSE</a></p>
+
+    <p>Design by <a href="http://nadh.in">Kailash Nadh</a></p>
+  </footer>
+</div>
+</body>
+</html>

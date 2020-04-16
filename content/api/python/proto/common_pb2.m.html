@@ -3,8 +3,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <title>heronpy.streamlet API documentation</title>
-    <meta name="description" content="module for heronpy streamlet API" />
+    <title>heronpy.proto.common_pb2 API documentation</title>
+    <meta name="description" content="" />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
   
@@ -969,25 +969,41 @@ table {
   <div id="sidebar">
     <h1>Index</h1>
     <ul id="index">
+    <li class="set"><h3><a href="#header-variables">Module variables</a></h3>
+      
+  <ul>
+    <li class="mono"><a href="#heronpy.proto.common_pb2.DESCRIPTOR">DESCRIPTOR</a></li>
+    <li class="mono"><a href="#heronpy.proto.common_pb2.DUPLICATE_STRMGR">DUPLICATE_STRMGR</a></li>
+    <li class="mono"><a href="#heronpy.proto.common_pb2.INVALID_STMGR">INVALID_STMGR</a></li>
+    <li class="mono"><a href="#heronpy.proto.common_pb2.INVALID_TOPOLOGY_NAME">INVALID_TOPOLOGY_NAME</a></li>
+    <li class="mono"><a href="#heronpy.proto.common_pb2.METRICSCACHELOCATION_ALREADY_EXISTS">METRICSCACHELOCATION_ALREADY_EXISTS</a></li>
+    <li class="mono"><a href="#heronpy.proto.common_pb2.NOTOK">NOTOK</a></li>
+    <li class="mono"><a href="#heronpy.proto.common_pb2.NOT_YET_IMPLEMENTED">NOT_YET_IMPLEMENTED</a></li>
+    <li class="mono"><a href="#heronpy.proto.common_pb2.OK">OK</a></li>
+    <li class="mono"><a href="#heronpy.proto.common_pb2.PATH_ALREADY_EXISTS">PATH_ALREADY_EXISTS</a></li>
+    <li class="mono"><a href="#heronpy.proto.common_pb2.PATH_DOES_NOT_EXIST">PATH_DOES_NOT_EXIST</a></li>
+    <li class="mono"><a href="#heronpy.proto.common_pb2.STATE_CORRUPTED">STATE_CORRUPTED</a></li>
+    <li class="mono"><a href="#heronpy.proto.common_pb2.STATE_READ_ERROR">STATE_READ_ERROR</a></li>
+    <li class="mono"><a href="#heronpy.proto.common_pb2.STATE_WRITE_ERROR">STATE_WRITE_ERROR</a></li>
+    <li class="mono"><a href="#heronpy.proto.common_pb2.STMGR_DIDNT_REGISTER">STMGR_DIDNT_REGISTER</a></li>
+    <li class="mono"><a href="#heronpy.proto.common_pb2.StatusCode">StatusCode</a></li>
+    <li class="mono"><a href="#heronpy.proto.common_pb2.TMASTERLOCATION_ALREADY_EXISTS">TMASTERLOCATION_ALREADY_EXISTS</a></li>
+    <li class="mono"><a href="#heronpy.proto.common_pb2.TOPOLOGY_ALREADY_ACTIVE">TOPOLOGY_ALREADY_ACTIVE</a></li>
+    <li class="mono"><a href="#heronpy.proto.common_pb2.TOPOLOGY_ALREADY_DEACTIVE">TOPOLOGY_ALREADY_DEACTIVE</a></li>
+  </ul>
+
+    </li>
 
 
-
-    <li class="set"><h3><a href="#header-submodules">Sub-modules</a></h3>
+    <li class="set"><h3><a href="#header-classes">Classes</a></h3>
       <ul>
-        <li class="mono"><a href="builder.m.html">heronpy.streamlet.builder</a></li>
-        <li class="mono"><a href="config.m.html">heronpy.streamlet.config</a></li>
-        <li class="mono"><a href="context.m.html">heronpy.streamlet.context</a></li>
-        <li class="mono"><a href="generator.m.html">heronpy.streamlet.generator</a></li>
-        <li class="mono"><a href="impl/index.html">heronpy.streamlet.impl</a></li>
-        <li class="mono"><a href="keyedwindow.m.html">heronpy.streamlet.keyedwindow</a></li>
-        <li class="mono"><a href="resources.m.html">heronpy.streamlet.resources</a></li>
-        <li class="mono"><a href="runner.m.html">heronpy.streamlet.runner</a></li>
-        <li class="mono"><a href="streamlet.m.html">heronpy.streamlet.streamlet</a></li>
-        <li class="mono"><a href="transformoperator.m.html">heronpy.streamlet.transformoperator</a></li>
-        <li class="mono"><a href="window.m.html">heronpy.streamlet.window</a></li>
-        <li class="mono"><a href="windowconfig.m.html">heronpy.streamlet.windowconfig</a></li>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.proto.common_pb2.Status">Status</a></span>
+        
+        </li>
       </ul>
     </li>
+
     </ul>
   </div>
 
@@ -999,123 +1015,402 @@ table {
 
 
   <header id="section-intro">
-  <h1 class="title"><span class="name">heronpy.streamlet</span> module</h1>
-  <p>module for heronpy streamlet API</p>
+  <h1 class="title"><span class="name">heronpy.proto.common_pb2</span> module</h1>
   
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet', this);">Show source &equiv;</a></p>
-  <div id="source-heronpy.streamlet" class="source">
-    <pre><code># Licensed to the Apache Software Foundation (ASF) under one
-# or more contributor license agreements.  See the NOTICE file
-# distributed with this work for additional information
-# regarding copyright ownership.  The ASF licenses this file
-# to you under the Apache License, Version 2.0 (the
-# "License"); you may not use this file except in compliance
-# with the License.  You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing,
-# software distributed under the License is distributed on an
-# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-# KIND, either express or implied.  See the License for the
-# specific language governing permissions and limitations
-# under the License.
-'''module for heronpy streamlet API'''
-__import__('pkg_resources').declare_namespace(__name__)
+  
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.proto.common_pb2', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.proto.common_pb2" class="source">
+    <pre><code># -*- coding: utf-8 -*-
+# Generated by the protocol buffer compiler.  DO NOT EDIT!
+# source: common.proto
+
+import sys
+_b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
+from google.protobuf.internal import enum_type_wrapper
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from google.protobuf import reflection as _reflection
+from google.protobuf import symbol_database as _symbol_database
+# @@protoc_insertion_point(imports)
+
+_sym_db = _symbol_database.Default()
+
+
+
+
+DESCRIPTOR = _descriptor.FileDescriptor(
+  name='common.proto',
+  package='heron.proto.system',
+  syntax='proto2',
+  serialized_options=_b('\n\035org.apache.heron.proto.systemB\006Common'),
+  serialized_pb=_b('\n\x0c\x63ommon.proto\x12\x12heron.proto.system\"I\n\x06Status\x12.\n\x06status\x18\x01 \x02(\x0e\x32\x1e.heron.proto.system.StatusCode\x12\x0f\n\x07message\x18\x02 \x01(\t*\x9d\x03\n\nStatusCode\x12\x06\n\x02OK\x10\x01\x12\t\n\x05NOTOK\x10\x02\x12\x19\n\x15INVALID_TOPOLOGY_NAME\x10\x64\x12\x1b\n\x17TOPOLOGY_ALREADY_ACTIVE\x10\x65\x12\x1d\n\x19TOPOLOGY_ALREADY_DEACTIVE\x10\x66\x12\x17\n\x13NOT_YET_IMPLEMENTED\x10g\x12\x12\n\rINVALID_STMGR\x10\xe8\x07\x12\x19\n\x14STMGR_DIDNT_REGISTER\x10\xe9\x07\x12\x15\n\x10\x44UPLICATE_STRMGR\x10\xea\x07\x12\x18\n\x13PATH_DOES_NOT_EXIST\x10\xd0\x0f\x12\x18\n\x13PATH_ALREADY_EXISTS\x10\xd1\x0f\x12#\n\x1eTMASTERLOCATION_ALREADY_EXISTS\x10\xd2\x0f\x12\x14\n\x0fSTATE_CORRUPTED\x10\xd3\x0f\x12\x15\n\x10STATE_READ_ERROR\x10\xd4\x0f\x12\x16\n\x11STATE_WRITE_ERROR\x10\xd5\x0f\x12(\n#METRICSCACHELOCATION_ALREADY_EXISTS\x10\xd6\x0f\x42\'\n\x1dorg.apache.heron.proto.systemB\x06\x43ommon')
+)
+
+_STATUSCODE = _descriptor.EnumDescriptor(
+  name='StatusCode',
+  full_name='heron.proto.system.StatusCode',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='OK', index=0, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='NOTOK', index=1, number=2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='INVALID_TOPOLOGY_NAME', index=2, number=100,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='TOPOLOGY_ALREADY_ACTIVE', index=3, number=101,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='TOPOLOGY_ALREADY_DEACTIVE', index=4, number=102,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='NOT_YET_IMPLEMENTED', index=5, number=103,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='INVALID_STMGR', index=6, number=1000,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='STMGR_DIDNT_REGISTER', index=7, number=1001,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DUPLICATE_STRMGR', index=8, number=1002,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PATH_DOES_NOT_EXIST', index=9, number=2000,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PATH_ALREADY_EXISTS', index=10, number=2001,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='TMASTERLOCATION_ALREADY_EXISTS', index=11, number=2002,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='STATE_CORRUPTED', index=12, number=2003,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='STATE_READ_ERROR', index=13, number=2004,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='STATE_WRITE_ERROR', index=14, number=2005,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='METRICSCACHELOCATION_ALREADY_EXISTS', index=15, number=2006,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=112,
+  serialized_end=525,
+)
+_sym_db.RegisterEnumDescriptor(_STATUSCODE)
+
+StatusCode = enum_type_wrapper.EnumTypeWrapper(_STATUSCODE)
+OK = 1
+NOTOK = 2
+INVALID_TOPOLOGY_NAME = 100
+TOPOLOGY_ALREADY_ACTIVE = 101
+TOPOLOGY_ALREADY_DEACTIVE = 102
+NOT_YET_IMPLEMENTED = 103
+INVALID_STMGR = 1000
+STMGR_DIDNT_REGISTER = 1001
+DUPLICATE_STRMGR = 1002
+PATH_DOES_NOT_EXIST = 2000
+PATH_ALREADY_EXISTS = 2001
+TMASTERLOCATION_ALREADY_EXISTS = 2002
+STATE_CORRUPTED = 2003
+STATE_READ_ERROR = 2004
+STATE_WRITE_ERROR = 2005
+METRICSCACHELOCATION_ALREADY_EXISTS = 2006
+
+
+
+_STATUS = _descriptor.Descriptor(
+  name='Status',
+  full_name='heron.proto.system.Status',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='status', full_name='heron.proto.system.Status.status', index=0,
+      number=1, type=14, cpp_type=8, label=2,
+      has_default_value=False, default_value=1,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='message', full_name='heron.proto.system.Status.message', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=36,
+  serialized_end=109,
+)
+
+_STATUS.fields_by_name['status'].enum_type = _STATUSCODE
+DESCRIPTOR.message_types_by_name['Status'] = _STATUS
+DESCRIPTOR.enum_types_by_name['StatusCode'] = _STATUSCODE
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+Status = _reflection.GeneratedProtocolMessageType('Status', (_message.Message,), {
+  'DESCRIPTOR' : _STATUS,
+  '__module__' : 'common_pb2'
+  # @@protoc_insertion_point(class_scope:heron.proto.system.Status)
+  })
+_sym_db.RegisterMessage(Status)
+
+
+DESCRIPTOR._options = None
+# @@protoc_insertion_point(module_scope)
 </code></pre>
   </div>
 
   </header>
 
   <section id="section-items">
-
-
-
-    <h2 class="section-title" id="header-submodules">Sub-modules</h2>
+    <h2 class="section-title" id="header-variables">Module variables</h2>
       <div class="item">
-      <p class="name"><a href="builder.m.html">heronpy.streamlet.builder</a></p>
+      <p id="heronpy.proto.common_pb2.DESCRIPTOR" class="name">var <span class="ident">DESCRIPTOR</span></p>
       
   
-    <div class="desc"><p>builder.py: module for creating streamlets</p></div>
+  <div class="source_cont">
+</div>
 
       </div>
       <div class="item">
-      <p class="name"><a href="config.m.html">heronpy.streamlet.config</a></p>
+      <p id="heronpy.proto.common_pb2.DUPLICATE_STRMGR" class="name">var <span class="ident">DUPLICATE_STRMGR</span></p>
       
   
-    <div class="desc"><p>config.py: module for defining config</p></div>
+  <div class="source_cont">
+</div>
 
       </div>
       <div class="item">
-      <p class="name"><a href="context.m.html">heronpy.streamlet.context</a></p>
+      <p id="heronpy.proto.common_pb2.INVALID_STMGR" class="name">var <span class="ident">INVALID_STMGR</span></p>
       
   
-    <div class="desc"><p>context.py: module for defining context</p></div>
+  <div class="source_cont">
+</div>
 
       </div>
       <div class="item">
-      <p class="name"><a href="generator.m.html">heronpy.streamlet.generator</a></p>
+      <p id="heronpy.proto.common_pb2.INVALID_TOPOLOGY_NAME" class="name">var <span class="ident">INVALID_TOPOLOGY_NAME</span></p>
       
   
-    <div class="desc"><p>generator.py: API for defining generic sources in python</p></div>
+  <div class="source_cont">
+</div>
 
       </div>
       <div class="item">
-      <p class="name"><a href="impl/index.html">heronpy.streamlet.impl</a></p>
+      <p id="heronpy.proto.common_pb2.METRICSCACHELOCATION_ALREADY_EXISTS" class="name">var <span class="ident">METRICSCACHELOCATION_ALREADY_EXISTS</span></p>
       
   
-    <div class="desc"><p>module for heronpy streamlet API impl</p></div>
+  <div class="source_cont">
+</div>
 
       </div>
       <div class="item">
-      <p class="name"><a href="keyedwindow.m.html">heronpy.streamlet.keyedwindow</a></p>
+      <p id="heronpy.proto.common_pb2.NOTOK" class="name">var <span class="ident">NOTOK</span></p>
       
   
-    <div class="desc"><p>keyedwindow.py: module for defining KeyedWindow</p></div>
+  <div class="source_cont">
+</div>
 
       </div>
       <div class="item">
-      <p class="name"><a href="resources.m.html">heronpy.streamlet.resources</a></p>
+      <p id="heronpy.proto.common_pb2.NOT_YET_IMPLEMENTED" class="name">var <span class="ident">NOT_YET_IMPLEMENTED</span></p>
       
   
-    <div class="desc"><p>resources.py: module for defining resources</p></div>
+  <div class="source_cont">
+</div>
 
       </div>
       <div class="item">
-      <p class="name"><a href="runner.m.html">heronpy.streamlet.runner</a></p>
+      <p id="heronpy.proto.common_pb2.OK" class="name">var <span class="ident">OK</span></p>
       
   
-    <div class="desc"><p>runner.py: module for creating Runner</p></div>
+  <div class="source_cont">
+</div>
 
       </div>
       <div class="item">
-      <p class="name"><a href="streamlet.m.html">heronpy.streamlet.streamlet</a></p>
+      <p id="heronpy.proto.common_pb2.PATH_ALREADY_EXISTS" class="name">var <span class="ident">PATH_ALREADY_EXISTS</span></p>
       
   
-    <div class="desc"><p>streamlet.py: module for defining the basic concept of the heron python streamlet API</p></div>
+  <div class="source_cont">
+</div>
 
       </div>
       <div class="item">
-      <p class="name"><a href="transformoperator.m.html">heronpy.streamlet.transformoperator</a></p>
+      <p id="heronpy.proto.common_pb2.PATH_DOES_NOT_EXIST" class="name">var <span class="ident">PATH_DOES_NOT_EXIST</span></p>
       
   
-    <div class="desc"><p>transformoperator.py: API for defining generic transformer in python</p></div>
+  <div class="source_cont">
+</div>
 
       </div>
       <div class="item">
-      <p class="name"><a href="window.m.html">heronpy.streamlet.window</a></p>
+      <p id="heronpy.proto.common_pb2.STATE_CORRUPTED" class="name">var <span class="ident">STATE_CORRUPTED</span></p>
       
   
-    <div class="desc"><p>window.py: module for defining Window</p></div>
+  <div class="source_cont">
+</div>
 
       </div>
       <div class="item">
-      <p class="name"><a href="windowconfig.m.html">heronpy.streamlet.windowconfig</a></p>
+      <p id="heronpy.proto.common_pb2.STATE_READ_ERROR" class="name">var <span class="ident">STATE_READ_ERROR</span></p>
       
   
-    <div class="desc"><p>windowconfig.py: module for defining windowconfig</p></div>
+  <div class="source_cont">
+</div>
 
       </div>
+      <div class="item">
+      <p id="heronpy.proto.common_pb2.STATE_WRITE_ERROR" class="name">var <span class="ident">STATE_WRITE_ERROR</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+      </div>
+      <div class="item">
+      <p id="heronpy.proto.common_pb2.STMGR_DIDNT_REGISTER" class="name">var <span class="ident">STMGR_DIDNT_REGISTER</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+      </div>
+      <div class="item">
+      <p id="heronpy.proto.common_pb2.StatusCode" class="name">var <span class="ident">StatusCode</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+      </div>
+      <div class="item">
+      <p id="heronpy.proto.common_pb2.TMASTERLOCATION_ALREADY_EXISTS" class="name">var <span class="ident">TMASTERLOCATION_ALREADY_EXISTS</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+      </div>
+      <div class="item">
+      <p id="heronpy.proto.common_pb2.TOPOLOGY_ALREADY_ACTIVE" class="name">var <span class="ident">TOPOLOGY_ALREADY_ACTIVE</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+      </div>
+      <div class="item">
+      <p id="heronpy.proto.common_pb2.TOPOLOGY_ALREADY_DEACTIVE" class="name">var <span class="ident">TOPOLOGY_ALREADY_DEACTIVE</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+      </div>
+
+
+    <h2 class="section-title" id="header-classes">Classes</h2>
+      
+      <div class="item">
+      <p id="heronpy.proto.common_pb2.Status" class="name">class <span class="ident">Status</span></p>
+      
+  
+  <div class="source_cont">
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.proto.common_pb2.Status">Status</a></li>
+          <li>google.protobuf.pyext._message.CMessage</li>
+          <li>google.protobuf.message.Message</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="heronpy.proto.common_pb2.Status.DESCRIPTOR" class="name">var <span class="ident">DESCRIPTOR</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.common_pb2.Status.Extensions" class="name">var <span class="ident">Extensions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.common_pb2.Status.message" class="name">var <span class="ident">message</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.proto.common_pb2.Status.status" class="name">var <span class="ident">status</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+
   </section>
 
     </article>

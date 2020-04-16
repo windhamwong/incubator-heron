@@ -3,8 +3,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <title>heronpy.streamlet API documentation</title>
-    <meta name="description" content="module for heronpy streamlet API" />
+    <title>heronpy.api.spout.base_spout API documentation</title>
+    <meta name="description" content="base_spout.py" />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
   
@@ -971,23 +971,23 @@ table {
     <ul id="index">
 
 
-
-    <li class="set"><h3><a href="#header-submodules">Sub-modules</a></h3>
+    <li class="set"><h3><a href="#header-classes">Classes</a></h3>
       <ul>
-        <li class="mono"><a href="builder.m.html">heronpy.streamlet.builder</a></li>
-        <li class="mono"><a href="config.m.html">heronpy.streamlet.config</a></li>
-        <li class="mono"><a href="context.m.html">heronpy.streamlet.context</a></li>
-        <li class="mono"><a href="generator.m.html">heronpy.streamlet.generator</a></li>
-        <li class="mono"><a href="impl/index.html">heronpy.streamlet.impl</a></li>
-        <li class="mono"><a href="keyedwindow.m.html">heronpy.streamlet.keyedwindow</a></li>
-        <li class="mono"><a href="resources.m.html">heronpy.streamlet.resources</a></li>
-        <li class="mono"><a href="runner.m.html">heronpy.streamlet.runner</a></li>
-        <li class="mono"><a href="streamlet.m.html">heronpy.streamlet.streamlet</a></li>
-        <li class="mono"><a href="transformoperator.m.html">heronpy.streamlet.transformoperator</a></li>
-        <li class="mono"><a href="window.m.html">heronpy.streamlet.window</a></li>
-        <li class="mono"><a href="windowconfig.m.html">heronpy.streamlet.windowconfig</a></li>
+        <li class="mono">
+        <span class="class_name"><a href="#heronpy.api.spout.base_spout.BaseSpout">BaseSpout</a></span>
+        
+          
+  <ul>
+    <li class="mono"><a href="#heronpy.api.spout.base_spout.BaseSpout.__init__">__init__</a></li>
+    <li class="mono"><a href="#heronpy.api.spout.base_spout.BaseSpout.emit">emit</a></li>
+    <li class="mono"><a href="#heronpy.api.spout.base_spout.BaseSpout.log">log</a></li>
+    <li class="mono"><a href="#heronpy.api.spout.base_spout.BaseSpout.spec">spec</a></li>
+  </ul>
+
+        </li>
       </ul>
     </li>
+
     </ul>
   </div>
 
@@ -999,29 +999,105 @@ table {
 
 
   <header id="section-intro">
-  <h1 class="title"><span class="name">heronpy.streamlet</span> module</h1>
-  <p>module for heronpy streamlet API</p>
+  <h1 class="title"><span class="name">heronpy.api.spout.base_spout</span> module</h1>
+  <p>base_spout.py</p>
   
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet', this);">Show source &equiv;</a></p>
-  <div id="source-heronpy.streamlet" class="source">
-    <pre><code># Licensed to the Apache Software Foundation (ASF) under one
-# or more contributor license agreements.  See the NOTICE file
-# distributed with this work for additional information
-# regarding copyright ownership.  The ASF licenses this file
-# to you under the Apache License, Version 2.0 (the
-# "License"); you may not use this file except in compliance
-# with the License.  You may obtain a copy of the License at
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.spout.base_spout', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.api.spout.base_spout" class="source">
+    <pre><code># Copyright 2016 - Parsely, Inc. (d/b/a Parse.ly)
 #
-#   http://www.apache.org/licenses/LICENSE-2.0
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
 #
-# Unless required by applicable law or agreed to in writing,
-# software distributed under the License is distributed on an
-# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-# KIND, either express or implied.  See the License for the
-# specific language governing permissions and limitations
-# under the License.
-'''module for heronpy streamlet API'''
-__import__('pkg_resources').declare_namespace(__name__)
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+'''base_spout.py'''
+import copy
+
+from heronpy.api.component.component_spec import HeronComponentSpec
+from heronpy.api.component.base_component import BaseComponent
+from heronpy.api.stream import Stream
+
+class BaseSpout(BaseComponent):
+  """BaseSpout class
+
+  This is the base for heron spout, which wraps the implementation of publicly available methods.
+  This includes:
+    - <classmethod> spec()
+    - emit()
+
+  They are compatible with StreamParse API.
+  """
+  # pylint: disable=no-member
+  @classmethod
+  def spec(cls, name=None, par=1, config=None, optional_outputs=None):
+    """Register this spout to the topology and create ``HeronComponentSpec``
+
+    The usage of this method is compatible with StreamParse API, although it does not create
+    ``ShellBoltSpec`` but instead directly registers to a ``Topology`` class.
+
+    This method takes an optional ``outputs`` argument for supporting dynamic output fields
+    declaration. However, it is recommended that ``outputs`` should be declared as
+    an attribute of your ``Spout`` subclass. Also, some ways of declaring inputs is not supported
+    in this implementation; please read the documentation below.
+
+    :type name: str
+    :param name: Name of this spout.
+    :type par: int
+    :param par: Parallelism hint for this spout.
+    :type config: dict
+    :param config: Component-specific config settings.
+    :type optional_outputs: list of (str or Stream) or tuple of (str or Stream)
+    :param optional_outputs: Additional output fields for this spout. These fields are added to
+                             existing ``outputs`` class attributes of your spout.
+                             This is an optional argument, and exists only for supporting dynamic
+                             output field declaration.
+    """
+    python_class_path = "%s.%s" % (cls.__module__, cls.__name__)
+
+    if hasattr(cls, 'outputs'):
+      # avoid modification to cls.outputs
+      _outputs = copy.copy(cls.outputs)
+    else:
+      _outputs = []
+
+    if optional_outputs is not None:
+      assert isinstance(optional_outputs, (list, tuple))
+      for out in optional_outputs:
+        assert isinstance(out, (str, Stream))
+        _outputs.append(out)
+
+    return HeronComponentSpec(name, python_class_path, is_spout=True, par=par,
+                              inputs=None, outputs=_outputs, config=config)
+
+  # pylint: disable=unused-argument
+  def emit(self, tup, tup_id=None, stream=Stream.DEFAULT_STREAM_ID,
+           direct_task=None, need_task_ids=False):
+    """Emits a new tuple from this Spout
+
+    It is compatible with StreamParse API.
+
+    :type tup: list or tuple
+    :param tup: the new output Tuple to send from this spout,
+                should contain only serializable data.
+    :type tup_id: str or object
+    :param tup_id: the ID for the Tuple. Leave this blank for an unreliable emit.
+                   (Same as messageId in Java)
+    :type stream: str
+    :param stream: the ID of the stream this Tuple should be emitted to.
+                   Leave empty to emit to the default stream.
+    :type direct_task: int
+    :param direct_task: the task to send the Tuple to if performing a direct emit.
+    :type need_task_ids: bool
+    :param need_task_ids: indicate whether or not you would like the task IDs the Tuple was emitted.
+    """
+    return self.delegate.emit(tup, tup_id, stream, direct_task, need_task_ids)
 </code></pre>
   </div>
 
@@ -1030,92 +1106,292 @@ __import__('pkg_resources').declare_namespace(__name__)
   <section id="section-items">
 
 
-
-    <h2 class="section-title" id="header-submodules">Sub-modules</h2>
+    <h2 class="section-title" id="header-classes">Classes</h2>
+      
       <div class="item">
-      <p class="name"><a href="builder.m.html">heronpy.streamlet.builder</a></p>
+      <p id="heronpy.api.spout.base_spout.BaseSpout" class="name">class <span class="ident">BaseSpout</span></p>
       
   
-    <div class="desc"><p>builder.py: module for creating streamlets</p></div>
+    <div class="desc"><p>BaseSpout class</p>
+<p>This is the base for heron spout, which wraps the implementation of publicly available methods.
+This includes:
+  - <classmethod> spec()
+  - emit()</p>
+<p>They are compatible with StreamParse API.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.spout.base_spout.BaseSpout', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.api.spout.base_spout.BaseSpout" class="source">
+    <pre><code>class BaseSpout(BaseComponent):
+  """BaseSpout class
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="config.m.html">heronpy.streamlet.config</a></p>
-      
+  This is the base for heron spout, which wraps the implementation of publicly available methods.
+  This includes:
+    - <classmethod> spec()
+    - emit()
+
+  They are compatible with StreamParse API.
+  """
+  # pylint: disable=no-member
+  @classmethod
+  def spec(cls, name=None, par=1, config=None, optional_outputs=None):
+    """Register this spout to the topology and create ``HeronComponentSpec``
+
+    The usage of this method is compatible with StreamParse API, although it does not create
+    ``ShellBoltSpec`` but instead directly registers to a ``Topology`` class.
+
+    This method takes an optional ``outputs`` argument for supporting dynamic output fields
+    declaration. However, it is recommended that ``outputs`` should be declared as
+    an attribute of your ``Spout`` subclass. Also, some ways of declaring inputs is not supported
+    in this implementation; please read the documentation below.
+
+    :type name: str
+    :param name: Name of this spout.
+    :type par: int
+    :param par: Parallelism hint for this spout.
+    :type config: dict
+    :param config: Component-specific config settings.
+    :type optional_outputs: list of (str or Stream) or tuple of (str or Stream)
+    :param optional_outputs: Additional output fields for this spout. These fields are added to
+                             existing ``outputs`` class attributes of your spout.
+                             This is an optional argument, and exists only for supporting dynamic
+                             output field declaration.
+    """
+    python_class_path = "%s.%s" % (cls.__module__, cls.__name__)
+
+    if hasattr(cls, 'outputs'):
+      # avoid modification to cls.outputs
+      _outputs = copy.copy(cls.outputs)
+    else:
+      _outputs = []
+
+    if optional_outputs is not None:
+      assert isinstance(optional_outputs, (list, tuple))
+      for out in optional_outputs:
+        assert isinstance(out, (str, Stream))
+        _outputs.append(out)
+
+    return HeronComponentSpec(name, python_class_path, is_spout=True, par=par,
+                              inputs=None, outputs=_outputs, config=config)
+
+  # pylint: disable=unused-argument
+  def emit(self, tup, tup_id=None, stream=Stream.DEFAULT_STREAM_ID,
+           direct_task=None, need_task_ids=False):
+    """Emits a new tuple from this Spout
+
+    It is compatible with StreamParse API.
+
+    :type tup: list or tuple
+    :param tup: the new output Tuple to send from this spout,
+                should contain only serializable data.
+    :type tup_id: str or object
+    :param tup_id: the ID for the Tuple. Leave this blank for an unreliable emit.
+                   (Same as messageId in Java)
+    :type stream: str
+    :param stream: the ID of the stream this Tuple should be emitted to.
+                   Leave empty to emit to the default stream.
+    :type direct_task: int
+    :param direct_task: the task to send the Tuple to if performing a direct emit.
+    :type need_task_ids: bool
+    :param need_task_ids: indicate whether or not you would like the task IDs the Tuple was emitted.
+    """
+    return self.delegate.emit(tup, tup_id, stream, direct_task, need_task_ids)
+</code></pre>
+  </div>
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#heronpy.api.spout.base_spout.BaseSpout">BaseSpout</a></li>
+          <li>heronpy.api.component.base_component.BaseComponent</li>
+          <li>__builtin__.object</li>
+          </ul>
+          <h3>Methods</h3>
+            
+  <div class="item">
+    <div class="name def" id="heronpy.api.spout.base_spout.BaseSpout.__init__">
+    <p>def <span class="ident">__init__</span>(</p><p>self, delegate)</p>
+    </div>
+    
+
+    
   
-    <div class="desc"><p>config.py: module for defining config</p></div>
+    <div class="desc"><p>Initializes BaseComponent</p>
+<p>:param delegate: SpoutInstance or BoltInstance</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.spout.base_spout.BaseSpout.__init__', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.api.spout.base_spout.BaseSpout.__init__" class="source">
+    <pre><code>def __init__(self, delegate):
+  """Initializes BaseComponent
+  :param delegate: SpoutInstance or BoltInstance
+  """
+  self.delegate = delegate
+  self.logger = self.delegate.logger
+</code></pre>
+  </div>
+</div>
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="context.m.html">heronpy.streamlet.context</a></p>
-      
+  </div>
   
-    <div class="desc"><p>context.py: module for defining context</p></div>
+            
+  <div class="item">
+    <div class="name def" id="heronpy.api.spout.base_spout.BaseSpout.emit">
+    <p>def <span class="ident">emit</span>(</p><p>self, tup, tup_id=None, stream=&#39;default&#39;, direct_task=None, need_task_ids=False)</p>
+    </div>
+    
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="generator.m.html">heronpy.streamlet.generator</a></p>
-      
+    
   
-    <div class="desc"><p>generator.py: API for defining generic sources in python</p></div>
+    <div class="desc"><p>Emits a new tuple from this Spout</p>
+<p>It is compatible with StreamParse API.</p>
+<p>:type tup: list or tuple
+:param tup: the new output Tuple to send from this spout,
+            should contain only serializable data.
+:type tup_id: str or object
+:param tup_id: the ID for the Tuple. Leave this blank for an unreliable emit.
+               (Same as messageId in Java)
+:type stream: str
+:param stream: the ID of the stream this Tuple should be emitted to.
+               Leave empty to emit to the default stream.
+:type direct_task: int
+:param direct_task: the task to send the Tuple to if performing a direct emit.
+:type need_task_ids: bool
+:param need_task_ids: indicate whether or not you would like the task IDs the Tuple was emitted.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.spout.base_spout.BaseSpout.emit', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.api.spout.base_spout.BaseSpout.emit" class="source">
+    <pre><code>def emit(self, tup, tup_id=None, stream=Stream.DEFAULT_STREAM_ID,
+         direct_task=None, need_task_ids=False):
+  """Emits a new tuple from this Spout
+  It is compatible with StreamParse API.
+  :type tup: list or tuple
+  :param tup: the new output Tuple to send from this spout,
+              should contain only serializable data.
+  :type tup_id: str or object
+  :param tup_id: the ID for the Tuple. Leave this blank for an unreliable emit.
+                 (Same as messageId in Java)
+  :type stream: str
+  :param stream: the ID of the stream this Tuple should be emitted to.
+                 Leave empty to emit to the default stream.
+  :type direct_task: int
+  :param direct_task: the task to send the Tuple to if performing a direct emit.
+  :type need_task_ids: bool
+  :param need_task_ids: indicate whether or not you would like the task IDs the Tuple was emitted.
+  """
+  return self.delegate.emit(tup, tup_id, stream, direct_task, need_task_ids)
+</code></pre>
+  </div>
+</div>
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="impl/index.html">heronpy.streamlet.impl</a></p>
-      
+  </div>
   
-    <div class="desc"><p>module for heronpy streamlet API impl</p></div>
+            
+  <div class="item">
+    <div class="name def" id="heronpy.api.spout.base_spout.BaseSpout.log">
+    <p>def <span class="ident">log</span>(</p><p>self, message, level=None)</p>
+    </div>
+    
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="keyedwindow.m.html">heronpy.streamlet.keyedwindow</a></p>
-      
+    
   
-    <div class="desc"><p>keyedwindow.py: module for defining KeyedWindow</p></div>
+    <div class="desc"><p>Log message, optionally providing a logging level</p>
+<p>:type message: str
+:param message: the log message to send
+:type level: str
+:param level: the logging level,
+              one of: trace (=debug), debug, info, warn or error (default: info)</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.spout.base_spout.BaseSpout.log', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.api.spout.base_spout.BaseSpout.log" class="source">
+    <pre><code>def log(self, message, level=None):
+  """Log message, optionally providing a logging level
+  :type message: str
+  :param message: the log message to send
+  :type level: str
+  :param level: the logging level,
+                one of: trace (=debug), debug, info, warn or error (default: info)
+  """
+  self.delegate.log(message, level)
+</code></pre>
+  </div>
+</div>
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="resources.m.html">heronpy.streamlet.resources</a></p>
-      
+  </div>
   
-    <div class="desc"><p>resources.py: module for defining resources</p></div>
+            
+  <div class="item">
+    <div class="name def" id="heronpy.api.spout.base_spout.BaseSpout.spec">
+    <p>def <span class="ident">spec</span>(</p><p>cls, name=None, par=1, config=None, optional_outputs=None)</p>
+    </div>
+    
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="runner.m.html">heronpy.streamlet.runner</a></p>
-      
+    
   
-    <div class="desc"><p>runner.py: module for creating Runner</p></div>
+    <div class="desc"><p>Register this spout to the topology and create <code>HeronComponentSpec</code></p>
+<p>The usage of this method is compatible with StreamParse API, although it does not create
+<code>ShellBoltSpec</code> but instead directly registers to a <code>Topology</code> class.</p>
+<p>This method takes an optional <code>outputs</code> argument for supporting dynamic output fields
+declaration. However, it is recommended that <code>outputs</code> should be declared as
+an attribute of your <code>Spout</code> subclass. Also, some ways of declaring inputs is not supported
+in this implementation; please read the documentation below.</p>
+<p>:type name: str
+:param name: Name of this spout.
+:type par: int
+:param par: Parallelism hint for this spout.
+:type config: dict
+:param config: Component-specific config settings.
+:type optional_outputs: list of (str or Stream) or tuple of (str or Stream)
+:param optional_outputs: Additional output fields for this spout. These fields are added to
+                         existing <code>outputs</code> class attributes of your spout.
+                         This is an optional argument, and exists only for supporting dynamic
+                         output field declaration.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.spout.base_spout.BaseSpout.spec', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.api.spout.base_spout.BaseSpout.spec" class="source">
+    <pre><code>@classmethod
+def spec(cls, name=None, par=1, config=None, optional_outputs=None):
+  """Register this spout to the topology and create ``HeronComponentSpec``
+  The usage of this method is compatible with StreamParse API, although it does not create
+  ``ShellBoltSpec`` but instead directly registers to a ``Topology`` class.
+  This method takes an optional ``outputs`` argument for supporting dynamic output fields
+  declaration. However, it is recommended that ``outputs`` should be declared as
+  an attribute of your ``Spout`` subclass. Also, some ways of declaring inputs is not supported
+  in this implementation; please read the documentation below.
+  :type name: str
+  :param name: Name of this spout.
+  :type par: int
+  :param par: Parallelism hint for this spout.
+  :type config: dict
+  :param config: Component-specific config settings.
+  :type optional_outputs: list of (str or Stream) or tuple of (str or Stream)
+  :param optional_outputs: Additional output fields for this spout. These fields are added to
+                           existing ``outputs`` class attributes of your spout.
+                           This is an optional argument, and exists only for supporting dynamic
+                           output field declaration.
+  """
+  python_class_path = "%s.%s" % (cls.__module__, cls.__name__)
+  if hasattr(cls, 'outputs'):
+    # avoid modification to cls.outputs
+    _outputs = copy.copy(cls.outputs)
+  else:
+    _outputs = []
+  if optional_outputs is not None:
+    assert isinstance(optional_outputs, (list, tuple))
+    for out in optional_outputs:
+      assert isinstance(out, (str, Stream))
+      _outputs.append(out)
+  return HeronComponentSpec(name, python_class_path, is_spout=True, par=par,
+                            inputs=None, outputs=_outputs, config=config)
+</code></pre>
+  </div>
+</div>
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="streamlet.m.html">heronpy.streamlet.streamlet</a></p>
-      
+  </div>
   
-    <div class="desc"><p>streamlet.py: module for defining the basic concept of the heron python streamlet API</p></div>
-
       </div>
-      <div class="item">
-      <p class="name"><a href="transformoperator.m.html">heronpy.streamlet.transformoperator</a></p>
-      
-  
-    <div class="desc"><p>transformoperator.py: API for defining generic transformer in python</p></div>
-
       </div>
-      <div class="item">
-      <p class="name"><a href="window.m.html">heronpy.streamlet.window</a></p>
-      
-  
-    <div class="desc"><p>window.py: module for defining Window</p></div>
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="windowconfig.m.html">heronpy.streamlet.windowconfig</a></p>
-      
-  
-    <div class="desc"><p>windowconfig.py: module for defining windowconfig</p></div>
-
-      </div>
   </section>
 
     </article>
