@@ -996,7 +996,7 @@ table {
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.streamletspoutbase', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.impl.streamletspoutbase" class="source">
-    <pre><code>#!/usr/bin/env python
+    <pre><code>#!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
 #  Licensed to the Apache Software Foundation (ASF) under one
@@ -1019,7 +1019,7 @@ table {
 """module for base streamlet API spout: StreamletSpoutBase"""
 from heronpy.api.stream import Stream
 
-class StreamletSpoutBase(object):
+class StreamletSpoutBase:
   """StreamletSpoutBase"""
   # output declarer
   outputs = [Stream(fields=['_output_'], name='output')]
@@ -1041,7 +1041,7 @@ class StreamletSpoutBase(object):
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.streamletspoutbase.StreamletSpoutBase', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.impl.streamletspoutbase.StreamletSpoutBase" class="source">
-    <pre><code>class StreamletSpoutBase(object):
+    <pre><code>class StreamletSpoutBase:
   """StreamletSpoutBase"""
   # output declarer
   outputs = [Stream(fields=['_output_'], name='output')]
@@ -1054,7 +1054,7 @@ class StreamletSpoutBase(object):
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.streamlet.impl.streamletspoutbase.StreamletSpoutBase">StreamletSpoutBase</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
           <h3>Class variables</h3>
             <div class="item">

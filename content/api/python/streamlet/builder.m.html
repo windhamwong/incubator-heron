@@ -1003,7 +1003,7 @@ table {
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.builder', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.builder" class="source">
-    <pre><code>#!/usr/bin/env python
+    <pre><code>#!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
 #  Licensed to the Apache Software Foundation (ASF) under one
@@ -1025,13 +1025,11 @@ table {
 
 '''builder.py: module for creating streamlets'''
 
-import sets
-
 from heronpy.streamlet.generator import Generator
 from heronpy.streamlet.impl.supplierspout import SupplierStreamlet
 from heronpy.streamlet.impl.generatorspout import GeneratorStreamlet
 
-class Builder(object):
+class Builder:
   """A Builder object is used to build the functional API DAG in Heron."""
   def __init__(self):
     """
@@ -1055,7 +1053,7 @@ class Builder(object):
   # pylint: disable=protected-access
   def build(self, bldr):
     """Builds the topology and returns the builder"""
-    stage_names = sets.Set()
+    stage_names = set()
     for source in self._sources:
       source._build(bldr, stage_names)
     for source in self._sources:
@@ -1079,7 +1077,7 @@ class Builder(object):
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.builder.Builder', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.builder.Builder" class="source">
-    <pre><code>class Builder(object):
+    <pre><code>class Builder:
   """A Builder object is used to build the functional API DAG in Heron."""
   def __init__(self):
     """
@@ -1103,7 +1101,7 @@ class Builder(object):
   # pylint: disable=protected-access
   def build(self, bldr):
     """Builds the topology and returns the builder"""
-    stage_names = sets.Set()
+    stage_names = set()
     for source in self._sources:
       source._build(bldr, stage_names)
     for source in self._sources:
@@ -1118,9 +1116,9 @@ class Builder(object):
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.streamlet.builder.Builder">Builder</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.streamlet.builder.Builder.__init__">
@@ -1158,7 +1156,7 @@ class Builder(object):
   <div id="source-heronpy.streamlet.builder.Builder.build" class="source">
     <pre><code>def build(self, bldr):
   """Builds the topology and returns the builder"""
-  stage_names = sets.Set()
+  stage_names = set()
   for source in self._sources:
     source._build(bldr, stage_names)
   for source in self._sources:

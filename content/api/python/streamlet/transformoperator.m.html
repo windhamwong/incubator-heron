@@ -1018,7 +1018,7 @@ table {
 '''transformoperator.py: API for defining generic transformer in python'''
 from abc import abstractmethod
 
-class TransformOperator(object):
+class TransformOperator:
   """API for defining a generic transformer for Heron in the Python Streamlet API
   """
 
@@ -1070,7 +1070,7 @@ class TransformOperator(object):
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.transformoperator.TransformOperator', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.transformoperator.TransformOperator" class="source">
-    <pre><code>class TransformOperator(object):
+    <pre><code>class TransformOperator:
   """API for defining a generic transformer for Heron in the Python Streamlet API
   """
 
@@ -1113,9 +1113,9 @@ class TransformOperator(object):
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.streamlet.transformoperator.TransformOperator">TransformOperator</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.streamlet.transformoperator.TransformOperator.setup">

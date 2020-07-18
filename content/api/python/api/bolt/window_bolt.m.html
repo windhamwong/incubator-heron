@@ -978,13 +978,13 @@ table {
         
           
   <ul>
-    <li class="mono"><a href="#heronpy.api.bolt.window_bolt.SlidingWindowBolt.is_tick">is_tick</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.window_bolt.SlidingWindowBolt.__init__">__init__</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.window_bolt.SlidingWindowBolt.ack">ack</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.window_bolt.SlidingWindowBolt.emit">emit</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.window_bolt.SlidingWindowBolt.fail">fail</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.window_bolt.SlidingWindowBolt.init_state">init_state</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.window_bolt.SlidingWindowBolt.initialize">initialize</a></li>
+    <li class="mono"><a href="#heronpy.api.bolt.window_bolt.SlidingWindowBolt.is_tick">is_tick</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.window_bolt.SlidingWindowBolt.log">log</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.window_bolt.SlidingWindowBolt.pre_save">pre_save</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.window_bolt.SlidingWindowBolt.process">process</a></li>
@@ -999,13 +999,13 @@ table {
         
           
   <ul>
-    <li class="mono"><a href="#heronpy.api.bolt.window_bolt.TumblingWindowBolt.is_tick">is_tick</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.window_bolt.TumblingWindowBolt.__init__">__init__</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.window_bolt.TumblingWindowBolt.ack">ack</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.window_bolt.TumblingWindowBolt.emit">emit</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.window_bolt.TumblingWindowBolt.fail">fail</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.window_bolt.TumblingWindowBolt.init_state">init_state</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.window_bolt.TumblingWindowBolt.initialize">initialize</a></li>
+    <li class="mono"><a href="#heronpy.api.bolt.window_bolt.TumblingWindowBolt.is_tick">is_tick</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.window_bolt.TumblingWindowBolt.log">log</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.window_bolt.TumblingWindowBolt.pre_save">pre_save</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.window_bolt.TumblingWindowBolt.process">process</a></li>
@@ -1038,7 +1038,7 @@ table {
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.bolt.window_bolt', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.bolt.window_bolt" class="source">
-    <pre><code>#!/usr/bin/env python
+    <pre><code>#!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
 #  Licensed to the Apache Software Foundation (ASF) under one
@@ -1099,7 +1099,6 @@ class SlidingWindowBolt(Bolt, StatefulComponent):
     :type tuples: :class:`list of Tuples`
     :param tuples: The list of tuples in this window
     """
-    pass
 
   # pylint: disable=unused-argument
   def initialize(self, config, context):
@@ -1149,8 +1148,8 @@ class SlidingWindowBolt(Bolt, StatefulComponent):
     curtime = int(time.time())
     window_info = WindowContext(curtime - self.window_duration, curtime)
     tuple_batch = []
-    for (tup, tm) in self.current_tuples:
-      tuple_batch.append(tup)
+    for (tuple_, tm) in self.current_tuples:
+      tuple_batch.append(tuple_)
     self.processWindow(window_info, tuple_batch)
     self._expire(curtime)
 
@@ -1185,7 +1184,6 @@ class TumblingWindowBolt(Bolt, StatefulComponent):
     :type tuples: :class:`list of Tuples`
     :param tuples: The list of tuples in this window
     """
-    pass
 
   # pylint: disable=unused-argument
   def initialize(self, config, context):
@@ -1218,8 +1216,8 @@ class TumblingWindowBolt(Bolt, StatefulComponent):
     curtime = int(time.time())
     window_info = WindowContext(curtime - self.window_duration, curtime)
     self.processWindow(window_info, list(self.current_tuples))
-    for tup in self.current_tuples:
-      self.ack(tup)
+    for tuple_ in self.current_tuples:
+      self.ack(tuple_)
     self.current_tuples.clear()
 </code></pre>
   </div>
@@ -1273,7 +1271,6 @@ This way users will just have to deal with writing processWindow function</p></d
     :type tuples: :class:`list of Tuples`
     :param tuples: The list of tuples in this window
     """
-    pass
 
   # pylint: disable=unused-argument
   def initialize(self, config, context):
@@ -1323,8 +1320,8 @@ This way users will just have to deal with writing processWindow function</p></d
     curtime = int(time.time())
     window_info = WindowContext(curtime - self.window_duration, curtime)
     tuple_batch = []
-    for (tup, tm) in self.current_tuples:
-      tuple_batch.append(tup)
+    for (tuple_, tm) in self.current_tuples:
+      tuple_batch.append(tuple_)
     self.processWindow(window_info, tuple_batch)
     self._expire(curtime)
 </code></pre>
@@ -1340,7 +1337,7 @@ This way users will just have to deal with writing processWindow function</p></d
           <li>heronpy.api.bolt.base_bolt.BaseBolt</li>
           <li>heronpy.api.component.base_component.BaseComponent</li>
           <li>heronpy.api.state.stateful_component.StatefulComponent</li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
           <h3>Class variables</h3>
             <div class="item">
@@ -1364,33 +1361,6 @@ This way users will just have to deal with writing processWindow function</p></d
 
             </div>
           <h3>Static methods</h3>
-            
-  <div class="item">
-    <div class="name def" id="heronpy.api.bolt.window_bolt.SlidingWindowBolt.is_tick">
-    <p>def <span class="ident">is_tick</span>(</p><p>tup)</p>
-    </div>
-    
-
-    
-  
-    <div class="desc"><p>Returns whether or not a given HeronTuple is a tick Tuple</p>
-<p>It is compatible with StreamParse API.</p></div>
-  <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.bolt.window_bolt.SlidingWindowBolt.is_tick', this);">Show source &equiv;</a></p>
-  <div id="source-heronpy.api.bolt.window_bolt.SlidingWindowBolt.is_tick" class="source">
-    <pre><code>@staticmethod
-def is_tick(tup):
-  """Returns whether or not a given HeronTuple is a tick Tuple
-  It is compatible with StreamParse API.
-  """
-  return tup.stream == TupleHelper.TICK_TUPLE_ID
-</code></pre>
-  </div>
-</div>
-
-  </div>
-  
-          <h3>Methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.bolt.window_bolt.SlidingWindowBolt.__init__">
@@ -1526,6 +1496,13 @@ def is_tick(tup):
 
     
   
+    <div class="desc"><p>Initializes the state of the function or operator to that of a previous checkpoint.
+This method is invoked when a component is executed as part of a recovery run. In case
+there was no prior state associated with the component, the state will be empty.
+Stateful Spouts/Bolts are expected to hold on to the state variable to save their
+internal state
+Note that init_state() is called before initialize()
+:param state: the previously saved state of the component.</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.bolt.window_bolt.SlidingWindowBolt.init_state', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.bolt.window_bolt.SlidingWindowBolt.init_state" class="source">
@@ -1577,6 +1554,32 @@ def is_tick(tup):
   
             
   <div class="item">
+    <div class="name def" id="heronpy.api.bolt.window_bolt.SlidingWindowBolt.is_tick">
+    <p>def <span class="ident">is_tick</span>(</p><p>tup)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Returns whether or not a given HeronTuple is a tick Tuple</p>
+<p>It is compatible with StreamParse API.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.bolt.window_bolt.SlidingWindowBolt.is_tick', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.api.bolt.window_bolt.SlidingWindowBolt.is_tick" class="source">
+    <pre><code>@staticmethod
+def is_tick(tup):
+  """Returns whether or not a given HeronTuple is a tick Tuple
+  It is compatible with StreamParse API.
+  """
+  return tup.stream == TupleHelper.TICK_TUPLE_ID
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
     <div class="name def" id="heronpy.api.bolt.window_bolt.SlidingWindowBolt.log">
     <p>def <span class="ident">log</span>(</p><p>self, message, level=None)</p>
     </div>
@@ -1617,6 +1620,8 @@ def is_tick(tup):
 
     
   
+    <div class="desc"><p>This is a hook for the component to perform some actions just before the
+framework saves its state.</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.bolt.window_bolt.SlidingWindowBolt.pre_save', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.bolt.window_bolt.SlidingWindowBolt.pre_save" class="source">
@@ -1688,7 +1693,6 @@ def processWindow(self, window_info, tuples):
   :type tuples: :class:`list of Tuples`
   :param tuples: The list of tuples in this window
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1714,8 +1718,8 @@ def processWindow(self, window_info, tuples):
   curtime = int(time.time())
   window_info = WindowContext(curtime - self.window_duration, curtime)
   tuple_batch = []
-  for (tup, tm) in self.current_tuples:
-    tuple_batch.append(tup)
+  for (tuple_, tm) in self.current_tuples:
+    tuple_batch.append(tuple_)
   self.processWindow(window_info, tuple_batch)
   self._expire(curtime)
 </code></pre>
@@ -1724,6 +1728,7 @@ def processWindow(self, window_info, tuples):
 
   </div>
   
+          <h3>Methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.bolt.window_bolt.SlidingWindowBolt.spec">
@@ -1858,7 +1863,6 @@ This way users will just have to deal with writing processWindow function</p></d
     :type tuples: :class:`list of Tuples`
     :param tuples: The list of tuples in this window
     """
-    pass
 
   # pylint: disable=unused-argument
   def initialize(self, config, context):
@@ -1891,8 +1895,8 @@ This way users will just have to deal with writing processWindow function</p></d
     curtime = int(time.time())
     window_info = WindowContext(curtime - self.window_duration, curtime)
     self.processWindow(window_info, list(self.current_tuples))
-    for tup in self.current_tuples:
-      self.ack(tup)
+    for tuple_ in self.current_tuples:
+      self.ack(tuple_)
     self.current_tuples.clear()
 </code></pre>
   </div>
@@ -1907,7 +1911,7 @@ This way users will just have to deal with writing processWindow function</p></d
           <li>heronpy.api.bolt.base_bolt.BaseBolt</li>
           <li>heronpy.api.component.base_component.BaseComponent</li>
           <li>heronpy.api.state.stateful_component.StatefulComponent</li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
           <h3>Class variables</h3>
             <div class="item">
@@ -1921,33 +1925,6 @@ This way users will just have to deal with writing processWindow function</p></d
 
             </div>
           <h3>Static methods</h3>
-            
-  <div class="item">
-    <div class="name def" id="heronpy.api.bolt.window_bolt.TumblingWindowBolt.is_tick">
-    <p>def <span class="ident">is_tick</span>(</p><p>tup)</p>
-    </div>
-    
-
-    
-  
-    <div class="desc"><p>Returns whether or not a given HeronTuple is a tick Tuple</p>
-<p>It is compatible with StreamParse API.</p></div>
-  <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.bolt.window_bolt.TumblingWindowBolt.is_tick', this);">Show source &equiv;</a></p>
-  <div id="source-heronpy.api.bolt.window_bolt.TumblingWindowBolt.is_tick" class="source">
-    <pre><code>@staticmethod
-def is_tick(tup):
-  """Returns whether or not a given HeronTuple is a tick Tuple
-  It is compatible with StreamParse API.
-  """
-  return tup.stream == TupleHelper.TICK_TUPLE_ID
-</code></pre>
-  </div>
-</div>
-
-  </div>
-  
-          <h3>Methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.bolt.window_bolt.TumblingWindowBolt.__init__">
@@ -2083,6 +2060,13 @@ def is_tick(tup):
 
     
   
+    <div class="desc"><p>Initializes the state of the function or operator to that of a previous checkpoint.
+This method is invoked when a component is executed as part of a recovery run. In case
+there was no prior state associated with the component, the state will be empty.
+Stateful Spouts/Bolts are expected to hold on to the state variable to save their
+internal state
+Note that init_state() is called before initialize()
+:param state: the previously saved state of the component.</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.bolt.window_bolt.TumblingWindowBolt.init_state', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.bolt.window_bolt.TumblingWindowBolt.init_state" class="source">
@@ -2120,6 +2104,32 @@ def is_tick(tup):
   if hasattr(self, 'saved_state'):
     if 'tuples' in self.saved_state:
       self.current_tuples = self.saved_state['tuples']
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.api.bolt.window_bolt.TumblingWindowBolt.is_tick">
+    <p>def <span class="ident">is_tick</span>(</p><p>tup)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Returns whether or not a given HeronTuple is a tick Tuple</p>
+<p>It is compatible with StreamParse API.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.bolt.window_bolt.TumblingWindowBolt.is_tick', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.api.bolt.window_bolt.TumblingWindowBolt.is_tick" class="source">
+    <pre><code>@staticmethod
+def is_tick(tup):
+  """Returns whether or not a given HeronTuple is a tick Tuple
+  It is compatible with StreamParse API.
+  """
+  return tup.stream == TupleHelper.TICK_TUPLE_ID
 </code></pre>
   </div>
 </div>
@@ -2168,6 +2178,8 @@ def is_tick(tup):
 
     
   
+    <div class="desc"><p>This is a hook for the component to perform some actions just before the
+framework saves its state.</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.bolt.window_bolt.TumblingWindowBolt.pre_save', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.bolt.window_bolt.TumblingWindowBolt.pre_save" class="source">
@@ -2235,7 +2247,6 @@ def processWindow(self, window_info, tuples):
   :type tuples: :class:`list of Tuples`
   :param tuples: The list of tuples in this window
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -2261,8 +2272,8 @@ def processWindow(self, window_info, tuples):
   curtime = int(time.time())
   window_info = WindowContext(curtime - self.window_duration, curtime)
   self.processWindow(window_info, list(self.current_tuples))
-  for tup in self.current_tuples:
-    self.ack(tup)
+  for tuple_ in self.current_tuples:
+    self.ack(tuple_)
   self.current_tuples.clear()
 </code></pre>
   </div>
@@ -2270,6 +2281,7 @@ def processWindow(self, window_info, tuples):
 
   </div>
   
+          <h3>Methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.bolt.window_bolt.TumblingWindowBolt.spec">
@@ -2376,8 +2388,8 @@ def spec(cls, name=None, inputs=None, par=1, config=None, optional_outputs=None)
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.api.bolt.window_bolt.WindowContext">WindowContext</a></li>
-          <li>__builtin__.tuple</li>
-          <li>__builtin__.object</li>
+          <li>builtins.tuple</li>
+          <li>builtins.object</li>
           </ul>
           <h3>Instance variables</h3>
             <div class="item">

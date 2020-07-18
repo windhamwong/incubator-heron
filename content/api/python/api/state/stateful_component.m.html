@@ -1002,7 +1002,7 @@ table {
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.state.stateful_component', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.state.stateful_component" class="source">
-    <pre><code>#!/usr/bin/env python
+    <pre><code>#!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
 #  Licensed to the Apache Software Foundation (ASF) under one
@@ -1025,7 +1025,7 @@ table {
 '''stateful_component.py'''
 from abc import abstractmethod
 
-class StatefulComponent(object):
+class StatefulComponent:
   """Defines a component that saves its internal state using the State interface
   When running under effectively once semantics, the state is periodically checkpointed
   and is replayed when errors occur to a globally consistent checkpoint.
@@ -1040,14 +1040,12 @@ class StatefulComponent(object):
     Note that init_state() is called before initialize()
     :param state: the previously saved state of the component.
     """
-    pass
 
   @abstractmethod
   def pre_save(self):
     """This is a hook for the component to perform some actions just before the
     framework saves its state.
     """
-    pass
 </code></pre>
   </div>
 
@@ -1068,7 +1066,7 @@ and is replayed when errors occur to a globally consistent checkpoint.</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.state.stateful_component.StatefulComponent', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.state.stateful_component.StatefulComponent" class="source">
-    <pre><code>class StatefulComponent(object):
+    <pre><code>class StatefulComponent:
   """Defines a component that saves its internal state using the State interface
   When running under effectively once semantics, the state is periodically checkpointed
   and is replayed when errors occur to a globally consistent checkpoint.
@@ -1083,14 +1081,12 @@ and is replayed when errors occur to a globally consistent checkpoint.</p></div>
     Note that init_state() is called before initialize()
     :param state: the previously saved state of the component.
     """
-    pass
 
   @abstractmethod
   def pre_save(self):
     """This is a hook for the component to perform some actions just before the
     framework saves its state.
     """
-    pass
 </code></pre>
   </div>
 </div>
@@ -1100,9 +1096,9 @@ and is replayed when errors occur to a globally consistent checkpoint.</p></div>
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.api.state.stateful_component.StatefulComponent">StatefulComponent</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.state.stateful_component.StatefulComponent.init_state">
@@ -1132,7 +1128,6 @@ def init_state(self, state):
   Note that init_state() is called before initialize()
   :param state: the previously saved state of the component.
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1158,7 +1153,6 @@ def pre_save(self):
   """This is a hook for the component to perform some actions just before the
   framework saves its state.
   """
-  pass
 </code></pre>
   </div>
 </div>

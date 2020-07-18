@@ -978,11 +978,11 @@ table {
         
           
   <ul>
-    <li class="mono"><a href="#heronpy.api.bolt.base_bolt.BaseBolt.is_tick">is_tick</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.base_bolt.BaseBolt.__init__">__init__</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.base_bolt.BaseBolt.ack">ack</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.base_bolt.BaseBolt.emit">emit</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.base_bolt.BaseBolt.fail">fail</a></li>
+    <li class="mono"><a href="#heronpy.api.bolt.base_bolt.BaseBolt.is_tick">is_tick</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.base_bolt.BaseBolt.log">log</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.base_bolt.BaseBolt.spec">spec</a></li>
   </ul>
@@ -1279,36 +1279,9 @@ This includes:
           <ul class="class_list">
           <li><a href="#heronpy.api.bolt.base_bolt.BaseBolt">BaseBolt</a></li>
           <li>heronpy.api.component.base_component.BaseComponent</li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
           <h3>Static methods</h3>
-            
-  <div class="item">
-    <div class="name def" id="heronpy.api.bolt.base_bolt.BaseBolt.is_tick">
-    <p>def <span class="ident">is_tick</span>(</p><p>tup)</p>
-    </div>
-    
-
-    
-  
-    <div class="desc"><p>Returns whether or not a given HeronTuple is a tick Tuple</p>
-<p>It is compatible with StreamParse API.</p></div>
-  <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.bolt.base_bolt.BaseBolt.is_tick', this);">Show source &equiv;</a></p>
-  <div id="source-heronpy.api.bolt.base_bolt.BaseBolt.is_tick" class="source">
-    <pre><code>@staticmethod
-def is_tick(tup):
-  """Returns whether or not a given HeronTuple is a tick Tuple
-  It is compatible with StreamParse API.
-  """
-  return tup.stream == TupleHelper.TICK_TUPLE_ID
-</code></pre>
-  </div>
-</div>
-
-  </div>
-  
-          <h3>Methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.bolt.base_bolt.BaseBolt.__init__">
@@ -1437,6 +1410,32 @@ def is_tick(tup):
   
             
   <div class="item">
+    <div class="name def" id="heronpy.api.bolt.base_bolt.BaseBolt.is_tick">
+    <p>def <span class="ident">is_tick</span>(</p><p>tup)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Returns whether or not a given HeronTuple is a tick Tuple</p>
+<p>It is compatible with StreamParse API.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.bolt.base_bolt.BaseBolt.is_tick', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.api.bolt.base_bolt.BaseBolt.is_tick" class="source">
+    <pre><code>@staticmethod
+def is_tick(tup):
+  """Returns whether or not a given HeronTuple is a tick Tuple
+  It is compatible with StreamParse API.
+  """
+  return tup.stream == TupleHelper.TICK_TUPLE_ID
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
     <div class="name def" id="heronpy.api.bolt.base_bolt.BaseBolt.log">
     <p>def <span class="ident">log</span>(</p><p>self, message, level=None)</p>
     </div>
@@ -1468,6 +1467,7 @@ def is_tick(tup):
 
   </div>
   
+          <h3>Methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.bolt.base_bolt.BaseBolt.spec">

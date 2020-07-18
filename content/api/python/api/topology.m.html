@@ -1031,7 +1031,7 @@ table {
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.topology', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.topology" class="source">
-    <pre><code>#!/usr/bin/env python
+    <pre><code>#!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
 #  Licensed to the Apache Software Foundation (ASF) under one
@@ -1113,8 +1113,7 @@ class TopologyType(type):
           spec.name = name
         if spec.name in specs:
           raise ValueError("Duplicate component name: %s" % spec.name)
-        else:
-          specs[spec.name] = spec
+        specs[spec.name] = spec
     return specs
 
   @classmethod
@@ -1291,7 +1290,7 @@ class TopologyType(type):
     return sanitized
 
 @six.add_metaclass(TopologyType)
-class Topology(object):
+class Topology:
   """Topology is an abstract class for defining a topology
 
   Topology writers can define their custom topology by inheriting this class.
@@ -1337,7 +1336,7 @@ class Topology(object):
     with open(path, 'wb') as f:
       f.write(cls.protobuf_topology.SerializeToString())
 
-class TopologyBuilder(object):
+class TopologyBuilder:
   """Builder for heronpy.api.src.python topology
 
   This class dynamically creates a subclass of `Topology` with given spouts and
@@ -1466,7 +1465,7 @@ that might be specified from <code>spec()</code> method of <code>Bolt</code> or 
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.topology.Topology', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.topology.Topology" class="source">
-    <pre><code>class Topology(object):
+    <pre><code>class Topology:
   """Topology is an abstract class for defining a topology
 
   Topology writers can define their custom topology by inheriting this class.
@@ -1520,7 +1519,7 @@ that might be specified from <code>spec()</code> method of <code>Bolt</code> or 
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.api.topology.Topology">Topology</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
           <h3>Methods</h3>
             
@@ -1582,7 +1581,7 @@ bolts and writes its definition files when <code>build_and_submit()</code> is ca
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.topology.TopologyBuilder', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.topology.TopologyBuilder" class="source">
-    <pre><code>class TopologyBuilder(object):
+    <pre><code>class TopologyBuilder:
   """Builder for heronpy.api.src.python topology
 
   This class dynamically creates a subclass of `Topology` with given spouts and
@@ -1681,20 +1680,9 @@ bolts and writes its definition files when <code>build_and_submit()</code> is ca
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.api.topology.TopologyBuilder">TopologyBuilder</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Instance variables</h3>
-            <div class="item">
-            <p id="heronpy.api.topology.TopologyBuilder.topology_name" class="name">var <span class="ident">topology_name</span></p>
-            
-
-            
-  
-  <div class="source_cont">
-</div>
-
-            </div>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.topology.TopologyBuilder.__init__">
@@ -1865,6 +1853,17 @@ bolts and writes its definition files when <code>build_and_submit()</code> is ca
 
   </div>
   
+          <h3>Instance variables</h3>
+            <div class="item">
+            <p id="heronpy.api.topology.TopologyBuilder.topology_name" class="name">var <span class="ident">topology_name</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
       </div>
       </div>
       
@@ -1924,8 +1923,7 @@ bolts and writes its definition files when <code>build_and_submit()</code> is ca
           spec.name = name
         if spec.name in specs:
           raise ValueError("Duplicate component name: %s" % spec.name)
-        else:
-          specs[spec.name] = spec
+        specs[spec.name] = spec
     return specs
 
   @classmethod
@@ -2109,8 +2107,8 @@ bolts and writes its definition files when <code>build_and_submit()</code> is ca
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.api.topology.TopologyType">TopologyType</a></li>
-          <li>__builtin__.type</li>
-          <li>__builtin__.object</li>
+          <li>builtins.type</li>
+          <li>builtins.object</li>
           </ul>
           <h3>Class variables</h3>
             <div class="item">
@@ -2295,8 +2293,7 @@ def class_dict_to_specs(mcs, class_dict):
         spec.name = name
       if spec.name in specs:
         raise ValueError("Duplicate component name: %s" % spec.name)
-      else:
-        specs[spec.name] = spec
+      specs[spec.name] = spec
   return specs
 </code></pre>
   </div>

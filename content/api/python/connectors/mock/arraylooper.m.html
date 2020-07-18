@@ -1003,7 +1003,7 @@ table {
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.connectors.mock.arraylooper', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.connectors.mock.arraylooper" class="source">
-    <pre><code>#!/usr/bin/env python
+    <pre><code>#!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
 #  Licensed to the Apache Software Foundation (ASF) under one
@@ -1095,9 +1095,9 @@ class ArrayLooper(Generator):
           <ul class="class_list">
           <li><a href="#heronpy.connectors.mock.arraylooper.ArrayLooper">ArrayLooper</a></li>
           <li>heronpy.streamlet.generator.Generator</li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.connectors.mock.arraylooper.ArrayLooper.__init__">
@@ -1107,6 +1107,7 @@ class ArrayLooper(Generator):
 
     
   
+    <div class="desc"><p>Initialize self.  See help(type(self)) for accurate signature.</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.connectors.mock.arraylooper.ArrayLooper.__init__', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.connectors.mock.arraylooper.ArrayLooper.__init__" class="source">
@@ -1131,6 +1132,9 @@ class ArrayLooper(Generator):
 
     
   
+    <div class="desc"><p>Generate the next element
+If there is nothing at the moment to generate, return None</p>
+<p><strong>Must be implemented by a subclass, otherwise NotImplementedError is raised.</strong></p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.connectors.mock.arraylooper.ArrayLooper.get', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.connectors.mock.arraylooper.ArrayLooper.get" class="source">
@@ -1153,6 +1157,14 @@ class ArrayLooper(Generator):
 
     
   
+    <div class="desc"><p>Called when a task for this operator is initialized within a worker on the cluster</p>
+<p>It provides the operator with the environment in which the operator executes.
+This should be used to initialize any custom variables or connection to databases.</p>
+<p>:type context: :class:<code>Context</code>
+:param context: This object can be used to get information about this task's place within the
+                topology, including the task id and component id of this task, input and output
+                information, etc.
+<strong>Must be implemented by a subclass, otherwise NotImplementedError is raised.</strong></p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.connectors.mock.arraylooper.ArrayLooper.setup', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.connectors.mock.arraylooper.ArrayLooper.setup" class="source">

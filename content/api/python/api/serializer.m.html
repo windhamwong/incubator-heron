@@ -1021,7 +1021,7 @@ table {
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.serializer', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.serializer" class="source">
-    <pre><code>#!/usr/bin/env python
+    <pre><code>#!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
 #  Licensed to the Apache Software Foundation (ASF) under one
@@ -1051,40 +1051,37 @@ except:
 
 import heronpy.api.cloudpickle as cloudpickle
 
-class IHeronSerializer(object):
+class IHeronSerializer:
   """Serializer interface for Heron"""
   @abstractmethod
   def initialize(self, config):
     """Initializes the serializer"""
-    pass
 
   @abstractmethod
-  def serialize(self, obj):
+  def serialize(self, obj) -> bytes:
     """Serialize an object
 
     :param obj: The object to be serialized
     :returns: Serialized object as byte string
     """
-    pass
 
   @abstractmethod
-  def deserialize(self, input_str):
+  def deserialize(self, input_str: bytes):
     """Deserialize an object
 
     :param input_str: Serialized object as byte string
     :returns: Deserialized object
     """
-    pass
 
 class PythonSerializer(IHeronSerializer):
   """Default serializer"""
   def initialize(self, config=None):
     pass
 
-  def serialize(self, obj):
+  def serialize(self, obj) -> bytes:
     return cloudpickle.dumps(obj)
 
-  def deserialize(self, input_str):
+  def deserialize(self, input_str: bytes):
     return pickle.loads(input_str)
 
 default_serializer = PythonSerializer()
@@ -1115,30 +1112,27 @@ default_serializer = PythonSerializer()
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.serializer.IHeronSerializer', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.serializer.IHeronSerializer" class="source">
-    <pre><code>class IHeronSerializer(object):
+    <pre><code>class IHeronSerializer:
   """Serializer interface for Heron"""
   @abstractmethod
   def initialize(self, config):
     """Initializes the serializer"""
-    pass
 
   @abstractmethod
-  def serialize(self, obj):
+  def serialize(self, obj) -> bytes:
     """Serialize an object
 
     :param obj: The object to be serialized
     :returns: Serialized object as byte string
     """
-    pass
 
   @abstractmethod
-  def deserialize(self, input_str):
+  def deserialize(self, input_str: bytes):
     """Deserialize an object
 
     :param input_str: Serialized object as byte string
     :returns: Deserialized object
     """
-    pass
 </code></pre>
   </div>
 </div>
@@ -1148,9 +1142,9 @@ default_serializer = PythonSerializer()
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.api.serializer.IHeronSerializer">IHeronSerializer</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.serializer.IHeronSerializer.deserialize">
@@ -1167,12 +1161,11 @@ default_serializer = PythonSerializer()
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.serializer.IHeronSerializer.deserialize', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.serializer.IHeronSerializer.deserialize" class="source">
     <pre><code>@abstractmethod
-def deserialize(self, input_str):
+def deserialize(self, input_str: bytes):
   """Deserialize an object
   :param input_str: Serialized object as byte string
   :returns: Deserialized object
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1195,7 +1188,6 @@ def deserialize(self, input_str):
     <pre><code>@abstractmethod
 def initialize(self, config):
   """Initializes the serializer"""
-  pass
 </code></pre>
   </div>
 </div>
@@ -1218,12 +1210,11 @@ def initialize(self, config):
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.serializer.IHeronSerializer.serialize', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.serializer.IHeronSerializer.serialize" class="source">
     <pre><code>@abstractmethod
-def serialize(self, obj):
+def serialize(self, obj) -> bytes:
   """Serialize an object
   :param obj: The object to be serialized
   :returns: Serialized object as byte string
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1246,10 +1237,10 @@ def serialize(self, obj):
   def initialize(self, config=None):
     pass
 
-  def serialize(self, obj):
+  def serialize(self, obj) -> bytes:
     return cloudpickle.dumps(obj)
 
-  def deserialize(self, input_str):
+  def deserialize(self, input_str: bytes):
     return pickle.loads(input_str)
 </code></pre>
   </div>
@@ -1261,9 +1252,9 @@ def serialize(self, obj):
           <ul class="class_list">
           <li><a href="#heronpy.api.serializer.PythonSerializer">PythonSerializer</a></li>
           <li><a href="#heronpy.api.serializer.IHeronSerializer">IHeronSerializer</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.serializer.PythonSerializer.deserialize">
@@ -1283,7 +1274,7 @@ def serialize(self, obj):
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.serializer.PythonSerializer.deserialize', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.serializer.PythonSerializer.deserialize" class="source">
-    <pre><code>def deserialize(self, input_str):
+    <pre><code>def deserialize(self, input_str: bytes):
   return pickle.loads(input_str)
 </code></pre>
   </div>
@@ -1297,14 +1288,10 @@ def serialize(self, obj):
     <p>def <span class="ident">initialize</span>(</p><p>self, config=None)</p>
     </div>
     
-    <p class="inheritance">
-     <strong>Inheritance:</strong>
-       <code><a href="#heronpy.api.serializer.IHeronSerializer">IHeronSerializer</a></code>.<code><a href="#heronpy.api.serializer.IHeronSerializer.initialize">initialize</a></code>
-    </p>
 
     
   
-    <div class="desc inherited"><p>Initializes the serializer</p></div>
+    <div class="desc"><p>Initializes the serializer</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.serializer.PythonSerializer.initialize', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.serializer.PythonSerializer.initialize" class="source">
@@ -1322,20 +1309,16 @@ def serialize(self, obj):
     <p>def <span class="ident">serialize</span>(</p><p>self, obj)</p>
     </div>
     
-    <p class="inheritance">
-     <strong>Inheritance:</strong>
-       <code><a href="#heronpy.api.serializer.IHeronSerializer">IHeronSerializer</a></code>.<code><a href="#heronpy.api.serializer.IHeronSerializer.serialize">serialize</a></code>
-    </p>
 
     
   
-    <div class="desc inherited"><p>Serialize an object</p>
+    <div class="desc"><p>Serialize an object</p>
 <p>:param obj: The object to be serialized
 :returns: Serialized object as byte string</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.serializer.PythonSerializer.serialize', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.serializer.PythonSerializer.serialize" class="source">
-    <pre><code>def serialize(self, obj):
+    <pre><code>def serialize(self, obj) -> bytes:
   return cloudpickle.dumps(obj)
 </code></pre>
   </div>

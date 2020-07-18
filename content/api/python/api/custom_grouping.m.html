@@ -1002,7 +1002,7 @@ table {
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.custom_grouping', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.custom_grouping" class="source">
-    <pre><code>#!/usr/bin/env python
+    <pre><code>#!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
 #  Licensed to the Apache Software Foundation (ASF) under one
@@ -1025,7 +1025,7 @@ table {
 '''custom_grouping.py: interface module for custom grouping'''
 from abc import abstractmethod
 
-class ICustomGrouping(object):
+class ICustomGrouping:
   '''Interface for custom grouping class'''
 
   @abstractmethod
@@ -1040,7 +1040,6 @@ class ICustomGrouping(object):
     :type target_tasks: list of int
     :param target_tasks: list of target task ids
     """
-    pass
 
   @abstractmethod
   def choose_tasks(self, values):
@@ -1050,7 +1049,6 @@ class ICustomGrouping(object):
     :rtype: list of int
     :return: list of task ids to which these values are emitted
     """
-    pass
 </code></pre>
   </div>
 
@@ -1069,7 +1067,7 @@ class ICustomGrouping(object):
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.custom_grouping.ICustomGrouping', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.custom_grouping.ICustomGrouping" class="source">
-    <pre><code>class ICustomGrouping(object):
+    <pre><code>class ICustomGrouping:
   '''Interface for custom grouping class'''
 
   @abstractmethod
@@ -1084,7 +1082,6 @@ class ICustomGrouping(object):
     :type target_tasks: list of int
     :param target_tasks: list of target task ids
     """
-    pass
 
   @abstractmethod
   def choose_tasks(self, values):
@@ -1094,7 +1091,6 @@ class ICustomGrouping(object):
     :rtype: list of int
     :return: list of task ids to which these values are emitted
     """
-    pass
 </code></pre>
   </div>
 </div>
@@ -1104,9 +1100,9 @@ class ICustomGrouping(object):
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.api.custom_grouping.ICustomGrouping">ICustomGrouping</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.custom_grouping.ICustomGrouping.choose_tasks">
@@ -1130,7 +1126,6 @@ def choose_tasks(self, values):
   :rtype: list of int
   :return: list of task ids to which these values are emitted
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1166,7 +1161,6 @@ def prepare(self, context, component, stream, target_tasks):
   :type target_tasks: list of int
   :param target_tasks: list of target task ids
   """
-  pass
 </code></pre>
   </div>
 </div>

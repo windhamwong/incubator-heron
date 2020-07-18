@@ -1002,7 +1002,7 @@ table {
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.runner', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.runner" class="source">
-    <pre><code>#!/usr/bin/env python
+    <pre><code>#!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
 #  Licensed to the Apache Software Foundation (ASF) under one
@@ -1028,13 +1028,12 @@ from heronpy.api.topology import TopologyBuilder
 from heronpy.streamlet.builder import Builder
 from heronpy.streamlet.config import Config
 
-class Runner(object):
+class Runner:
   """Runner is used to run a topology that is built by the builder.
      It exports a sole function called run that takes care of constructing the topology
   """
   def __init__(self):
     """Nothing really"""
-    pass
 
   # pylint: disable=protected-access, no-self-use
   def run(self, name, config, builder):
@@ -1068,13 +1067,12 @@ It exports a sole function called run that takes care of constructing the topolo
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.runner.Runner', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.runner.Runner" class="source">
-    <pre><code>class Runner(object):
+    <pre><code>class Runner:
   """Runner is used to run a topology that is built by the builder.
      It exports a sole function called run that takes care of constructing the topology
   """
   def __init__(self):
     """Nothing really"""
-    pass
 
   # pylint: disable=protected-access, no-self-use
   def run(self, name, config, builder):
@@ -1098,9 +1096,9 @@ It exports a sole function called run that takes care of constructing the topolo
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.streamlet.runner.Runner">Runner</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.streamlet.runner.Runner.__init__">
@@ -1116,7 +1114,6 @@ It exports a sole function called run that takes care of constructing the topolo
   <div id="source-heronpy.streamlet.runner.Runner.__init__" class="source">
     <pre><code>def __init__(self):
   """Nothing really"""
-  pass
 </code></pre>
   </div>
 </div>

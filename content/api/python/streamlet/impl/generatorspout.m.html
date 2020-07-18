@@ -1041,7 +1041,7 @@ table {
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.generatorspout', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.impl.generatorspout" class="source">
-    <pre><code>#!/usr/bin/env python
+    <pre><code>#!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
 #  Licensed to the Apache Software Foundation (ASF) under one
@@ -1181,7 +1181,7 @@ class GeneratorStreamlet(Streamlet):
           <li>heronpy.api.component.base_component.BaseComponent</li>
           <li>heronpy.api.state.stateful_component.StatefulComponent</li>
           <li>heronpy.streamlet.impl.streamletspoutbase.StreamletSpoutBase</li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
           <h3>Class variables</h3>
             <div class="item">
@@ -1204,7 +1204,7 @@ class GeneratorStreamlet(Streamlet):
 </div>
 
             </div>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.streamlet.impl.generatorspout.GeneratorSpout.__init__">
@@ -1260,7 +1260,6 @@ def ack(self, tup_id):
   *Should be implemented by a subclass.*
   :param tup_id: the ID of the HeronTuple that has been fully acknowledged.
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1290,7 +1289,6 @@ def activate(self):
   after having been deactivated when the topology is manipulated using the
   `heron` client.
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1316,7 +1314,6 @@ def close(self):
   """Called when this spout is going to be shutdown
   There is no guarantee that close() will be called.
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1344,7 +1341,6 @@ def deactivate(self):
   next_tuple() will not be called while a spout is deactivated.
   The spout may or may not be reactivated in the future.
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1434,7 +1430,6 @@ def fail(self, tup_id):
   :param tup_id: the ID of the HeronTuple that has failed either due to a bolt calling ``fail()``
                  or timeout
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1450,6 +1445,13 @@ def fail(self, tup_id):
 
     
   
+    <div class="desc"><p>Initializes the state of the function or operator to that of a previous checkpoint.
+This method is invoked when a component is executed as part of a recovery run. In case
+there was no prior state associated with the component, the state will be empty.
+Stateful Spouts/Bolts are expected to hold on to the state variable to save their
+internal state
+Note that init_state() is called before initialize()
+:param state: the previously saved state of the component.</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.generatorspout.GeneratorSpout.init_state', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.impl.generatorspout.GeneratorSpout.init_state" class="source">
@@ -1470,6 +1472,22 @@ def fail(self, tup_id):
 
     
   
+    <div class="desc"><p>Called when a task for this component is initialized within a worker on the cluster</p>
+<p>It provides the spout with the environment in which the spout executes. Note that
+you should NOT override <code>__init__()</code> for initialization of your spout, as it is
+used internally by Heron Instance; instead, you should use this method to initialize
+any custom instance variables or connections to data sources.</p>
+<p><em>Should be implemented by a subclass.</em></p>
+<p>:type config: dict
+:param config: The Heron configuration for this bolt. This is the configuration provided to
+               the topology merged in with cluster configuration on this machine.
+               Note that types of string values in the config have been automatically converted,
+               meaning that number strings and boolean strings are converted to appropriate
+               types.
+:type context: :class:<code>TopologyContext</code>
+:param context: This object can be used to get information about this task's place within the
+                topology, including the task id and component id of this task, input and output
+                information, etc.</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.generatorspout.GeneratorSpout.initialize', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.impl.generatorspout.GeneratorSpout.initialize" class="source">
@@ -1533,6 +1551,14 @@ def fail(self, tup_id):
 
     
   
+    <div class="desc"><p>When this method is called, Heron is requesting that the Spout emit tuples</p>
+<p>It is compatible with StreamParse API.</p>
+<p>This method should be non-blocking, so if the Spout has no tuples to emit,
+this method should return; next_tuple(), ack(), and fail() are all called in a tight
+loop in a single thread in the spout task. WHen there are no tuples to emit, it is
+courteous to have next_tuple sleep for a short amount of time (like a single millisecond)
+so as not to waste too much CPU.</p>
+<p><strong>Must be implemented by a subclass, otherwise NotImplementedError is raised.</strong></p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.generatorspout.GeneratorSpout.next_tuple', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.impl.generatorspout.GeneratorSpout.next_tuple" class="source">
@@ -1556,6 +1582,8 @@ def fail(self, tup_id):
 
     
   
+    <div class="desc"><p>This is a hook for the component to perform some actions just before the
+framework saves its state.</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.generatorspout.GeneratorSpout.pre_save', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.impl.generatorspout.GeneratorSpout.pre_save" class="source">
@@ -1567,6 +1595,7 @@ def fail(self, tup_id):
 
   </div>
   
+          <h3>Methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.streamlet.impl.generatorspout.GeneratorSpout.spec">
@@ -1676,9 +1705,9 @@ def spec(cls, name=None, par=1, config=None, optional_outputs=None):
           <ul class="class_list">
           <li><a href="#heronpy.streamlet.impl.generatorspout.GeneratorStreamlet">GeneratorStreamlet</a></li>
           <li>heronpy.streamlet.streamlet.Streamlet</li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.streamlet.impl.generatorspout.GeneratorStreamlet.__init__">
@@ -1747,10 +1776,10 @@ of the current streamlet</p></div>
     <pre><code>def consume(self, consume_function):
   """Calls consume_function for each element of this streamlet. This function returns nothing
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.consumebolt import ConsumeStreamlet
   consume_streamlet = ConsumeStreamlet(consume_function, self)
   self._add_child(consume_streamlet)
-  return
 </code></pre>
   </div>
 </div>
@@ -1773,6 +1802,7 @@ of the current streamlet</p></div>
     <pre><code>def filter(self, filter_function):
   """Return a new Streamlet containing only the elements that satisfy filter_function
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.filterbolt import FilterStreamlet
   filter_streamlet = FilterStreamlet(filter_function, self)
   self._add_child(filter_streamlet)
@@ -1801,6 +1831,7 @@ and flattening the result</p></div>
   """Return a new Streamlet by applying map_function to each element of this Streamlet
      and flattening the result
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.flatmapbolt import FlatMapStreamlet
   fm_streamlet = FlatMapStreamlet(flatmap_function, self)
   self._add_child(fm_streamlet)
@@ -1867,6 +1898,7 @@ and flattening the result</p></div>
     <pre><code>def join(self, join_streamlet, window_config, join_function):
   """Return a new Streamlet by joining join_streamlet with this streamlet
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.joinbolt import JoinStreamlet, JoinBolt
   join_streamlet_result = JoinStreamlet(JoinBolt.INNER, window_config,
                                         join_function, self, join_streamlet)
@@ -1895,10 +1927,10 @@ and flattening the result</p></div>
     <pre><code>def log(self):
   """Logs all elements of this streamlet. This returns nothing
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.logbolt import LogStreamlet
   log_streamlet = LogStreamlet(self)
   self._add_child(log_streamlet)
-  return
 </code></pre>
   </div>
 </div>
@@ -1921,6 +1953,7 @@ and flattening the result</p></div>
     <pre><code>def map(self, map_function):
   """Return a new Streamlet by applying map_function to each element of this Streamlet.
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.mapbolt import MapStreamlet
   map_streamlet = MapStreamlet(map_function, self)
   self._add_child(map_streamlet)
@@ -1947,6 +1980,7 @@ and flattening the result</p></div>
     <pre><code>def outer_join(self, join_streamlet, window_config, join_function):
   """Return a new Streamlet by outer join_streamlet with this streamlet
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.joinbolt import JoinStreamlet, JoinBolt
   join_streamlet_result = JoinStreamlet(JoinBolt.OUTER, window_config,
                                         join_function, self, join_streamlet)
@@ -1975,6 +2009,7 @@ and flattening the result</p></div>
     <pre><code>def outer_left_join(self, join_streamlet, window_config, join_function):
   """Return a new Streamlet by left join_streamlet with this streamlet
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.joinbolt import JoinStreamlet, JoinBolt
   join_streamlet_result = JoinStreamlet(JoinBolt.OUTER_LEFT, window_config,
                                         join_function, self, join_streamlet)
@@ -2003,6 +2038,7 @@ and flattening the result</p></div>
     <pre><code>def outer_right_join(self, join_streamlet, window_config, join_function):
   """Return a new Streamlet by outer right join_streamlet with this streamlet
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.joinbolt import JoinStreamlet, JoinBolt
   join_streamlet_result = JoinStreamlet(JoinBolt.OUTER_RIGHT, window_config,
                                         join_function, self, join_streamlet)
@@ -2033,6 +2069,7 @@ over the time_window and then reduced using the reduce_function</p></div>
   """Return a new Streamlet in which each (key, value) pair of this Streamlet are collected
      over the time_window and then reduced using the reduce_function
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.reducebykeyandwindowbolt import ReduceByKeyAndWindowStreamlet
   reduce_streamlet = ReduceByKeyAndWindowStreamlet(window_config, reduce_function, self)
   self._add_child(reduce_streamlet)
@@ -2065,6 +2102,7 @@ is used in the subsequent operations.</p></div>
     reduce_function takes two element at one time and reduces them to one element that
     is used in the subsequent operations.
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.reducebywindowbolt import ReduceByWindowStreamlet
   reduce_streamlet = ReduceByWindowStreamlet(window_config, reduce_function, self)
   self._add_child(reduce_streamlet)
@@ -2103,6 +2141,7 @@ partitions.</p></div>
   It could also return a list of partitions if it wants to send it to multiple
   partitions.
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.repartitionbolt import RepartitionStreamlet
   if repartition_function is None:
     repartition_function = lambda x: x
@@ -2183,6 +2222,7 @@ called. This allows the transform_operator to do any kind of initialization/load
   Before starting to cycle over the Streamlet, the open function of the transform_operator is
   called. This allows the transform_operator to do any kind of initialization/loading, etc.
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.transformbolt import TransformStreamlet
   transform_streamlet = TransformStreamlet(transform_operator, self)
   self._add_child(transform_streamlet)
@@ -2209,6 +2249,7 @@ called. This allows the transform_operator to do any kind of initialization/load
     <pre><code>def union(self, other_streamlet):
   """Returns a new Streamlet that consists of elements of both this and other_streamlet
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.unionbolt import UnionStreamlet
   union_streamlet = UnionStreamlet(self, other_streamlet)
   self._add_child(union_streamlet)

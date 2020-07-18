@@ -978,13 +978,13 @@ table {
         
           
   <ul>
-    <li class="mono"><a href="#heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.is_tick">is_tick</a></li>
     <li class="mono"><a href="#heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.__init__">__init__</a></li>
     <li class="mono"><a href="#heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.ack">ack</a></li>
     <li class="mono"><a href="#heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.emit">emit</a></li>
     <li class="mono"><a href="#heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.fail">fail</a></li>
     <li class="mono"><a href="#heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.init_state">init_state</a></li>
     <li class="mono"><a href="#heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.initialize">initialize</a></li>
+    <li class="mono"><a href="#heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.is_tick">is_tick</a></li>
     <li class="mono"><a href="#heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.log">log</a></li>
     <li class="mono"><a href="#heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.pre_save">pre_save</a></li>
     <li class="mono"><a href="#heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.process">process</a></li>
@@ -1051,7 +1051,7 @@ table {
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.reducebywindowbolt', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.impl.reducebywindowbolt" class="source">
-    <pre><code>#!/usr/bin/env python
+    <pre><code>#!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
 #  Licensed to the Apache Software Foundation (ASF) under one
@@ -1204,7 +1204,7 @@ class ReduceByWindowStreamlet(Streamlet):
           <li>heronpy.api.component.base_component.BaseComponent</li>
           <li>heronpy.api.state.stateful_component.StatefulComponent</li>
           <li>heronpy.streamlet.impl.streamletboltbase.StreamletBoltBase</li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
           <h3>Class variables</h3>
             <div class="item">
@@ -1268,33 +1268,6 @@ class ReduceByWindowStreamlet(Streamlet):
 
             </div>
           <h3>Static methods</h3>
-            
-  <div class="item">
-    <div class="name def" id="heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.is_tick">
-    <p>def <span class="ident">is_tick</span>(</p><p>tup)</p>
-    </div>
-    
-
-    
-  
-    <div class="desc"><p>Returns whether or not a given HeronTuple is a tick Tuple</p>
-<p>It is compatible with StreamParse API.</p></div>
-  <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.is_tick', this);">Show source &equiv;</a></p>
-  <div id="source-heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.is_tick" class="source">
-    <pre><code>@staticmethod
-def is_tick(tup):
-  """Returns whether or not a given HeronTuple is a tick Tuple
-  It is compatible with StreamParse API.
-  """
-  return tup.stream == TupleHelper.TICK_TUPLE_ID
-</code></pre>
-  </div>
-</div>
-
-  </div>
-  
-          <h3>Methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.__init__">
@@ -1430,6 +1403,13 @@ def is_tick(tup):
 
     
   
+    <div class="desc"><p>Initializes the state of the function or operator to that of a previous checkpoint.
+This method is invoked when a component is executed as part of a recovery run. In case
+there was no prior state associated with the component, the state will be empty.
+Stateful Spouts/Bolts are expected to hold on to the state variable to save their
+internal state
+Note that init_state() is called before initialize()
+:param state: the previously saved state of the component.</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.init_state', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.init_state" class="source">
@@ -1450,6 +1430,7 @@ def is_tick(tup):
 
     
   
+    <div class="desc"><p>We initialize the window duration and slide interval</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.initialize', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.initialize" class="source">
@@ -1458,6 +1439,32 @@ def is_tick(tup):
   if ReduceByWindowBolt.FUNCTION not in config:
     raise RuntimeError("FUNCTION not specified in reducebywindow operator")
   self.reduce_function = config[ReduceByWindowBolt.FUNCTION]
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.is_tick">
+    <p>def <span class="ident">is_tick</span>(</p><p>tup)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Returns whether or not a given HeronTuple is a tick Tuple</p>
+<p>It is compatible with StreamParse API.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.is_tick', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.is_tick" class="source">
+    <pre><code>@staticmethod
+def is_tick(tup):
+  """Returns whether or not a given HeronTuple is a tick Tuple
+  It is compatible with StreamParse API.
+  """
+  return tup.stream == TupleHelper.TICK_TUPLE_ID
 </code></pre>
   </div>
 </div>
@@ -1506,6 +1513,8 @@ def is_tick(tup):
 
     
   
+    <div class="desc"><p>This is a hook for the component to perform some actions just before the
+framework saves its state.</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.pre_save', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.pre_save" class="source">
@@ -1555,6 +1564,14 @@ elemnents</p></div>
 
     
   
+    <div class="desc"><p>The main interface that needs to be implemented.</p>
+<p>This function is called every WINDOW_SLIDEINTERVAL_SECS seconds
+and contains the data in the last WINDOW_DURATION_SECS seconds
+in a list tuples</p>
+<p>:type window_info: :class:<code>WindowContext</code>
+:param window_info: The information about the window</p>
+<p>:type tuples: :class:<code>list of Tuples</code>
+:param tuples: The list of tuples in this window</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.processWindow', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.processWindow" class="source">
@@ -1589,8 +1606,8 @@ elemnents</p></div>
   curtime = int(time.time())
   window_info = WindowContext(curtime - self.window_duration, curtime)
   tuple_batch = []
-  for (tup, tm) in self.current_tuples:
-    tuple_batch.append(tup)
+  for (tuple_, tm) in self.current_tuples:
+    tuple_batch.append(tuple_)
   self.processWindow(window_info, tuple_batch)
   self._expire(curtime)
 </code></pre>
@@ -1599,6 +1616,7 @@ elemnents</p></div>
 
   </div>
   
+          <h3>Methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowBolt.spec">
@@ -1743,9 +1761,9 @@ def spec(cls, name=None, inputs=None, par=1, config=None, optional_outputs=None)
           <ul class="class_list">
           <li><a href="#heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowStreamlet">ReduceByWindowStreamlet</a></li>
           <li>heronpy.streamlet.streamlet.Streamlet</li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.streamlet.impl.reducebywindowbolt.ReduceByWindowStreamlet.__init__">
@@ -1820,10 +1838,10 @@ of the current streamlet</p></div>
     <pre><code>def consume(self, consume_function):
   """Calls consume_function for each element of this streamlet. This function returns nothing
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.consumebolt import ConsumeStreamlet
   consume_streamlet = ConsumeStreamlet(consume_function, self)
   self._add_child(consume_streamlet)
-  return
 </code></pre>
   </div>
 </div>
@@ -1846,6 +1864,7 @@ of the current streamlet</p></div>
     <pre><code>def filter(self, filter_function):
   """Return a new Streamlet containing only the elements that satisfy filter_function
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.filterbolt import FilterStreamlet
   filter_streamlet = FilterStreamlet(filter_function, self)
   self._add_child(filter_streamlet)
@@ -1874,6 +1893,7 @@ and flattening the result</p></div>
   """Return a new Streamlet by applying map_function to each element of this Streamlet
      and flattening the result
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.flatmapbolt import FlatMapStreamlet
   fm_streamlet = FlatMapStreamlet(flatmap_function, self)
   self._add_child(fm_streamlet)
@@ -1940,6 +1960,7 @@ and flattening the result</p></div>
     <pre><code>def join(self, join_streamlet, window_config, join_function):
   """Return a new Streamlet by joining join_streamlet with this streamlet
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.joinbolt import JoinStreamlet, JoinBolt
   join_streamlet_result = JoinStreamlet(JoinBolt.INNER, window_config,
                                         join_function, self, join_streamlet)
@@ -1968,10 +1989,10 @@ and flattening the result</p></div>
     <pre><code>def log(self):
   """Logs all elements of this streamlet. This returns nothing
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.logbolt import LogStreamlet
   log_streamlet = LogStreamlet(self)
   self._add_child(log_streamlet)
-  return
 </code></pre>
   </div>
 </div>
@@ -1994,6 +2015,7 @@ and flattening the result</p></div>
     <pre><code>def map(self, map_function):
   """Return a new Streamlet by applying map_function to each element of this Streamlet.
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.mapbolt import MapStreamlet
   map_streamlet = MapStreamlet(map_function, self)
   self._add_child(map_streamlet)
@@ -2020,6 +2042,7 @@ and flattening the result</p></div>
     <pre><code>def outer_join(self, join_streamlet, window_config, join_function):
   """Return a new Streamlet by outer join_streamlet with this streamlet
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.joinbolt import JoinStreamlet, JoinBolt
   join_streamlet_result = JoinStreamlet(JoinBolt.OUTER, window_config,
                                         join_function, self, join_streamlet)
@@ -2048,6 +2071,7 @@ and flattening the result</p></div>
     <pre><code>def outer_left_join(self, join_streamlet, window_config, join_function):
   """Return a new Streamlet by left join_streamlet with this streamlet
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.joinbolt import JoinStreamlet, JoinBolt
   join_streamlet_result = JoinStreamlet(JoinBolt.OUTER_LEFT, window_config,
                                         join_function, self, join_streamlet)
@@ -2076,6 +2100,7 @@ and flattening the result</p></div>
     <pre><code>def outer_right_join(self, join_streamlet, window_config, join_function):
   """Return a new Streamlet by outer right join_streamlet with this streamlet
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.joinbolt import JoinStreamlet, JoinBolt
   join_streamlet_result = JoinStreamlet(JoinBolt.OUTER_RIGHT, window_config,
                                         join_function, self, join_streamlet)
@@ -2106,6 +2131,7 @@ over the time_window and then reduced using the reduce_function</p></div>
   """Return a new Streamlet in which each (key, value) pair of this Streamlet are collected
      over the time_window and then reduced using the reduce_function
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.reducebykeyandwindowbolt import ReduceByKeyAndWindowStreamlet
   reduce_streamlet = ReduceByKeyAndWindowStreamlet(window_config, reduce_function, self)
   self._add_child(reduce_streamlet)
@@ -2138,6 +2164,7 @@ is used in the subsequent operations.</p></div>
     reduce_function takes two element at one time and reduces them to one element that
     is used in the subsequent operations.
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.reducebywindowbolt import ReduceByWindowStreamlet
   reduce_streamlet = ReduceByWindowStreamlet(window_config, reduce_function, self)
   self._add_child(reduce_streamlet)
@@ -2176,6 +2203,7 @@ partitions.</p></div>
   It could also return a list of partitions if it wants to send it to multiple
   partitions.
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.repartitionbolt import RepartitionStreamlet
   if repartition_function is None:
     repartition_function = lambda x: x
@@ -2256,6 +2284,7 @@ called. This allows the transform_operator to do any kind of initialization/load
   Before starting to cycle over the Streamlet, the open function of the transform_operator is
   called. This allows the transform_operator to do any kind of initialization/loading, etc.
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.transformbolt import TransformStreamlet
   transform_streamlet = TransformStreamlet(transform_operator, self)
   self._add_child(transform_streamlet)
@@ -2282,6 +2311,7 @@ called. This allows the transform_operator to do any kind of initialization/load
     <pre><code>def union(self, other_streamlet):
   """Returns a new Streamlet that consists of elements of both this and other_streamlet
   """
+  # pylint: disable=import-outside-toplevel
   from heronpy.streamlet.impl.unionbolt import UnionStreamlet
   union_streamlet = UnionStreamlet(self, other_streamlet)
   self._add_child(union_streamlet)
@@ -2300,6 +2330,7 @@ called. This allows the transform_operator to do any kind of initialization/load
       <p id="heronpy.streamlet.impl.reducebywindowbolt.ReduceGrouping" class="name">class <span class="ident">ReduceGrouping</span></p>
       
   
+    <div class="desc"><p>Interface for custom grouping class</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.reducebywindowbolt.ReduceGrouping', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.impl.reducebywindowbolt.ReduceGrouping" class="source">
@@ -2326,9 +2357,9 @@ called. This allows the transform_operator to do any kind of initialization/load
           <ul class="class_list">
           <li><a href="#heronpy.streamlet.impl.reducebywindowbolt.ReduceGrouping">ReduceGrouping</a></li>
           <li>heronpy.api.custom_grouping.ICustomGrouping</li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.streamlet.impl.reducebywindowbolt.ReduceGrouping.choose_tasks">
@@ -2338,6 +2369,10 @@ called. This allows the transform_operator to do any kind of initialization/load
 
     
   
+    <div class="desc"><p>Implements a custom stream grouping</p>
+<p>:param values: the values to group on
+:rtype: list of int
+:return: list of task ids to which these values are emitted</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.reducebywindowbolt.ReduceGrouping.choose_tasks', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.impl.reducebywindowbolt.ReduceGrouping.choose_tasks" class="source">
@@ -2365,6 +2400,13 @@ called. This allows the transform_operator to do any kind of initialization/load
 
     
   
+    <div class="desc"><p>Tells the stream grouping at runtime the tasks in the target bolt</p>
+<p>This information should be used in <code>choose_tasks()</code> to determine the target tasks.</p>
+<p>:param context: topology-worker context
+:param component: source component name
+:param stream: stream id used for this grouping
+:type target_tasks: list of int
+:param target_tasks: list of target task ids</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.impl.reducebywindowbolt.ReduceGrouping.prepare', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.impl.reducebywindowbolt.ReduceGrouping.prepare" class="source">

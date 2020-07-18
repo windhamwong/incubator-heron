@@ -189,6 +189,7 @@ org.apache.storm.metric.internal
 org.apache.storm.serialization
 org.apache.storm.serialization.types
 org.apache.storm.spout
+org.apache.storm.starter
 org.apache.storm.task
 org.apache.storm.testing
 org.apache.storm.topology

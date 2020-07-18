@@ -978,12 +978,12 @@ table {
         
           
   <ul>
-    <li class="mono"><a href="#heronpy.api.bolt.bolt.Bolt.is_tick">is_tick</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.bolt.Bolt.__init__">__init__</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.bolt.Bolt.ack">ack</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.bolt.Bolt.emit">emit</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.bolt.Bolt.fail">fail</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.bolt.Bolt.initialize">initialize</a></li>
+    <li class="mono"><a href="#heronpy.api.bolt.bolt.Bolt.is_tick">is_tick</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.bolt.Bolt.log">log</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.bolt.Bolt.process">process</a></li>
     <li class="mono"><a href="#heronpy.api.bolt.bolt.Bolt.process_tick">process_tick</a></li>
@@ -1054,7 +1054,6 @@ class Bolt(BaseBolt):
                     topology, including the task id and component id of this task, input and output
                     information, etc.
     """
-    pass
 
   @abstractmethod
   def process(self, tup):
@@ -1089,7 +1088,6 @@ class Bolt(BaseBolt):
     :type tup: :class:`Tuple`
     :param tup: the tick tuple to be processed
     """
-    pass
 </code></pre>
   </div>
 
@@ -1137,7 +1135,6 @@ implementing <code>initialize()</code> and <code>process()</code> methods.</p></
                     topology, including the task id and component id of this task, input and output
                     information, etc.
     """
-    pass
 
   @abstractmethod
   def process(self, tup):
@@ -1172,7 +1169,6 @@ implementing <code>initialize()</code> and <code>process()</code> methods.</p></
     :type tup: :class:`Tuple`
     :param tup: the tick tuple to be processed
     """
-    pass
 </code></pre>
   </div>
 </div>
@@ -1184,36 +1180,9 @@ implementing <code>initialize()</code> and <code>process()</code> methods.</p></
           <li><a href="#heronpy.api.bolt.bolt.Bolt">Bolt</a></li>
           <li>heronpy.api.bolt.base_bolt.BaseBolt</li>
           <li>heronpy.api.component.base_component.BaseComponent</li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
           <h3>Static methods</h3>
-            
-  <div class="item">
-    <div class="name def" id="heronpy.api.bolt.bolt.Bolt.is_tick">
-    <p>def <span class="ident">is_tick</span>(</p><p>tup)</p>
-    </div>
-    
-
-    
-  
-    <div class="desc"><p>Returns whether or not a given HeronTuple is a tick Tuple</p>
-<p>It is compatible with StreamParse API.</p></div>
-  <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.bolt.bolt.Bolt.is_tick', this);">Show source &equiv;</a></p>
-  <div id="source-heronpy.api.bolt.bolt.Bolt.is_tick" class="source">
-    <pre><code>@staticmethod
-def is_tick(tup):
-  """Returns whether or not a given HeronTuple is a tick Tuple
-  It is compatible with StreamParse API.
-  """
-  return tup.stream == TupleHelper.TICK_TUPLE_ID
-</code></pre>
-  </div>
-</div>
-
-  </div>
-  
-          <h3>Methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.bolt.bolt.Bolt.__init__">
@@ -1385,7 +1354,32 @@ def initialize(self, config, context):
                   topology, including the task id and component id of this task, input and output
                   information, etc.
   """
-  pass
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="heronpy.api.bolt.bolt.Bolt.is_tick">
+    <p>def <span class="ident">is_tick</span>(</p><p>tup)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Returns whether or not a given HeronTuple is a tick Tuple</p>
+<p>It is compatible with StreamParse API.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.bolt.bolt.Bolt.is_tick', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.api.bolt.bolt.Bolt.is_tick" class="source">
+    <pre><code>@staticmethod
+def is_tick(tup):
+  """Returns whether or not a given HeronTuple is a tick Tuple
+  It is compatible with StreamParse API.
+  """
+  return tup.stream == TupleHelper.TICK_TUPLE_ID
 </code></pre>
   </div>
 </div>
@@ -1497,13 +1491,13 @@ def process_tick(self, tup):
   :type tup: :class:`Tuple`
   :param tup: the tick tuple to be processed
   """
-  pass
 </code></pre>
   </div>
 </div>
 
   </div>
   
+          <h3>Methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.bolt.bolt.Bolt.spec">

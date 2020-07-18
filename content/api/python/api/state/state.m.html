@@ -1017,7 +1017,7 @@ table {
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.state.state', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.state.state" class="source">
-    <pre><code>#!/usr/bin/env python
+    <pre><code>#!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
 #  Licensed to the Apache Software Foundation (ASF) under one
@@ -1040,7 +1040,7 @@ table {
 '''state.py'''
 from abc import abstractmethod
 
-class State(object):
+class State:
   """State represents the state interface as seen by stateful bolts and spouts.
   In Heron, state gives a notional Key/Value interface along with the
   ability to iterate over the key/values
@@ -1051,7 +1051,6 @@ class State(object):
     :param key: The key to get back the value
     :param value: The value associated with the key
     """
-    pass
 
   @abstractmethod
   def get(self, key):
@@ -1059,20 +1058,17 @@ class State(object):
     :param key: The key whose value we want back
     :return: The value associated with the key
     """
-    pass
 
   @abstractmethod
   def enumerate(self):
     """Allows one to enumerate over the state.
     :return: The enumerate object
     """
-    pass
 
   @abstractmethod
   def clear(self):
     """Clears the state to empty state
     """
-    pass
 
 class HashMapState(State):
   """HashMapState represents default implementation of the State interface
@@ -1080,14 +1076,11 @@ class HashMapState(State):
   def __init__(self):
     self._dict = {}
 
-  def put(self, k, v):
-    self._dict[k] = v
+  def put(self, key, value):
+    self._dict[key] = value
 
-  def get(self, k):
-    if k in self._dict:
-      return self._dict[k]
-    else:
-      return None
+  def get(self, key):
+    return self._dict.get(key)
 
   def enumerate(self):
     return enumerate(self._dict)
@@ -1121,14 +1114,11 @@ class HashMapState(State):
   def __init__(self):
     self._dict = {}
 
-  def put(self, k, v):
-    self._dict[k] = v
+  def put(self, key, value):
+    self._dict[key] = value
 
-  def get(self, k):
-    if k in self._dict:
-      return self._dict[k]
-    else:
-      return None
+  def get(self, key):
+    return self._dict.get(key)
 
   def enumerate(self):
     return enumerate(self._dict)
@@ -1148,9 +1138,9 @@ class HashMapState(State):
           <ul class="class_list">
           <li><a href="#heronpy.api.state.state.HashMapState">HashMapState</a></li>
           <li><a href="#heronpy.api.state.state.State">State</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.state.state.HashMapState.__init__">
@@ -1160,6 +1150,7 @@ class HashMapState(State):
 
     
   
+    <div class="desc"><p>Initialize self.  See help(type(self)) for accurate signature.</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.state.state.HashMapState.__init__', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.state.state.HashMapState.__init__" class="source">
@@ -1177,14 +1168,10 @@ class HashMapState(State):
     <p>def <span class="ident">clear</span>(</p><p>self)</p>
     </div>
     
-    <p class="inheritance">
-     <strong>Inheritance:</strong>
-       <code><a href="#heronpy.api.state.state.State">State</a></code>.<code><a href="#heronpy.api.state.state.State.clear">clear</a></code>
-    </p>
 
     
   
-    <div class="desc inherited"><p>Clears the state to empty state</p></div>
+    <div class="desc"><p>Clears the state to empty state</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.state.state.HashMapState.clear', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.state.state.HashMapState.clear" class="source">
@@ -1202,14 +1189,10 @@ class HashMapState(State):
     <p>def <span class="ident">enumerate</span>(</p><p>self)</p>
     </div>
     
-    <p class="inheritance">
-     <strong>Inheritance:</strong>
-       <code><a href="#heronpy.api.state.state.State">State</a></code>.<code><a href="#heronpy.api.state.state.State.enumerate">enumerate</a></code>
-    </p>
 
     
   
-    <div class="desc inherited"><p>Allows one to enumerate over the state.
+    <div class="desc"><p>Allows one to enumerate over the state.
 :return: The enumerate object</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.state.state.HashMapState.enumerate', this);">Show source &equiv;</a></p>
@@ -1225,27 +1208,20 @@ class HashMapState(State):
             
   <div class="item">
     <div class="name def" id="heronpy.api.state.state.HashMapState.get">
-    <p>def <span class="ident">get</span>(</p><p>self, k)</p>
+    <p>def <span class="ident">get</span>(</p><p>self, key)</p>
     </div>
     
-    <p class="inheritance">
-     <strong>Inheritance:</strong>
-       <code><a href="#heronpy.api.state.state.State">State</a></code>.<code><a href="#heronpy.api.state.state.State.get">get</a></code>
-    </p>
 
     
   
-    <div class="desc inherited"><p>Gets the value corresponding to a key
+    <div class="desc"><p>Gets the value corresponding to a key
 :param key: The key whose value we want back
 :return: The value associated with the key</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.state.state.HashMapState.get', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.state.state.HashMapState.get" class="source">
-    <pre><code>def get(self, k):
-  if k in self._dict:
-    return self._dict[k]
-  else:
-    return None
+    <pre><code>def get(self, key):
+  return self._dict.get(key)
 </code></pre>
   </div>
 </div>
@@ -1255,24 +1231,20 @@ class HashMapState(State):
             
   <div class="item">
     <div class="name def" id="heronpy.api.state.state.HashMapState.put">
-    <p>def <span class="ident">put</span>(</p><p>self, k, v)</p>
+    <p>def <span class="ident">put</span>(</p><p>self, key, value)</p>
     </div>
     
-    <p class="inheritance">
-     <strong>Inheritance:</strong>
-       <code><a href="#heronpy.api.state.state.State">State</a></code>.<code><a href="#heronpy.api.state.state.State.put">put</a></code>
-    </p>
 
     
   
-    <div class="desc inherited"><p>Puts {key, value} pair into the state
+    <div class="desc"><p>Puts {key, value} pair into the state
 :param key: The key to get back the value
 :param value: The value associated with the key</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.state.state.HashMapState.put', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.state.state.HashMapState.put" class="source">
-    <pre><code>def put(self, k, v):
-  self._dict[k] = v
+    <pre><code>def put(self, key, value):
+  self._dict[key] = value
 </code></pre>
   </div>
 </div>
@@ -1292,7 +1264,7 @@ ability to iterate over the key/values</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.state.state.State', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.state.state.State" class="source">
-    <pre><code>class State(object):
+    <pre><code>class State:
   """State represents the state interface as seen by stateful bolts and spouts.
   In Heron, state gives a notional Key/Value interface along with the
   ability to iterate over the key/values
@@ -1303,7 +1275,6 @@ ability to iterate over the key/values</p></div>
     :param key: The key to get back the value
     :param value: The value associated with the key
     """
-    pass
 
   @abstractmethod
   def get(self, key):
@@ -1311,20 +1282,17 @@ ability to iterate over the key/values</p></div>
     :param key: The key whose value we want back
     :return: The value associated with the key
     """
-    pass
 
   @abstractmethod
   def enumerate(self):
     """Allows one to enumerate over the state.
     :return: The enumerate object
     """
-    pass
 
   @abstractmethod
   def clear(self):
     """Clears the state to empty state
     """
-    pass
 </code></pre>
   </div>
 </div>
@@ -1334,9 +1302,9 @@ ability to iterate over the key/values</p></div>
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.api.state.state.State">State</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.state.state.State.clear">
@@ -1354,7 +1322,6 @@ ability to iterate over the key/values</p></div>
 def clear(self):
   """Clears the state to empty state
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1380,7 +1347,6 @@ def enumerate(self):
   """Allows one to enumerate over the state.
   :return: The enumerate object
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1408,7 +1374,6 @@ def get(self, key):
   :param key: The key whose value we want back
   :return: The value associated with the key
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1436,7 +1401,6 @@ def put(self, key, value):
   :param key: The key to get back the value
   :param value: The value associated with the key
   """
-  pass
 </code></pre>
   </div>
 </div>

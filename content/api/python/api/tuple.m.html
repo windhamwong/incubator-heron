@@ -1000,7 +1000,7 @@ table {
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.tuple', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.tuple" class="source">
-    <pre><code>#!/usr/bin/env python
+    <pre><code>#!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
 #  Licensed to the Apache Software Foundation (ASF) under one
@@ -1039,7 +1039,7 @@ Tuple = namedtuple('Tuple', 'id component stream task values')
 :type values: tuple
 """
 
-class TupleHelper(object):
+class TupleHelper:
   """Tuple generator, returns StreamParse compatible tuple"""
   TICK_TUPLE_ID = "__tick"
   TICK_SOURCE_COMPONENT = "__system"
@@ -1066,8 +1066,8 @@ class TupleHelper(object):
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.api.tuple.Tuple">Tuple</a></li>
-          <li>__builtin__.tuple</li>
-          <li>__builtin__.object</li>
+          <li>builtins.tuple</li>
+          <li>builtins.object</li>
           </ul>
           <h3>Instance variables</h3>
             <div class="item">
@@ -1136,7 +1136,7 @@ class TupleHelper(object):
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.tuple.TupleHelper', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.tuple.TupleHelper" class="source">
-    <pre><code>class TupleHelper(object):
+    <pre><code>class TupleHelper:
   """Tuple generator, returns StreamParse compatible tuple"""
   TICK_TUPLE_ID = "__tick"
   TICK_SOURCE_COMPONENT = "__system"
@@ -1149,7 +1149,7 @@ class TupleHelper(object):
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.api.tuple.TupleHelper">TupleHelper</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
           <h3>Class variables</h3>
             <div class="item">

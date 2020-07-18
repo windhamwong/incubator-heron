@@ -978,9 +978,9 @@ table {
         
           
   <ul>
+    <li class="mono"><a href="#heronpy.streamlet.windowconfig.WindowConfig.__init__">__init__</a></li>
     <li class="mono"><a href="#heronpy.streamlet.windowconfig.WindowConfig.create_sliding_window">create_sliding_window</a></li>
     <li class="mono"><a href="#heronpy.streamlet.windowconfig.WindowConfig.create_tumbling_window">create_tumbling_window</a></li>
-    <li class="mono"><a href="#heronpy.streamlet.windowconfig.WindowConfig.__init__">__init__</a></li>
   </ul>
 
         </li>
@@ -1003,7 +1003,7 @@ table {
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.windowconfig', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.windowconfig" class="source">
-    <pre><code>#!/usr/bin/env python
+    <pre><code>#!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
 #  Licensed to the Apache Software Foundation (ASF) under one
@@ -1027,7 +1027,7 @@ table {
 
 import datetime
 
-class WindowConfig(object):
+class WindowConfig:
   """WindowConfig allows streamlet API users to program window configuration for operations
      that rely on windowing. Currently we only support time/count based
      sliding/tumbling windows.
@@ -1073,7 +1073,7 @@ sliding/tumbling windows.</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.windowconfig.WindowConfig', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.streamlet.windowconfig.WindowConfig" class="source">
-    <pre><code>class WindowConfig(object):
+    <pre><code>class WindowConfig:
   """WindowConfig allows streamlet API users to program window configuration for operations
      that rely on windowing. Currently we only support time/count based
      sliding/tumbling windows.
@@ -1108,9 +1108,33 @@ sliding/tumbling windows.</p></div>
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.streamlet.windowconfig.WindowConfig">WindowConfig</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
           <h3>Static methods</h3>
+            
+  <div class="item">
+    <div class="name def" id="heronpy.streamlet.windowconfig.WindowConfig.__init__">
+    <p>def <span class="ident">__init__</span>(</p><p>self, window_duration, slide_interval)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Initialize self.  See help(type(self)) for accurate signature.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.windowconfig.WindowConfig.__init__', this);">Show source &equiv;</a></p>
+  <div id="source-heronpy.streamlet.windowconfig.WindowConfig.__init__" class="source">
+    <pre><code>def __init__(self, window_duration, slide_interval):
+  self._window_duration = window_duration
+  self._slide_interval = slide_interval
+  if self._window_duration.microseconds > 0 or self._slide_interval.microseconds > 0:
+    raise RuntimeError("Python Windowing curently only supports second resolution")
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
             
   <div class="item">
     <div class="name def" id="heronpy.streamlet.windowconfig.WindowConfig.create_sliding_window">
@@ -1155,30 +1179,6 @@ def create_sliding_window(window_duration, slide_interval):
     <pre><code>@staticmethod
 def create_tumbling_window(window_duration):
   return WindowConfig(window_duration, window_duration)
-</code></pre>
-  </div>
-</div>
-
-  </div>
-  
-          <h3>Methods</h3>
-            
-  <div class="item">
-    <div class="name def" id="heronpy.streamlet.windowconfig.WindowConfig.__init__">
-    <p>def <span class="ident">__init__</span>(</p><p>self, window_duration, slide_interval)</p>
-    </div>
-    
-
-    
-  
-  <div class="source_cont">
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.streamlet.windowconfig.WindowConfig.__init__', this);">Show source &equiv;</a></p>
-  <div id="source-heronpy.streamlet.windowconfig.WindowConfig.__init__" class="source">
-    <pre><code>def __init__(self, window_duration, slide_interval):
-  self._window_duration = window_duration
-  self._slide_interval = slide_interval
-  if self._window_duration.microseconds > 0 or self._slide_interval.microseconds > 0:
-    raise RuntimeError("Python Windowing curently only supports second resolution")
 </code></pre>
   </div>
 </div>

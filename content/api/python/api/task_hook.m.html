@@ -1032,7 +1032,7 @@ table {
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.task_hook', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.task_hook" class="source">
-    <pre><code>#!/usr/bin/env python
+    <pre><code>#!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
 #  Licensed to the Apache Software Foundation (ASF) under one
@@ -1056,7 +1056,7 @@ table {
 from collections import namedtuple
 from abc import abstractmethod
 
-class ITaskHook(object):
+class ITaskHook:
   """ITaskHook is an interface for defining task hooks for a topology"""
 
   @abstractmethod
@@ -1066,12 +1066,10 @@ class ITaskHook(object):
     :param conf: component-specific configuration passed to the topology
     :param context: topology context
     """
-    pass
 
   @abstractmethod
   def clean_up(self):
     """Called just before the spout/bolt's cleanup method is called"""
-    pass
 
   @abstractmethod
   def emit(self, emit_info):
@@ -1079,7 +1077,6 @@ class ITaskHook(object):
 
     :param emit_info: EmitInfo object
     """
-    pass
 
   @abstractmethod
   def spout_ack(self, spout_ack_info):
@@ -1087,7 +1084,6 @@ class ITaskHook(object):
 
     :param spout_ack_info: SpoutAckInfo object
     """
-    pass
 
   @abstractmethod
   def spout_fail(self, spout_fail_info):
@@ -1095,7 +1091,6 @@ class ITaskHook(object):
 
     :param spout_fail_info: SpoutFailInfo object
     """
-    pass
 
   @abstractmethod
   def bolt_execute(self, bolt_execute_info):
@@ -1103,7 +1098,6 @@ class ITaskHook(object):
 
     :param bolt_execute_info: BoltExecuteInfo object
     """
-    pass
 
   @abstractmethod
   def bolt_ack(self, bolt_ack_info):
@@ -1111,7 +1105,6 @@ class ITaskHook(object):
 
     :param bolt_ack_info: BoltAckInfo object
     """
-    pass
 
   @abstractmethod
   def bolt_fail(self, bolt_fail_info):
@@ -1119,7 +1112,6 @@ class ITaskHook(object):
 
     :param bolt_fail_info: BoltFailInfo object
     """
-    pass
 
 
 ##################################################################################
@@ -1200,8 +1192,8 @@ BoltFailInfo = namedtuple('BoltFailInfo', 'heron_tuple, failing_task_id, fail_la
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.api.task_hook.BoltAckInfo">BoltAckInfo</a></li>
-          <li>__builtin__.tuple</li>
-          <li>__builtin__.object</li>
+          <li>builtins.tuple</li>
+          <li>builtins.object</li>
           </ul>
           <h3>Instance variables</h3>
             <div class="item">
@@ -1253,8 +1245,8 @@ BoltFailInfo = namedtuple('BoltFailInfo', 'heron_tuple, failing_task_id, fail_la
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.api.task_hook.BoltExecuteInfo">BoltExecuteInfo</a></li>
-          <li>__builtin__.tuple</li>
-          <li>__builtin__.object</li>
+          <li>builtins.tuple</li>
+          <li>builtins.object</li>
           </ul>
           <h3>Instance variables</h3>
             <div class="item">
@@ -1306,8 +1298,8 @@ BoltFailInfo = namedtuple('BoltFailInfo', 'heron_tuple, failing_task_id, fail_la
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.api.task_hook.BoltFailInfo">BoltFailInfo</a></li>
-          <li>__builtin__.tuple</li>
-          <li>__builtin__.object</li>
+          <li>builtins.tuple</li>
+          <li>builtins.object</li>
           </ul>
           <h3>Instance variables</h3>
             <div class="item">
@@ -1359,8 +1351,8 @@ BoltFailInfo = namedtuple('BoltFailInfo', 'heron_tuple, failing_task_id, fail_la
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.api.task_hook.EmitInfo">EmitInfo</a></li>
-          <li>__builtin__.tuple</li>
-          <li>__builtin__.object</li>
+          <li>builtins.tuple</li>
+          <li>builtins.object</li>
           </ul>
           <h3>Instance variables</h3>
             <div class="item">
@@ -1418,7 +1410,7 @@ BoltFailInfo = namedtuple('BoltFailInfo', 'heron_tuple, failing_task_id, fail_la
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.task_hook.ITaskHook', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.task_hook.ITaskHook" class="source">
-    <pre><code>class ITaskHook(object):
+    <pre><code>class ITaskHook:
   """ITaskHook is an interface for defining task hooks for a topology"""
 
   @abstractmethod
@@ -1428,12 +1420,10 @@ BoltFailInfo = namedtuple('BoltFailInfo', 'heron_tuple, failing_task_id, fail_la
     :param conf: component-specific configuration passed to the topology
     :param context: topology context
     """
-    pass
 
   @abstractmethod
   def clean_up(self):
     """Called just before the spout/bolt's cleanup method is called"""
-    pass
 
   @abstractmethod
   def emit(self, emit_info):
@@ -1441,7 +1431,6 @@ BoltFailInfo = namedtuple('BoltFailInfo', 'heron_tuple, failing_task_id, fail_la
 
     :param emit_info: EmitInfo object
     """
-    pass
 
   @abstractmethod
   def spout_ack(self, spout_ack_info):
@@ -1449,7 +1438,6 @@ BoltFailInfo = namedtuple('BoltFailInfo', 'heron_tuple, failing_task_id, fail_la
 
     :param spout_ack_info: SpoutAckInfo object
     """
-    pass
 
   @abstractmethod
   def spout_fail(self, spout_fail_info):
@@ -1457,7 +1445,6 @@ BoltFailInfo = namedtuple('BoltFailInfo', 'heron_tuple, failing_task_id, fail_la
 
     :param spout_fail_info: SpoutFailInfo object
     """
-    pass
 
   @abstractmethod
   def bolt_execute(self, bolt_execute_info):
@@ -1465,7 +1452,6 @@ BoltFailInfo = namedtuple('BoltFailInfo', 'heron_tuple, failing_task_id, fail_la
 
     :param bolt_execute_info: BoltExecuteInfo object
     """
-    pass
 
   @abstractmethod
   def bolt_ack(self, bolt_ack_info):
@@ -1473,7 +1459,6 @@ BoltFailInfo = namedtuple('BoltFailInfo', 'heron_tuple, failing_task_id, fail_la
 
     :param bolt_ack_info: BoltAckInfo object
     """
-    pass
 
   @abstractmethod
   def bolt_fail(self, bolt_fail_info):
@@ -1481,7 +1466,6 @@ BoltFailInfo = namedtuple('BoltFailInfo', 'heron_tuple, failing_task_id, fail_la
 
     :param bolt_fail_info: BoltFailInfo object
     """
-    pass
 </code></pre>
   </div>
 </div>
@@ -1491,9 +1475,9 @@ BoltFailInfo = namedtuple('BoltFailInfo', 'heron_tuple, failing_task_id, fail_la
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.api.task_hook.ITaskHook">ITaskHook</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.task_hook.ITaskHook.bolt_ack">
@@ -1513,7 +1497,6 @@ def bolt_ack(self, bolt_ack_info):
   """Called in bolt every time a tuple gets acked
   :param bolt_ack_info: BoltAckInfo object
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1539,7 +1522,6 @@ def bolt_execute(self, bolt_execute_info):
   """Called in bolt every time a tuple gets executed
   :param bolt_execute_info: BoltExecuteInfo object
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1565,7 +1547,6 @@ def bolt_fail(self, bolt_fail_info):
   """Called in bolt every time a tuple gets failed
   :param bolt_fail_info: BoltFailInfo object
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1588,7 +1569,6 @@ def bolt_fail(self, bolt_fail_info):
     <pre><code>@abstractmethod
 def clean_up(self):
   """Called just before the spout/bolt's cleanup method is called"""
-  pass
 </code></pre>
   </div>
 </div>
@@ -1614,7 +1594,6 @@ def emit(self, emit_info):
   """Called every time a tuple is emitted in spout/bolt
   :param emit_info: EmitInfo object
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1642,7 +1621,6 @@ def prepare(self, conf, context):
   :param conf: component-specific configuration passed to the topology
   :param context: topology context
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1668,7 +1646,6 @@ def spout_ack(self, spout_ack_info):
   """Called in spout every time a tuple gets acked
   :param spout_ack_info: SpoutAckInfo object
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1694,7 +1671,6 @@ def spout_fail(self, spout_fail_info):
   """Called in spout every time a tuple gets failed
   :param spout_fail_info: SpoutFailInfo object
   """
-  pass
 </code></pre>
   </div>
 </div>
@@ -1717,8 +1693,8 @@ def spout_fail(self, spout_fail_info):
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.api.task_hook.SpoutAckInfo">SpoutAckInfo</a></li>
-          <li>__builtin__.tuple</li>
-          <li>__builtin__.object</li>
+          <li>builtins.tuple</li>
+          <li>builtins.object</li>
           </ul>
           <h3>Instance variables</h3>
             <div class="item">
@@ -1770,8 +1746,8 @@ def spout_fail(self, spout_fail_info):
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.api.task_hook.SpoutFailInfo">SpoutFailInfo</a></li>
-          <li>__builtin__.tuple</li>
-          <li>__builtin__.object</li>
+          <li>builtins.tuple</li>
+          <li>builtins.object</li>
           </ul>
           <h3>Instance variables</h3>
             <div class="item">

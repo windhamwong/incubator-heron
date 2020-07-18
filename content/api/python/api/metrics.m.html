@@ -1099,7 +1099,7 @@ table {
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.metrics', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.metrics" class="source">
-    <pre><code>#!/usr/bin/env python
+    <pre><code>#!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
 #  Licensed to the Apache Software Foundation (ASF) under one
@@ -1124,12 +1124,11 @@ from abc import abstractmethod
 
 # pylint: disable=attribute-defined-outside-init
 
-class IMetric(object):
+class IMetric:
   """Interface for Heron Metric"""
   @abstractmethod
   def get_value_and_reset(self):
     """Returns the current value and reset"""
-    pass
 
 class CountMetric(IMetric):
   """Counter for a single value"""
@@ -1169,22 +1168,19 @@ class MultiCountMetric(IMetric):
     return ret
 
 # Reducer metric
-class IReducer(object):
+class IReducer:
   """Interface for Reducer"""
   @abstractmethod
   def init(self):
     """Called when this reducer is initialized/reinitialized"""
-    pass
 
   @abstractmethod
   def reduce(self, value):
     """Called to reduce the value"""
-    pass
 
   @abstractmethod
   def extract(self):
     """Called to extract the current value"""
-    pass
 
 class MeanReducer(IReducer):
   """Mean Reducer"""
@@ -1199,8 +1195,7 @@ class MeanReducer(IReducer):
   def extract(self):
     if self.count > 0:
       return float(self.sum)/self.count
-    else:
-      return None
+    return None
 
 class ReducedMetric(IMetric):
   """Reduced Metric"""
@@ -1357,20 +1352,9 @@ MultiMeanReducedMetric = lambda: MultiReducedMetric(MeanReducer)
           <ul class="class_list">
           <li><a href="#heronpy.api.metrics.AssignableMetrics">AssignableMetrics</a></li>
           <li><a href="#heronpy.api.metrics.IMetric">IMetric</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Instance variables</h3>
-            <div class="item">
-            <p id="heronpy.api.metrics.AssignableMetrics.value" class="name">var <span class="ident">value</span></p>
-            
-
-            
-  
-  <div class="source_cont">
-</div>
-
-            </div>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.metrics.AssignableMetrics.__init__">
@@ -1380,6 +1364,7 @@ MultiMeanReducedMetric = lambda: MultiReducedMetric(MeanReducer)
 
     
   
+    <div class="desc"><p>Initialize self.  See help(type(self)) for accurate signature.</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.metrics.AssignableMetrics.__init__', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.metrics.AssignableMetrics.__init__" class="source">
@@ -1397,14 +1382,10 @@ MultiMeanReducedMetric = lambda: MultiReducedMetric(MeanReducer)
     <p>def <span class="ident">get_value_and_reset</span>(</p><p>self)</p>
     </div>
     
-    <p class="inheritance">
-     <strong>Inheritance:</strong>
-       <code><a href="#heronpy.api.metrics.IMetric">IMetric</a></code>.<code><a href="#heronpy.api.metrics.IMetric.get_value_and_reset">get_value_and_reset</a></code>
-    </p>
 
     
   
-    <div class="desc inherited"><p>Returns the current value and reset</p></div>
+    <div class="desc"><p>Returns the current value and reset</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.metrics.AssignableMetrics.get_value_and_reset', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.metrics.AssignableMetrics.get_value_and_reset" class="source">
@@ -1436,6 +1417,17 @@ MultiMeanReducedMetric = lambda: MultiReducedMetric(MeanReducer)
 
   </div>
   
+          <h3>Instance variables</h3>
+            <div class="item">
+            <p id="heronpy.api.metrics.AssignableMetrics.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
       </div>
       </div>
       
@@ -1471,20 +1463,9 @@ MultiMeanReducedMetric = lambda: MultiReducedMetric(MeanReducer)
           <ul class="class_list">
           <li><a href="#heronpy.api.metrics.CountMetric">CountMetric</a></li>
           <li><a href="#heronpy.api.metrics.IMetric">IMetric</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Instance variables</h3>
-            <div class="item">
-            <p id="heronpy.api.metrics.CountMetric.value" class="name">var <span class="ident">value</span></p>
-            
-
-            
-  
-  <div class="source_cont">
-</div>
-
-            </div>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.metrics.CountMetric.__init__">
@@ -1513,14 +1494,10 @@ MultiMeanReducedMetric = lambda: MultiReducedMetric(MeanReducer)
     <p>def <span class="ident">get_value_and_reset</span>(</p><p>self)</p>
     </div>
     
-    <p class="inheritance">
-     <strong>Inheritance:</strong>
-       <code><a href="#heronpy.api.metrics.IMetric">IMetric</a></code>.<code><a href="#heronpy.api.metrics.IMetric.get_value_and_reset">get_value_and_reset</a></code>
-    </p>
 
     
   
-    <div class="desc inherited"><p>Returns the current value and reset</p></div>
+    <div class="desc"><p>Returns the current value and reset</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.metrics.CountMetric.get_value_and_reset', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.metrics.CountMetric.get_value_and_reset" class="source">
@@ -1556,6 +1533,17 @@ MultiMeanReducedMetric = lambda: MultiReducedMetric(MeanReducer)
 
   </div>
   
+          <h3>Instance variables</h3>
+            <div class="item">
+            <p id="heronpy.api.metrics.CountMetric.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
       </div>
       </div>
       
@@ -1567,12 +1555,11 @@ MultiMeanReducedMetric = lambda: MultiReducedMetric(MeanReducer)
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.metrics.IMetric', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.metrics.IMetric" class="source">
-    <pre><code>class IMetric(object):
+    <pre><code>class IMetric:
   """Interface for Heron Metric"""
   @abstractmethod
   def get_value_and_reset(self):
     """Returns the current value and reset"""
-    pass
 </code></pre>
   </div>
 </div>
@@ -1582,9 +1569,9 @@ MultiMeanReducedMetric = lambda: MultiReducedMetric(MeanReducer)
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.api.metrics.IMetric">IMetric</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.metrics.IMetric.get_value_and_reset">
@@ -1601,7 +1588,6 @@ MultiMeanReducedMetric = lambda: MultiReducedMetric(MeanReducer)
     <pre><code>@abstractmethod
 def get_value_and_reset(self):
   """Returns the current value and reset"""
-  pass
 </code></pre>
   </div>
 </div>
@@ -1619,22 +1605,19 @@ def get_value_and_reset(self):
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.metrics.IReducer', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.metrics.IReducer" class="source">
-    <pre><code>class IReducer(object):
+    <pre><code>class IReducer:
   """Interface for Reducer"""
   @abstractmethod
   def init(self):
     """Called when this reducer is initialized/reinitialized"""
-    pass
 
   @abstractmethod
   def reduce(self, value):
     """Called to reduce the value"""
-    pass
 
   @abstractmethod
   def extract(self):
     """Called to extract the current value"""
-    pass
 </code></pre>
   </div>
 </div>
@@ -1644,9 +1627,9 @@ def get_value_and_reset(self):
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
           <li><a href="#heronpy.api.metrics.IReducer">IReducer</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.metrics.IReducer.extract">
@@ -1663,7 +1646,6 @@ def get_value_and_reset(self):
     <pre><code>@abstractmethod
 def extract(self):
   """Called to extract the current value"""
-  pass
 </code></pre>
   </div>
 </div>
@@ -1686,7 +1668,6 @@ def extract(self):
     <pre><code>@abstractmethod
 def init(self):
   """Called when this reducer is initialized/reinitialized"""
-  pass
 </code></pre>
   </div>
 </div>
@@ -1709,7 +1690,6 @@ def init(self):
     <pre><code>@abstractmethod
 def reduce(self, value):
   """Called to reduce the value"""
-  pass
 </code></pre>
   </div>
 </div>
@@ -1740,8 +1720,7 @@ def reduce(self, value):
   def extract(self):
     if self.count > 0:
       return float(self.sum)/self.count
-    else:
-      return None
+    return None
 </code></pre>
   </div>
 </div>
@@ -1752,9 +1731,9 @@ def reduce(self, value):
           <ul class="class_list">
           <li><a href="#heronpy.api.metrics.MeanReducer">MeanReducer</a></li>
           <li><a href="#heronpy.api.metrics.IReducer">IReducer</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.metrics.MeanReducer.extract">
@@ -1775,8 +1754,7 @@ def reduce(self, value):
     <pre><code>def extract(self):
   if self.count > 0:
     return float(self.sum)/self.count
-  else:
-    return None
+  return None
 </code></pre>
   </div>
 </div>
@@ -1789,14 +1767,10 @@ def reduce(self, value):
     <p>def <span class="ident">init</span>(</p><p>self)</p>
     </div>
     
-    <p class="inheritance">
-     <strong>Inheritance:</strong>
-       <code><a href="#heronpy.api.metrics.IReducer">IReducer</a></code>.<code><a href="#heronpy.api.metrics.IReducer.init">init</a></code>
-    </p>
 
     
   
-    <div class="desc inherited"><p>Called when this reducer is initialized/reinitialized</p></div>
+    <div class="desc"><p>Called when this reducer is initialized/reinitialized</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.metrics.MeanReducer.init', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.metrics.MeanReducer.init" class="source">
@@ -1815,14 +1789,10 @@ def reduce(self, value):
     <p>def <span class="ident">reduce</span>(</p><p>self, value)</p>
     </div>
     
-    <p class="inheritance">
-     <strong>Inheritance:</strong>
-       <code><a href="#heronpy.api.metrics.IReducer">IReducer</a></code>.<code><a href="#heronpy.api.metrics.IReducer.reduce">reduce</a></code>
-    </p>
 
     
   
-    <div class="desc inherited"><p>Called to reduce the value</p></div>
+    <div class="desc"><p>Called to reduce the value</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.metrics.MeanReducer.reduce', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.metrics.MeanReducer.reduce" class="source">
@@ -1872,20 +1842,9 @@ def reduce(self, value):
           <ul class="class_list">
           <li><a href="#heronpy.api.metrics.MultiAssignableMetrics">MultiAssignableMetrics</a></li>
           <li><a href="#heronpy.api.metrics.IMetric">IMetric</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Instance variables</h3>
-            <div class="item">
-            <p id="heronpy.api.metrics.MultiAssignableMetrics.map" class="name">var <span class="ident">map</span></p>
-            
-
-            
-  
-  <div class="source_cont">
-</div>
-
-            </div>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.metrics.MultiAssignableMetrics.__init__">
@@ -1895,6 +1854,7 @@ def reduce(self, value):
 
     
   
+    <div class="desc"><p>Initialize self.  See help(type(self)) for accurate signature.</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.metrics.MultiAssignableMetrics.__init__', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.metrics.MultiAssignableMetrics.__init__" class="source">
@@ -1912,14 +1872,10 @@ def reduce(self, value):
     <p>def <span class="ident">get_value_and_reset</span>(</p><p>self)</p>
     </div>
     
-    <p class="inheritance">
-     <strong>Inheritance:</strong>
-       <code><a href="#heronpy.api.metrics.IMetric">IMetric</a></code>.<code><a href="#heronpy.api.metrics.IMetric.get_value_and_reset">get_value_and_reset</a></code>
-    </p>
 
     
   
-    <div class="desc inherited"><p>Returns the current value and reset</p></div>
+    <div class="desc"><p>Returns the current value and reset</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.metrics.MultiAssignableMetrics.get_value_and_reset', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.metrics.MultiAssignableMetrics.get_value_and_reset" class="source">
@@ -1957,6 +1913,17 @@ def reduce(self, value):
 
   </div>
   
+          <h3>Instance variables</h3>
+            <div class="item">
+            <p id="heronpy.api.metrics.MultiAssignableMetrics.map" class="name">var <span class="ident">map</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
       </div>
       </div>
       
@@ -1999,20 +1966,9 @@ def reduce(self, value):
           <ul class="class_list">
           <li><a href="#heronpy.api.metrics.MultiCountMetric">MultiCountMetric</a></li>
           <li><a href="#heronpy.api.metrics.IMetric">IMetric</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Instance variables</h3>
-            <div class="item">
-            <p id="heronpy.api.metrics.MultiCountMetric.value" class="name">var <span class="ident">value</span></p>
-            
-
-            
-  
-  <div class="source_cont">
-</div>
-
-            </div>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.metrics.MultiCountMetric.__init__">
@@ -2063,14 +2019,10 @@ def reduce(self, value):
     <p>def <span class="ident">get_value_and_reset</span>(</p><p>self)</p>
     </div>
     
-    <p class="inheritance">
-     <strong>Inheritance:</strong>
-       <code><a href="#heronpy.api.metrics.IMetric">IMetric</a></code>.<code><a href="#heronpy.api.metrics.IMetric.get_value_and_reset">get_value_and_reset</a></code>
-    </p>
 
     
   
-    <div class="desc inherited"><p>Returns the current value and reset</p></div>
+    <div class="desc"><p>Returns the current value and reset</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.metrics.MultiCountMetric.get_value_and_reset', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.metrics.MultiCountMetric.get_value_and_reset" class="source">
@@ -2109,6 +2061,17 @@ def reduce(self, value):
 
   </div>
   
+          <h3>Instance variables</h3>
+            <div class="item">
+            <p id="heronpy.api.metrics.MultiCountMetric.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
       </div>
       </div>
       
@@ -2158,30 +2121,9 @@ def reduce(self, value):
           <ul class="class_list">
           <li><a href="#heronpy.api.metrics.MultiReducedMetric">MultiReducedMetric</a></li>
           <li><a href="#heronpy.api.metrics.IMetric">IMetric</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Instance variables</h3>
-            <div class="item">
-            <p id="heronpy.api.metrics.MultiReducedMetric.reducer" class="name">var <span class="ident">reducer</span></p>
-            
-
-            
-  
-  <div class="source_cont">
-</div>
-
-            </div>
-            <div class="item">
-            <p id="heronpy.api.metrics.MultiReducedMetric.value" class="name">var <span class="ident">value</span></p>
-            
-
-            
-  
-  <div class="source_cont">
-</div>
-
-            </div>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.metrics.MultiReducedMetric.__init__">
@@ -2237,14 +2179,10 @@ def reduce(self, value):
     <p>def <span class="ident">get_value_and_reset</span>(</p><p>self)</p>
     </div>
     
-    <p class="inheritance">
-     <strong>Inheritance:</strong>
-       <code><a href="#heronpy.api.metrics.IMetric">IMetric</a></code>.<code><a href="#heronpy.api.metrics.IMetric.get_value_and_reset">get_value_and_reset</a></code>
-    </p>
 
     
   
-    <div class="desc inherited"><p>Returns the current value and reset</p></div>
+    <div class="desc"><p>Returns the current value and reset</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.metrics.MultiReducedMetric.get_value_and_reset', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.metrics.MultiReducedMetric.get_value_and_reset" class="source">
@@ -2284,6 +2222,27 @@ def reduce(self, value):
 
   </div>
   
+          <h3>Instance variables</h3>
+            <div class="item">
+            <p id="heronpy.api.metrics.MultiReducedMetric.reducer" class="name">var <span class="ident">reducer</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="heronpy.api.metrics.MultiReducedMetric.value" class="name">var <span class="ident">value</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
       </div>
       </div>
       
@@ -2323,20 +2282,9 @@ def reduce(self, value):
           <ul class="class_list">
           <li><a href="#heronpy.api.metrics.ReducedMetric">ReducedMetric</a></li>
           <li><a href="#heronpy.api.metrics.IMetric">IMetric</a></li>
-          <li>__builtin__.object</li>
+          <li>builtins.object</li>
           </ul>
-          <h3>Instance variables</h3>
-            <div class="item">
-            <p id="heronpy.api.metrics.ReducedMetric.reducer" class="name">var <span class="ident">reducer</span></p>
-            
-
-            
-  
-  <div class="source_cont">
-</div>
-
-            </div>
-          <h3>Methods</h3>
+          <h3>Static methods</h3>
             
   <div class="item">
     <div class="name def" id="heronpy.api.metrics.ReducedMetric.__init__">
@@ -2369,14 +2317,10 @@ def reduce(self, value):
     <p>def <span class="ident">get_value_and_reset</span>(</p><p>self)</p>
     </div>
     
-    <p class="inheritance">
-     <strong>Inheritance:</strong>
-       <code><a href="#heronpy.api.metrics.IMetric">IMetric</a></code>.<code><a href="#heronpy.api.metrics.IMetric.get_value_and_reset">get_value_and_reset</a></code>
-    </p>
 
     
   
-    <div class="desc inherited"><p>Returns the current value and reset</p></div>
+    <div class="desc"><p>Returns the current value and reset</p></div>
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.metrics.ReducedMetric.get_value_and_reset', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.metrics.ReducedMetric.get_value_and_reset" class="source">
@@ -2412,6 +2356,17 @@ def reduce(self, value):
 
   </div>
   
+          <h3>Instance variables</h3>
+            <div class="item">
+            <p id="heronpy.api.metrics.ReducedMetric.reducer" class="name">var <span class="ident">reducer</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
       </div>
       </div>
 
