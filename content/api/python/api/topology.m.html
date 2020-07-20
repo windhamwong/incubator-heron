@@ -1059,7 +1059,6 @@ import os
 import uuid
 
 import heronpy.api.api_constants as api_constants
-import six
 from heronpy.api.component.component_spec import HeronComponentSpec
 from heronpy.api.serializer import default_serializer
 from heronpy.proto import topology_pb2
@@ -1289,8 +1288,7 @@ class TopologyType(type):
 
     return sanitized
 
-@six.add_metaclass(TopologyType)
-class Topology:
+class Topology(metaclass=TopologyType):
   """Topology is an abstract class for defining a topology
 
   Topology writers can define their custom topology by inheriting this class.
@@ -1465,7 +1463,7 @@ that might be specified from <code>spec()</code> method of <code>Bolt</code> or 
   <div class="source_cont">
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-heronpy.api.topology.Topology', this);">Show source &equiv;</a></p>
   <div id="source-heronpy.api.topology.Topology" class="source">
-    <pre><code>class Topology:
+    <pre><code>class Topology(metaclass=TopologyType):
   """Topology is an abstract class for defining a topology
 
   Topology writers can define their custom topology by inheriting this class.
